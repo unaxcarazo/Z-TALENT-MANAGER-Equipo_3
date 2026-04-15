@@ -1,0 +1,246 @@
+/*1*/
+body {background-image:url(Imagenes/daft1.jpg);
+	  background-color:black;
+	  font-family:Arial; 
+	  letter-spacing:0.8px;
+	  text-align:center;
+	  background-repeat:no-repeat;
+	  background-position:top center;
+	  }
+
+/*2*/
+#contenedor {width:80%; 
+			margin:auto;
+			padding:auto;
+			color:white;
+			}
+
+/*3*/
+ h1 {font-size:3em;
+	  letter-spacing:5px;
+	  text-align:center;
+	  margin-bottom:50px;
+	  font-variant:small-caps;
+	  font-weight:bold;}
+
+/*4*/
+h1,h2 {color:blue;}
+
+/*5*/
+hr {margin-top:20px;}
+
+/*6*/	
+#enlaces a{font-family:Arial;
+			font-size:15px;
+			font-weight:bold;
+			letter-spacing:2px;
+			text-decoration:none;
+			background-color:gray;
+			color:white;
+			padding: 8px 8px 8px 8px;
+			}
+
+/*8*/
+.PriEnlace {background-color:#19789A !important}
+
+/*9*/
+#Caja1 {background-color:#D3D3D3;
+		opacity:0.8;
+		color:black; 
+		width:100%;
+		text-align:justify;
+		line-height:1.5em;
+		padding-left:5px;
+		padding-right:5px;
+		}
+	
+/*10*/	
+#Titulo {letter-spacing:1px;
+		font-weight:bold; 
+		color:#4B0082; 
+		padding-top:10px; 
+		padding-right:10px; 
+		padding-bottom:12px; 
+		padding-left:12px; 
+		}
+
+
+/*12*/
+#EnlacesParrafo {font-style:Italic;
+				color:#117A9B;
+				background-color:#F9E100;
+				letter-spacing:-1px;
+				padding:3px;
+				}
+
+/*13*/	
+#EnlacesParrafo :hover {background-color:#117A9B; 
+						color:white;
+						text-decoration:none;}
+
+
+						
+						
+/* Sección Estilos y Noticias*/
+
+#ContenedorCajas {text-align:left;
+				white-space:normal;
+				
+	
+	
+}
+
+
+#CajaIzq {clear:both;
+	
+}
+
+#CajaIzq img{float:left;
+			width:200px;
+			margin-bottom:20px;
+			margin-right:20px;
+			
+
+}
+hr {clear:both;
+	margin:20px 0px ;
+}
+
+
+
+		  
+		  
+
+		  
+						
+/* Seccion festivales */
+
+#contenedor3 {
+	width:670px;
+	margin:auto;
+	text-align:center;
+}
+
+ h2 {
+	font-variant:small-caps;  
+	color:#0077AA;  
+	letter-spacing:3px;  
+	font-size: 36px; /* para probar */
+	text-align:center;  
+	width:670px;
+	padding-top:20px;
+	
+	
+}
+
+
+	
+#bordes_encabezado {
+	border-top-style:solid;
+	border-bottom-style:solid;
+	border-top-width:2px;
+	border-bottom-width:2px;
+	border-color:#0077AA; 
+	padding:10px 0px;
+	margin-top:20px;
+	height:70px;
+	width:670px;
+}
+#encabezado {
+	margin:auto;
+	width:580px;
+	
+}
+
+.peke {
+	width:75px;
+	opacity:0.5;
+	
+}
+
+
+
+#activa {
+	border-style:solid;
+	border-width:1px;
+	border-color:#0077AA;
+	opacity:1;
+	
+}
+
+.peke:hover,#activa:hover {
+	opacity:0.85;
+	cursor:hand;
+}
+
+.peke:active,#activa:active {
+	opacity:0.25;
+	cursor:wait;
+}
+
+#grande {
+	width:500px;
+}
+
+
+#contenedorimagenfest { /* hace falta el contenedor para que centre la imagen, la imagen no la centra con el margin auto*/
+	width:500px;
+	margin-left: 40px;
+}
+
+ul {
+	list-style:square;
+}
+li {
+	padding:0 20px 10px 0;
+}
+#pie {
+	text-align:center;
+	background-color:#CCCCCC;
+	color:blue;
+	padding:5px;
+	clear:both;
+}
+
+#grande:hover,#contenedorimagen:hover {width:600px}
+
+
+
+/* Apartado Artistas */
+
+#ContenedorTabla table { width:80%;
+						border-style:solid;
+						border-color:white;
+						border-width:2px;
+						font-weight:bold;
+						color:black;
+						position:center;
+						margin-left:100px;
+						background-color:#DCDCDC;
+						opacity:0.8;
+						margin-bottom:20px;
+						}
+						
+#ContenedorTabla td {width:20%;
+					text-align:center;
+					}
+						
+#ContenedorTabla img {width:100%;
+					}
+
+caption {margin-bottom:10px;
+		color:white;
+		font-family:serif-Garamond;
+		font-weight:bold;
+		font-size:30px;}
+
+#ContenedorTabla .Cols {text-align:center;
+						empty-cells:hide;
+						font-size:25px;
+						padding-top:20px;
+						font-weight:bolder;
+		}
+		
+#ContenedorTabla a{text-decoration:none;}
+
+	

@@ -5,8 +5,10 @@
 package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 import java.util.List;
-import s.z_talent_manager.modelo.CurriculumTecnica;
+import s.z_talent_manager.modelo.CandidatoTecnica;
 
 /**
  *
@@ -15,30 +17,49 @@ import s.z_talent_manager.modelo.CurriculumTecnica;
 public class CurriculumTecnicaImpl implements CurriculumTecnicaDAO{
 
     @Override
-    public CurriculumTecnica nuevoCurriculumTecnica(EntityManager em, CurriculumTecnica cte) {
+    public CandidatoTecnica nuevoCurriculumTecnica(EntityManager em, CandidatoTecnica cte) {
         em.persist(cte);
         return cte;
     }
 
     @Override
-    public void modificarCurriculumTecnica(EntityManager em, CurriculumTecnica cte) {
+    public void modificarCurriculumTecnica(EntityManager em, CandidatoTecnica cte) {
         em.merge(cte);
     }
 
     @Override
     public void eliminarCurriculumTecnica(EntityManager em, Integer id) {
-        CurriculumTecnica cte = getCurriculumTecnica(em,id);
+        CandidatoTecnica cte = getCurriculumTecnica(em,id);
         em.remove(cte);
     }
 
     @Override
-    public CurriculumTecnica getCurriculumTecnica(EntityManager em, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public CandidatoTecnica getCurriculumTecnica(EntityManager em, Integer id) {
+       try {
+            return em.createQuery("""
+                SELECT cte
+                FROM CurriculumTecnica cte
+                LEFT JOIN FETCH cte.curriculum cu
+                LEFT JOIN FETCH cte.competenciaTecnica ct
+                WHERE cte.idCurriculumTecnica = :id
+                """, CandidatoTecnica.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
-    public List<CurriculumTecnica> getCurriculumTecnicas(EntityManager em) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<CandidatoTecnica> getCurriculumTecnicas(EntityManager em) {
+         Query q = em.createQuery(
+        """
+            SELECT cte
+            FROM CurriculumTecnica cte
+            LEFT JOIN FETCH cte.curriculum cu
+            LEFT JOIN FETCH cte.competenciaTecnica cte
+        """);
+        return q.getResultList();
     }
-    
 }
+

@@ -24,5 +24,7 @@ import lombok.ToString;
 public class Administrador extends Usuario{
    
     private String cargo;
+    
+    private String prueba;
    
 }

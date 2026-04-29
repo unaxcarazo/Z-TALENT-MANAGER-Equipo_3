@@ -5,8 +5,10 @@
 package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 import java.util.List;
-import s.z_talent_manager.modelo.CurriculumTitulacion;
+import s.z_talent_manager.modelo.CandidatoTitulacion;
 
 /**
  *
@@ -15,30 +17,47 @@ import s.z_talent_manager.modelo.CurriculumTitulacion;
 public class CurriculumTitulacionImpl implements CurriculumTitulacionDAO {
 
     @Override
-    public CurriculumTitulacion nuevoCurriculumTitulacion(EntityManager em, CurriculumTitulacion cti) {
+    public CandidatoTitulacion nuevoCurriculumTitulacion(EntityManager em, CandidatoTitulacion cti) {
         em.persist(cti);
         return cti;
     }
 
     @Override
-    public void modificarCurriculumTitulacion(EntityManager em, CurriculumTitulacion cti) {
+    public void modificarCurriculumTitulacion(EntityManager em, CandidatoTitulacion cti) {
         em.merge(cti);
     }
 
     @Override
     public void eliminarCurriculumTitulacion(EntityManager em, Integer id) {
-        CurriculumTitulacion cti = getCurriculumTitulacion(em,id);
+        CandidatoTitulacion cti = getCurriculumTitulacion(em,id);
         em.remove(cti);
     }
 
     @Override
-    public CurriculumTitulacion getCurriculumTitulacion(EntityManager em, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public CandidatoTitulacion getCurriculumTitulacion(EntityManager em, Integer id) {
+        try {
+            return em.createQuery("""
+                SSELECT cte
+                FROM CurriculumTitulacion cti
+                LEFT JOIN FETCH cti.curriculum cu
+                LEFT JOIN FETCH cti.titulacion t
+                WHERE cti.idCurriculumTitulacion = :id
+                """, CandidatoTitulacion.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
-
     @Override
-    public List<CurriculumTitulacion> getCurriculumTitulaciones(EntityManager em) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<CandidatoTitulacion> getCurriculumTitulaciones(EntityManager em) {
+        Query q = em.createQuery(
+        """
+            SELECT cti
+            FROM CurriculumTitulacion cti
+            LEFT JOIN FETCH cti.curriculum cu
+            LEFT JOIN FETCH cti.titulacion t
+        """);
+        return q.getResultList();
     }
-    
 }

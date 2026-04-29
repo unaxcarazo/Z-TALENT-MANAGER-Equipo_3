@@ -29,7 +29,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString(exclude = "curriculum")
+@ToString(exclude = "candidato")
 public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +37,8 @@ public class Experiencia {
     private Integer idExperiencia;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idCurriculum")
-    private Curriculum curriculum;
+    @JoinColumn(name = "idUsuario")
+    private Candidato candidato;
     
     private String compañia;
     

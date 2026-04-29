@@ -6,16 +6,16 @@ package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
 import java.util.List;
-import s.z_talent_manager.modelo.CurriculumIdioma;
+import s.z_talent_manager.modelo.CandidatoIdioma;
 
 /**
  *
  * @author DAW1
  */
 public interface CurriculumIdiomaDAO {
- public CurriculumIdioma nuevoCurriculumIdioma (EntityManager em, CurriculumIdioma ci);
-    public void modificarCurriculumIdioma (EntityManager em, CurriculumIdioma ci);
+ public CandidatoIdioma nuevoCurriculumIdioma (EntityManager em, CandidatoIdioma ci);
+    public void modificarCurriculumIdioma (EntityManager em, CandidatoIdioma ci);
     public void eliminarCurriculumIdioma (EntityManager em, Integer id);
-    public CurriculumIdioma getCurriculumIdioma (EntityManager em, Integer id); 
-    List<CurriculumIdioma> getCurriculumIdiomas (EntityManager em);
+    public CandidatoIdioma getCurriculumIdioma (EntityManager em, Integer id); 
+    List<CandidatoIdioma> getCurriculumIdiomas (EntityManager em);
 }

@@ -6,17 +6,17 @@ package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
 import java.util.List;
-import s.z_talent_manager.modelo.CurriculumTransversal;
+import s.z_talent_manager.modelo.CandidatoTransversal;
 
 /**
  *
  * @author DAW1
  */
 public interface CurriculumTransversalDAO {
- public CurriculumTransversal nuevoCurriculumTransversal (EntityManager em, CurriculumTransversal ctr);
-    public void modificarCurriculumTransversal (EntityManager em, CurriculumTransversal ctr);
+ public CandidatoTransversal nuevoCurriculumTransversal (EntityManager em, CandidatoTransversal ctr);
+    public void modificarCurriculumTransversal (EntityManager em, CandidatoTransversal ctr);
     public void eliminarCurriculumTransversal (EntityManager em, Integer id);
-    public CurriculumTransversal getCurriculumTransversal (EntityManager em, Integer id); 
-    List<CurriculumTransversal> getCurriculumTransversals (EntityManager em);
+    public CandidatoTransversal getCurriculumTransversal (EntityManager em, Integer id); 
+    List<CandidatoTransversal> getCurriculumTransversales (EntityManager em);
 }
 

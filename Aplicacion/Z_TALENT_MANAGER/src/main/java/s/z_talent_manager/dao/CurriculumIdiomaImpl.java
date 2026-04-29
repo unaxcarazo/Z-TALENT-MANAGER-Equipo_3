@@ -5,8 +5,10 @@
 package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 import java.util.List;
-import s.z_talent_manager.modelo.CurriculumIdioma;
+import s.z_talent_manager.modelo.CandidatoIdioma;
 
 /**
  *
@@ -15,30 +17,48 @@ import s.z_talent_manager.modelo.CurriculumIdioma;
 public class CurriculumIdiomaImpl implements CurriculumIdiomaDAO{
 
     @Override
-    public CurriculumIdioma nuevoCurriculumIdioma(EntityManager em, CurriculumIdioma ci) {
+    public CandidatoIdioma nuevoCurriculumIdioma(EntityManager em, CandidatoIdioma ci) {
         em.persist(ci);
         return ci;
     }
 
     @Override
-    public void modificarCurriculumIdioma(EntityManager em, CurriculumIdioma ci) {
+    public void modificarCurriculumIdioma(EntityManager em, CandidatoIdioma ci) {
         em.merge(ci);
     }
 
     @Override
     public void eliminarCurriculumIdioma(EntityManager em, Integer id) {
-        CurriculumIdioma ci = getCurriculumIdioma(em,id);
+        CandidatoIdioma ci = getCurriculumIdioma(em,id);
         em.remove(ci);
     }
 
     @Override
-    public CurriculumIdioma getCurriculumIdioma(EntityManager em, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public CandidatoIdioma getCurriculumIdioma(EntityManager em, Integer id) {
+         try {
+            return em.createQuery("""
+                SSELECT ci
+                FROM CurriculumIdioma ci
+                LEFT JOIN FETCH ci.curriculum ci
+                LEFT JOIN FETCH ci.idioma i
+                WHERE ci.idCurriculumIdioma = :id
+                """, CandidatoIdioma.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
-    public List<CurriculumIdioma> getCurriculumIdiomas(EntityManager em) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<CandidatoIdioma> getCurriculumIdiomas(EntityManager em) {
+        Query q = em.createQuery(
+        """
+            SELECT ci
+            FROM CurriculumIdioma ci
+            LEFT JOIN FETCH ci.curriculum cu
+            LEFT JOIN FETCH ci.idioma 
+        """);
+        return q.getResultList();
     }
-    
 }

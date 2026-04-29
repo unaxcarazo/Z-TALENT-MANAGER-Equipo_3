@@ -6,16 +6,16 @@ package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
 import java.util.List;
-import s.z_talent_manager.modelo.CurriculumTitulacion;
+import s.z_talent_manager.modelo.CandidatoTitulacion;
 
 /**
  *
  * @author DAW1
  */
 public interface CurriculumTitulacionDAO {
-  public CurriculumTitulacion nuevoCurriculumTitulacion (EntityManager em, CurriculumTitulacion cti);
-    public void modificarCurriculumTitulacion (EntityManager em, CurriculumTitulacion cti);
+  public CandidatoTitulacion nuevoCurriculumTitulacion (EntityManager em, CandidatoTitulacion cti);
+    public void modificarCurriculumTitulacion (EntityManager em, CandidatoTitulacion cti);
     public void eliminarCurriculumTitulacion (EntityManager em, Integer id);
-    public CurriculumTitulacion getCurriculumTitulacion (EntityManager em, Integer id); 
-    List<CurriculumTitulacion> getCurriculumTitulaciones (EntityManager em);
+    public CandidatoTitulacion getCurriculumTitulacion (EntityManager em, Integer id); 
+    List<CandidatoTitulacion> getCurriculumTitulaciones (EntityManager em);
 }

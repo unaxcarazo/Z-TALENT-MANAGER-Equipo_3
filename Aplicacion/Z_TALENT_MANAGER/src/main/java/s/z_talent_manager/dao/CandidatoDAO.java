@@ -17,5 +17,5 @@ public interface CandidatoDAO {
     public void modificarCandidato (EntityManager em, Candidato ca);
     public void eliminarCandidato (EntityManager em, Integer id);
     public Candidato getCandidato (EntityManager em, Integer id); 
-    List<Candidato> getCandidatos (EntityManager em);
+    public List<Candidato> getCandidatos (EntityManager em);
 }

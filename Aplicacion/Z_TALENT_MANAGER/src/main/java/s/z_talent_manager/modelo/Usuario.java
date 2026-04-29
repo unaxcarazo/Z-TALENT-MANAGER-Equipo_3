@@ -46,4 +46,6 @@ public abstract class Usuario {
     private String nombre;
     
     private String apellidos;
+    
+    private Boolean administrador;
 }

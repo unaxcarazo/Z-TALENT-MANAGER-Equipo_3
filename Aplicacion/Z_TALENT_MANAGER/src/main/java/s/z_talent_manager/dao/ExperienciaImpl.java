@@ -5,6 +5,8 @@
 package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 import java.util.List;
 import s.z_talent_manager.modelo.Experiencia;
 
@@ -33,12 +35,28 @@ public class ExperienciaImpl implements ExperienciaDAO {
 
     @Override
     public Experiencia getExperiencia(EntityManager em, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            return em.createQuery("""
+                SELECT e
+                FROM Experiencia e
+                LEFT JOIN FETCH e.curriculum 
+                WHERE e.idExperiencia = :id
+                """, Experiencia.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
     public List<Experiencia> getExperiencias(EntityManager em) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Query q = em.createQuery(
+        """
+            Select e 
+            From Experiencia e
+            LEFT JOIN FETCH e.curriculum
+        """);
+        return q.getResultList();
     }
-    
 }

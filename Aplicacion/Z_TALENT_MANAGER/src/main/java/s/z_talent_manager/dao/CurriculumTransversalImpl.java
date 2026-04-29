@@ -5,8 +5,10 @@
 package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 import java.util.List;
-import s.z_talent_manager.modelo.CurriculumTransversal;
+import s.z_talent_manager.modelo.CandidatoTransversal;
 
 /**
  *
@@ -15,30 +17,48 @@ import s.z_talent_manager.modelo.CurriculumTransversal;
 public class CurriculumTransversalImpl implements CurriculumTransversalDAO{
 
     @Override
-    public CurriculumTransversal nuevoCurriculumTransversal(EntityManager em, CurriculumTransversal ctr) {
+    public CandidatoTransversal nuevoCurriculumTransversal(EntityManager em, CandidatoTransversal ctr) {
         em.persist(ctr);
         return ctr;
     }
 
     @Override
-    public void modificarCurriculumTransversal(EntityManager em, CurriculumTransversal ctr) {
+    public void modificarCurriculumTransversal(EntityManager em, CandidatoTransversal ctr) {
         em.merge(ctr);
     }
 
     @Override
     public void eliminarCurriculumTransversal(EntityManager em, Integer id) {
-        CurriculumTransversal ctr = getCurriculumTransversal(em,id);
+        CandidatoTransversal ctr = getCurriculumTransversal(em,id);
         em.remove(ctr);
     }
 
     @Override
-    public CurriculumTransversal getCurriculumTransversal(EntityManager em, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public CandidatoTransversal getCurriculumTransversal(EntityManager em, Integer id) {
+         try {
+            return em.createQuery("""
+                SSELECT ctr
+                FROM CurriculumTransversal ctr
+                LEFT JOIN FETCH ctr.curriculum cu
+                LEFT JOIN FETCH ctr.titulacion
+                WHERE cti.idCurriculumTransversal = :id
+                """, CandidatoTransversal.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
-    public List<CurriculumTransversal> getCurriculumTransversals(EntityManager em) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<CandidatoTransversal> getCurriculumTransversales(EntityManager em) {
+        Query q = em.createQuery(
+        """
+            SELECT ctr
+            FROM CurriculumTransversal ctr
+            LEFT JOIN FETCH ctr.curriculum cu
+            LEFT JOIN FETCH ctr.transversal tr
+        """);
+        return q.getResultList();
     }
-    
 }

@@ -4,10 +4,14 @@
  */
 package s.z_talent_manager.modelo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,9 +26,18 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(exclude = "curriculum")
+@ToString(exclude = {"experiencias", "curriculumTitulaciones",
+                     "curriculumTransversales", "curriculumTecnicas",
+                     "curriculumIdiomas"})
+
 public class Candidato extends Usuario{
    
+    private String nombre;
+    
+    private String primerApellido;
+    
+    private String segundoApellido;
+    
     private String municipio;
     
     private String provincia;
@@ -35,6 +48,24 @@ public class Candidato extends Usuario{
     
     private String genero;
     
-    @OneToOne(mappedBy = "candidato")
-    private Curriculum curriculum;
+    private String sobreMi;
+    
+     @OneToMany(mappedBy ="candidato")
+    private List<Experiencia> experiencias;
+    
+    @OneToMany(mappedBy = "candidato")
+    private List<CandidatoTitulacion> curriculumTitulaciones;
+    
+    @OneToMany(mappedBy = "candidato")
+    private List<CandidatoTransversal> curriculumTransversales;
+    
+    @OneToMany(mappedBy = "candidato")
+    private List<CandidatoTecnica> curriculumTecnicas;
+    
+    @OneToMany(mappedBy = "candidato")
+    private List<CandidatoIdioma> curriculumIdiomas;
+    
+    @Column(columnDefinition = "DATE NOT NULL")
+    private LocalDate fechaCreacion;
+   
 }

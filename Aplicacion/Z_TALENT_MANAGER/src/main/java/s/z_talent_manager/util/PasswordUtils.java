@@ -4,10 +4,18 @@
  */
 package s.z_talent_manager.util;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  *
  * @author DAW1
  */
 public class PasswordUtils {
+    public static String getHash(String password){
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
     
+    public static boolean checkPw(String password, String hash){
+        return BCrypt.checkpw(password, hash);
+    }
 }

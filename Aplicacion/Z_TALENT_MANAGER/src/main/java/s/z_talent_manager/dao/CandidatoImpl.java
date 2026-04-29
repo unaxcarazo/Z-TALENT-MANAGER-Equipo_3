@@ -5,6 +5,7 @@
 package s.z_talent_manager.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import java.util.List;
 import s.z_talent_manager.modelo.Candidato;
 
@@ -33,12 +34,30 @@ public class CandidatoImpl implements CandidatoDAO {
 
     @Override
     public Candidato getCandidato(EntityManager em, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         try {
+            return em.createQuery("""
+                SELECT ca
+                FROM Candidato ca
+                LEFT JOIN FETCH ca.curriculumIdiomas
+                LEFT JOIN FETCH ca.curriculumTecnicas
+                LEFT JOIN FETCH ca.curriculumTransversales
+                LEFT JOIN FETCH ca.curriculumTitulaciones
+                LEFT JOIN FETCH ca.experiencias                               
+                WHERE ca.idUsuario = :id
+                """, Candidato.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
     public List<Candidato> getCandidatos(EntityManager em) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return em.createQuery(
+                """
+                SELECT ca FROM Candidato ca            
+                """, Candidato.class)
+                .getResultList(); 
     }
-    
 }

@@ -28,7 +28,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString(exclude = "curriculumTitulaciones")
+@ToString(exclude = "candidatoTitulaciones")
 public class Titulacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class Titulacion {
     private Integer idTitulacion;
     
     @OneToMany(mappedBy = "titulacion")
-    private List<CurriculumTitulacion> curriculumTitulaciones;
+    private List<CandidatoTitulacion> candidatoTitulaciones;
     
     private String nombreEstudio;
     

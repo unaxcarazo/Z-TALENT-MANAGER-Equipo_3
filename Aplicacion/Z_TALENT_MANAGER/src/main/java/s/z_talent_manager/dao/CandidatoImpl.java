@@ -38,10 +38,10 @@ public class CandidatoImpl implements CandidatoDAO {
             return em.createQuery("""
                 SELECT ca
                 FROM Candidato ca
-                LEFT JOIN FETCH ca.curriculumIdiomas
-                LEFT JOIN FETCH ca.curriculumTecnicas
-                LEFT JOIN FETCH ca.curriculumTransversales
-                LEFT JOIN FETCH ca.curriculumTitulaciones
+                LEFT JOIN FETCH ca.candidatoIdiomas
+                LEFT JOIN FETCH ca.candidatoTecnicas
+                LEFT JOIN FETCH ca.candidatoTransversales
+                LEFT JOIN FETCH ca.candidatoTitulaciones
                 LEFT JOIN FETCH ca.experiencias                               
                 WHERE ca.idUsuario = :id
                 """, Candidato.class)

@@ -14,34 +14,34 @@ import s.z_talent_manager.modelo.CandidatoTecnica;
  *
  * @author DAW1
  */
-public class CurriculumTecnicaImpl implements CurriculumTecnicaDAO{
+public class CandidatoTecnicaImpl implements CandidatoTecnicaDAO{
 
     @Override
-    public CandidatoTecnica nuevoCurriculumTecnica(EntityManager em, CandidatoTecnica cte) {
+    public CandidatoTecnica nuevoCandidatoTecnica(EntityManager em, CandidatoTecnica cte) {
         em.persist(cte);
         return cte;
     }
 
     @Override
-    public void modificarCurriculumTecnica(EntityManager em, CandidatoTecnica cte) {
+    public void modificarCandidatoTecnica(EntityManager em, CandidatoTecnica cte) {
         em.merge(cte);
     }
 
     @Override
-    public void eliminarCurriculumTecnica(EntityManager em, Integer id) {
-        CandidatoTecnica cte = getCurriculumTecnica(em,id);
+    public void eliminarCandidatoTecnica(EntityManager em, Integer id) {
+        CandidatoTecnica cte = getCandidatoTecnica(em,id);
         em.remove(cte);
     }
 
     @Override
-    public CandidatoTecnica getCurriculumTecnica(EntityManager em, Integer id) {
+    public CandidatoTecnica getCandidatoTecnica(EntityManager em, Integer id) {
        try {
             return em.createQuery("""
                 SELECT cte
-                FROM CurriculumTecnica cte
-                LEFT JOIN FETCH cte.curriculum cu
+                FROM CandidatoTecnica cte
+                LEFT JOIN FETCH cte.candidato ca
                 LEFT JOIN FETCH cte.competenciaTecnica ct
-                WHERE cte.idCurriculumTecnica = :id
+                WHERE cte.idCandidatoTecnica = :id
                 """, CandidatoTecnica.class)
                 .setParameter("id", id)
                 .getSingleResult();
@@ -51,12 +51,12 @@ public class CurriculumTecnicaImpl implements CurriculumTecnicaDAO{
     }
 
     @Override
-    public List<CandidatoTecnica> getCurriculumTecnicas(EntityManager em) {
+    public List<CandidatoTecnica> getCandidatoTecnicas(EntityManager em) {
          Query q = em.createQuery(
         """
             SELECT cte
-            FROM CurriculumTecnica cte
-            LEFT JOIN FETCH cte.curriculum cu
+            FROM CandidatoTecnica cte
+            LEFT JOIN FETCH cte.candidato ca
             LEFT JOIN FETCH cte.competenciaTecnica cte
         """);
         return q.getResultList();

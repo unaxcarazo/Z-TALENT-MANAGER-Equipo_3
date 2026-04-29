@@ -14,34 +14,34 @@ import s.z_talent_manager.modelo.CandidatoIdioma;
  *
  * @author DAW1
  */
-public class CurriculumIdiomaImpl implements CurriculumIdiomaDAO{
+public class CandidatoIdiomaImpl implements CandidatoIdiomaDAO{
 
     @Override
-    public CandidatoIdioma nuevoCurriculumIdioma(EntityManager em, CandidatoIdioma ci) {
+    public CandidatoIdioma nuevoCandidatoIdioma(EntityManager em, CandidatoIdioma ci) {
         em.persist(ci);
         return ci;
     }
 
     @Override
-    public void modificarCurriculumIdioma(EntityManager em, CandidatoIdioma ci) {
+    public void modificarCandidatoIdioma(EntityManager em, CandidatoIdioma ci) {
         em.merge(ci);
     }
 
     @Override
-    public void eliminarCurriculumIdioma(EntityManager em, Integer id) {
-        CandidatoIdioma ci = getCurriculumIdioma(em,id);
+    public void eliminarCandidatoIdioma(EntityManager em, Integer id) {
+        CandidatoIdioma ci = getCandidatoIdioma(em,id);
         em.remove(ci);
     }
 
     @Override
-    public CandidatoIdioma getCurriculumIdioma(EntityManager em, Integer id) {
+    public CandidatoIdioma getCandidatoIdioma(EntityManager em, Integer id) {
          try {
             return em.createQuery("""
                 SSELECT ci
-                FROM CurriculumIdioma ci
-                LEFT JOIN FETCH ci.curriculum ci
+                FROM CandidatoIdioma ci
+                LEFT JOIN FETCH ci.candidato ci
                 LEFT JOIN FETCH ci.idioma i
-                WHERE ci.idCurriculumIdioma = :id
+                WHERE ci.idCandidatoIdioma = :id
                 """, CandidatoIdioma.class)
                 .setParameter("id", id)
                 .getSingleResult();
@@ -51,12 +51,12 @@ public class CurriculumIdiomaImpl implements CurriculumIdiomaDAO{
     }
 
     @Override
-    public List<CandidatoIdioma> getCurriculumIdiomas(EntityManager em) {
+    public List<CandidatoIdioma> getCandidatoIdiomas(EntityManager em) {
         Query q = em.createQuery(
         """
             SELECT ci
-            FROM CurriculumIdioma ci
-            LEFT JOIN FETCH ci.curriculum cu
+            FROM CandidatoIdioma ci
+            LEFT JOIN FETCH ci.candidato ca
             LEFT JOIN FETCH ci.idioma 
         """);
         return q.getResultList();

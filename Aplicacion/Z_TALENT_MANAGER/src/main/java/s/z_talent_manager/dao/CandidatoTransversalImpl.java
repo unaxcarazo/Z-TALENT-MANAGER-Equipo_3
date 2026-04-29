@@ -14,34 +14,34 @@ import s.z_talent_manager.modelo.CandidatoTransversal;
  *
  * @author DAW1
  */
-public class CurriculumTransversalImpl implements CurriculumTransversalDAO{
+public class CandidatoTransversalImpl implements CandidatoTransversalDAO{
 
     @Override
-    public CandidatoTransversal nuevoCurriculumTransversal(EntityManager em, CandidatoTransversal ctr) {
+    public CandidatoTransversal nuevoCandidatoTransversal(EntityManager em, CandidatoTransversal ctr) {
         em.persist(ctr);
         return ctr;
     }
 
     @Override
-    public void modificarCurriculumTransversal(EntityManager em, CandidatoTransversal ctr) {
+    public void modificarCandidatoTransversal(EntityManager em, CandidatoTransversal ctr) {
         em.merge(ctr);
     }
 
     @Override
-    public void eliminarCurriculumTransversal(EntityManager em, Integer id) {
-        CandidatoTransversal ctr = getCurriculumTransversal(em,id);
+    public void eliminarCandidatoTransversal(EntityManager em, Integer id) {
+        CandidatoTransversal ctr = getCandidatoTransversal(em,id);
         em.remove(ctr);
     }
 
     @Override
-    public CandidatoTransversal getCurriculumTransversal(EntityManager em, Integer id) {
+    public CandidatoTransversal getCandidatoTransversal(EntityManager em, Integer id) {
          try {
             return em.createQuery("""
                 SSELECT ctr
-                FROM CurriculumTransversal ctr
-                LEFT JOIN FETCH ctr.curriculum cu
+                FROM CandidatoTransversal ctr
+                LEFT JOIN FETCH ctr.candidato ca
                 LEFT JOIN FETCH ctr.titulacion
-                WHERE cti.idCurriculumTransversal = :id
+                WHERE cti.idCandidatoTransversal = :id
                 """, CandidatoTransversal.class)
                 .setParameter("id", id)
                 .getSingleResult();
@@ -51,12 +51,12 @@ public class CurriculumTransversalImpl implements CurriculumTransversalDAO{
     }
 
     @Override
-    public List<CandidatoTransversal> getCurriculumTransversales(EntityManager em) {
+    public List<CandidatoTransversal> getCandidatoTransversales(EntityManager em) {
         Query q = em.createQuery(
         """
             SELECT ctr
-            FROM CurriculumTransversal ctr
-            LEFT JOIN FETCH ctr.curriculum cu
+            FROM CandidatoTransversal ctr
+            LEFT JOIN FETCH ctr.candidato ca
             LEFT JOIN FETCH ctr.transversal tr
         """);
         return q.getResultList();

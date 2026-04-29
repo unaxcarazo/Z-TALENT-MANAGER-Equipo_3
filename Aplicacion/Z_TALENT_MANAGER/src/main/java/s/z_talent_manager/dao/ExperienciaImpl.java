@@ -39,7 +39,7 @@ public class ExperienciaImpl implements ExperienciaDAO {
             return em.createQuery("""
                 SELECT e
                 FROM Experiencia e
-                LEFT JOIN FETCH e.curriculum 
+                LEFT JOIN FETCH e.candidato
                 WHERE e.idExperiencia = :id
                 """, Experiencia.class)
                 .setParameter("id", id)
@@ -55,7 +55,7 @@ public class ExperienciaImpl implements ExperienciaDAO {
         """
             Select e 
             From Experiencia e
-            LEFT JOIN FETCH e.curriculum
+            LEFT JOIN FETCH e.candidato
         """);
         return q.getResultList();
     }

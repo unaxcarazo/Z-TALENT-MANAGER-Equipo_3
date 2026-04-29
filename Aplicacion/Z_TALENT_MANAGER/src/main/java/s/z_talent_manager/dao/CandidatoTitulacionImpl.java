@@ -14,34 +14,34 @@ import s.z_talent_manager.modelo.CandidatoTitulacion;
  *
  * @author DAW1
  */
-public class CurriculumTitulacionImpl implements CurriculumTitulacionDAO {
+public class CandidatoTitulacionImpl implements CandidatoTitulacionDAO {
 
     @Override
-    public CandidatoTitulacion nuevoCurriculumTitulacion(EntityManager em, CandidatoTitulacion cti) {
+    public CandidatoTitulacion nuevoCandidatoTitulacion(EntityManager em, CandidatoTitulacion cti) {
         em.persist(cti);
         return cti;
     }
 
     @Override
-    public void modificarCurriculumTitulacion(EntityManager em, CandidatoTitulacion cti) {
+    public void modificarCandidatoTitulacion(EntityManager em, CandidatoTitulacion cti) {
         em.merge(cti);
     }
 
     @Override
-    public void eliminarCurriculumTitulacion(EntityManager em, Integer id) {
-        CandidatoTitulacion cti = getCurriculumTitulacion(em,id);
+    public void eliminarCandidatoTitulacion(EntityManager em, Integer id) {
+        CandidatoTitulacion cti = getCandidatoTitulacion(em,id);
         em.remove(cti);
     }
 
     @Override
-    public CandidatoTitulacion getCurriculumTitulacion(EntityManager em, Integer id) {
+    public CandidatoTitulacion getCandidatoTitulacion(EntityManager em, Integer id) {
         try {
             return em.createQuery("""
                 SSELECT cte
-                FROM CurriculumTitulacion cti
-                LEFT JOIN FETCH cti.curriculum cu
+                FROM CandidatoTitulacion cti
+                LEFT JOIN FETCH cti.candidato ca
                 LEFT JOIN FETCH cti.titulacion t
-                WHERE cti.idCurriculumTitulacion = :id
+                WHERE cti.idCandidatoTitulacion = :id
                 """, CandidatoTitulacion.class)
                 .setParameter("id", id)
                 .getSingleResult();
@@ -50,12 +50,12 @@ public class CurriculumTitulacionImpl implements CurriculumTitulacionDAO {
         }
     }
     @Override
-    public List<CandidatoTitulacion> getCurriculumTitulaciones(EntityManager em) {
+    public List<CandidatoTitulacion> getCandidatoTitulaciones(EntityManager em) {
         Query q = em.createQuery(
         """
             SELECT cti
-            FROM CurriculumTitulacion cti
-            LEFT JOIN FETCH cti.curriculum cu
+            FROM CandidatoTitulacion cti
+            LEFT JOIN FETCH cti.candidato ca
             LEFT JOIN FETCH cti.titulacion t
         """);
         return q.getResultList();

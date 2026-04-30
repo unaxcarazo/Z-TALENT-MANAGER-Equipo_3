@@ -11,7 +11,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URI;
 
-
 /**
  *
  * @author maymansito
@@ -26,7 +25,7 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         // sirve para al hacer click en el hipervinculo te redirija a la pagina   
         lblEnlaceManualUsuario.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
@@ -34,7 +33,8 @@ public class FrmLogin extends javax.swing.JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    Desktop.getDesktop().browse(new URI("https://www.google.com"));
+                    java.net.URL url = getClass().getResource("/manual/manualUsuario.html");
+                    Desktop.getDesktop().browse(url.toURI());
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -58,25 +58,22 @@ public class FrmLogin extends javax.swing.JFrame {
 
     }
 });
-        */
-
-         lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
+         */
+        lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         lblOlvidoContraseña.addMouseListener(new MouseAdapter() {
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        
-   try {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                try {
                     Desktop.getDesktop().browse(new URI("https://forms.gle/WU8BtuFxXNNqvkcm7"));
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-        
 
-    }
-}); 
-        
-        
+            }
+        });
+
     }
 
     /**

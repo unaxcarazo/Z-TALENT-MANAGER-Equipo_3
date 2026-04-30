@@ -41,7 +41,7 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        //Al hacer click te lleva a otro panel
+        /*Al hacer click te lleva a otro panel
         lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         lblOlvidoContraseña.addMouseListener(new MouseAdapter() {
@@ -50,12 +50,33 @@ public class FrmLogin extends javax.swing.JFrame {
         
         FrmOlvidoContraseña frmOlvidoContraseña= new FrmOlvidoContraseña();
         frmOlvidoContraseña.setVisible(true);
+        
+        
+        
          
         
 
     }
 });
+        */
 
+         lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        lblOlvidoContraseña.addMouseListener(new MouseAdapter() {
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        
+   try {
+                    Desktop.getDesktop().browse(new URI("https://forms.gle/WU8BtuFxXNNqvkcm7"));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+        
+
+    }
+}); 
+        
+        
     }
 
     /**

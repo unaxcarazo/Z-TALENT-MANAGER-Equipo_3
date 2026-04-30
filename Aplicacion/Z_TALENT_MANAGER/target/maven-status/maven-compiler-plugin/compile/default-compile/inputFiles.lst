@@ -27,5 +27,6 @@
 /Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/servicio/ZTalentManagerServicio.java
 /Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/util/JPAUtil.java
 /Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/util/PasswordUtils.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/vista/FrmContraseñaOlvidada.java
 /Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/vista/FrmLogin.java
 /Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/vista/FrmOlvidoContraseña.java

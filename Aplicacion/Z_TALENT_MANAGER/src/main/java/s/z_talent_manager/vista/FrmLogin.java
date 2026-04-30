@@ -41,6 +41,15 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
+        
+        
+            btnLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    btnLogin.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            new FrmContraseñaOlvidada().setVisible(true);
+        }
+    });
         /*Al hacer click te lleva a otro panel
         lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
@@ -109,7 +118,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.png"))); // NOI18N
         lblLogo.setToolTipText("");
-        lblLogo.setPreferredSize(new java.awt.Dimension(400, 200));
         pnlHeader.add(lblLogo);
 
         getContentPane().add(pnlHeader);
@@ -118,12 +126,13 @@ public class FrmLogin extends javax.swing.JFrame {
         pnlBody.setPreferredSize(new java.awt.Dimension(800, 350));
         pnlBody.setLayout(new java.awt.GridBagLayout());
 
-        pnlLogin.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        pnlLogin.setBackground(new java.awt.Color(51, 153, 102));
         pnlLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pnlLogin.setMaximumSize(new java.awt.Dimension(200, 100));
         pnlLogin.setPreferredSize(new java.awt.Dimension(500, 300));
         pnlLogin.setLayout(new java.awt.GridBagLayout());
 
+        lblUsuario.setForeground(new java.awt.Color(51, 51, 51));
         lblUsuario.setText("USUARIO:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -132,6 +141,8 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblUsuario, gridBagConstraints);
 
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
         txtUsuario.setText("Usuario");
         txtUsuario.setPreferredSize(new java.awt.Dimension(150, 20));
         txtUsuario.setRequestFocusEnabled(false);
@@ -144,6 +155,7 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(txtUsuario, gridBagConstraints);
 
+        lblContraseña.setForeground(new java.awt.Color(51, 51, 51));
         lblContraseña.setText("CONTRASEÑA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -153,6 +165,8 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblContraseña, gridBagConstraints);
 
+        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtPassword.setForeground(new java.awt.Color(51, 51, 51));
         txtPassword.setText("jPasswordField1");
         txtPassword.setPreferredSize(new java.awt.Dimension(150, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -178,7 +192,13 @@ public class FrmLogin extends javax.swing.JFrame {
         pnlLogin.add(lblOlvidoContraseña, gridBagConstraints);
 
         btnLogin.setBackground(new java.awt.Color(101, 158, 234));
+        btnLogin.setForeground(new java.awt.Color(51, 51, 51));
         btnLogin.setText("LOGIN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -212,6 +232,14 @@ public class FrmLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        
+         new FrmContraseñaOlvidada().setVisible(true);
+    dispose();
+        
+     
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments

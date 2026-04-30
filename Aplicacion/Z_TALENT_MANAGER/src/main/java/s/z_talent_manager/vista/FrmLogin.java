@@ -93,7 +93,6 @@ public class FrmLogin extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
         pnlBody = new javax.swing.JPanel();
         pnlLogin = new javax.swing.JPanel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 100), new java.awt.Dimension(0, 60), new java.awt.Dimension(32767, 80));
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblContraseña = new javax.swing.JLabel();
@@ -106,7 +105,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Z_Talent Manager");
-        setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         pnlHeader.setBackground(java.awt.Color.white);
@@ -130,13 +128,6 @@ public class FrmLogin extends javax.swing.JFrame {
         pnlLogin.setMaximumSize(new java.awt.Dimension(200, 100));
         pnlLogin.setPreferredSize(new java.awt.Dimension(500, 300));
         pnlLogin.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
-        pnlLogin.add(filler1, gridBagConstraints);
 
         lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("USUARIO:");
@@ -144,7 +135,7 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(53, 138, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblUsuario, gridBagConstraints);
 
         txtUsuario.setBackground(java.awt.Color.white);
@@ -158,7 +149,7 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.ipadx = 86;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 174, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(txtUsuario, gridBagConstraints);
 
         lblContraseña.setForeground(new java.awt.Color(0, 0, 0));
@@ -168,7 +159,7 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 138, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblContraseña, gridBagConstraints);
 
         txtPassword.setText("jPasswordField1");
@@ -179,17 +170,20 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.ipadx = 86;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 174, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(txtPassword, gridBagConstraints);
 
+        lblOlvidoContraseña.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblOlvidoContraseña.setText("<html><a href=''>¿Olvido la contraseña?</a></html>");
+        lblOlvidoContraseña.setPreferredSize(new java.awt.Dimension(70, 17));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 63;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 137);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblOlvidoContraseña, gridBagConstraints);
 
         btnLogin.setBackground(new java.awt.Color(101, 158, 234));
@@ -201,7 +195,7 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 15, 51, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(btnLogin, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -257,7 +251,6 @@ public class FrmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PnlBottom;
     private javax.swing.JButton btnLogin;
-    private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblEnlaceManualUsuario;

@@ -4,6 +4,7 @@
  */
 package s.z_talent_manager.modelo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -50,19 +51,29 @@ public class Candidato extends Usuario{
     
     private String sobreMi;
     
-     @OneToMany(mappedBy ="candidato")
+    @OneToMany(mappedBy ="candidato", 
+               cascade = CascadeType.ALL, 
+               orphanRemoval = true)
     private List<Experiencia> experiencias;
     
-    @OneToMany(mappedBy = "candidato")
+    @OneToMany(mappedBy = "candidato", 
+               cascade = CascadeType.ALL, 
+               orphanRemoval = true)
     private List<CandidatoTitulacion> curriculumTitulaciones;
     
-    @OneToMany(mappedBy = "candidato")
+    @OneToMany(mappedBy = "candidato", 
+               cascade = CascadeType.ALL, 
+               orphanRemoval = true)
     private List<CandidatoTransversal> curriculumTransversales;
     
-    @OneToMany(mappedBy = "candidato")
+    @OneToMany(mappedBy = "candidato", 
+               cascade = CascadeType.ALL, 
+               orphanRemoval = true)
     private List<CandidatoTecnica> curriculumTecnicas;
     
-    @OneToMany(mappedBy = "candidato")
+    @OneToMany(mappedBy = "candidato", 
+               cascade = CascadeType.ALL, 
+               orphanRemoval = true)
     private List<CandidatoIdioma> curriculumIdiomas;
     
     @Column(columnDefinition = "DATE NOT NULL")

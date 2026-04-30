@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de Usuario - Bolsa de Trabajo | ZABALBURU IKASTETXEA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-answer.open {
+      max-height: 500px;
+    }
+    .faq-chevron {
+      transition: transform 0.3s ease;
+    }
+    .faq-chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* Language toggle */
+    [data-lang] { display: none; }
+    body.lang-es [data-lang="es"] { display: revert; }
+    body.lang-en [data-lang="en"] { display: revert; }
+
+    /* For inline elements we use inline display */
+    span[data-lang], a[data-lang], button[data-lang] { display: none; }
+    body.lang-es span[data-lang="es"],
+    body.lang-es a[data-lang="es"],
+    body.lang-es button[data-lang="es"] { display: inline; }
+    body.lang-en span[data-lang="en"],
+    body.lang-en a[data-lang="en"],
+    body.lang-en button[data-lang="en"] { display: inline; }
+
+    /* Nav links visible always */
+    nav a, nav button { display: inline-flex; }
+  </style>
+</head>
+<body class="lang-es bg-white min-h-screen">
+
+<!-- ═══════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════ -->
+<header class="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto flex h-16 items-center justify-between px-4">
+
+    <!-- Logo + Nav -->
+    <div class="flex items-center gap-8">
+      <span class="text-xl font-semibold text-green-800 whitespace-nowrap">ZABALBURU IKASTETXEA</span>
+      <nav class="hidden md:flex gap-6 items-center">
+        <button onclick="scrollTo('inicio')" class="text-sm text-gray-700 hover:text-green-700 transition-colors cursor-pointer">
+          <span data-lang="es">Inicio</span><span data-lang="en">Home</span>
+        </button>
+        <button onclick="scrollTo('descarga')" class="text-sm text-gray-700 hover:text-green-700 transition-colors cursor-pointer">
+          <span data-lang="es">Descarga</span><span data-lang="en">Download</span>
+        </button>
+        <button onclick="scrollTo('contacto')" class="text-sm text-gray-700 hover:text-green-700 transition-colors cursor-pointer">
+          <span data-lang="es">Contacto</span><span data-lang="en">Contact</span>
+        </button>
+        <a href="https://www.centrozabalburu.com" target="_blank" rel="noopener noreferrer"
+           class="text-sm text-gray-700 hover:text-green-700 transition-colors">
+          <span data-lang="es">Compañía</span><span data-lang="en">Company</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Language Toggle -->
+    <button onclick="toggleLang()"
+      class="flex items-center gap-2 px-4 py-2 rounded-md border border-gray-200 hover:bg-green-50 transition-colors text-sm font-medium text-gray-700">
+      <!-- Globe icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+      <span id="lang-label">EN</span>
+    </button>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO / INICIO
+═══════════════════════════════════════════════ -->
+<section id="inicio" class="bg-gradient-to-br from-green-50 to-lime-100 py-20">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+
+    <!-- Icon -->
+    <div class="flex justify-center mb-6">
+      <div class="bg-green-700 p-4 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+      <span data-lang="es">Bolsa de Trabajo — Manual de Usuario</span>
+      <span data-lang="en">Job Board — User Manual</span>
+    </h1>
+
+    <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+      <span data-lang="es">Bienvenido a la guía completa de uso de nuestra aplicación de bolsa de trabajo. Aquí encontrarás explicaciones detalladas de cada función y respuestas a las preguntas más frecuentes.</span>
+      <span data-lang="en">Welcome to the complete guide for using our job board application. Here you will find detailed explanations of each function and answers to frequently asked questions.</span>
+    </p>
+
+    <button onclick="scrollTo('descarga')"
+      class="inline-flex items-center gap-2 bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span data-lang="es">Descargar Aplicación</span>
+      <span data-lang="en">Download Application</span>
+    </button>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FUNCIONES / FEATURES
+═══════════════════════════════════════════════ -->
+<section id="funciones" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <h2 class="text-3xl font-bold mb-12 text-center text-gray-900">
+      <span data-lang="es">Funciones de la Aplicación</span>
+      <span data-lang="en">Application Features</span>
+    </h2>
+
+    <!-- Feature 1 - Panel Principal -->
+    <div class="flex flex-col md:flex-row gap-8 items-center mb-16">
+      <div class="flex-1">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-900">
+          <span data-lang="es">Panel Principal</span>
+          <span data-lang="en">Main Dashboard</span>
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          <span data-lang="es">El panel principal es tu centro de control para la bolsa de trabajo. Aquí puedes visualizar todas las ofertas de empleo disponibles, hacer seguimiento de tus postulaciones y obtener una vista rápida del estado de tu búsqueda laboral. Utiliza la barra lateral para navegar entre las diferentes secciones y la barra superior para acceder a configuraciones y notificaciones.</span>
+          <span data-lang="en">The main dashboard is your control center for the job board. Here you can view all available job offers, track your applications, and get a quick overview of your job search status. Use the sidebar to navigate between different sections and the top bar to access settings and notifications.</span>
+        </p>
+      </div>
+      <div class="flex-1">
+        <img
+          src="https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
+          alt="Panel Principal"
+          class="w-full rounded-lg shadow-lg border border-gray-200"
+        />
+      </div>
+    </div>
+
+    <!-- Feature 2 - Búsqueda de Empleo -->
+    <div class="flex flex-col md:flex-row-reverse gap-8 items-center mb-16">
+      <div class="flex-1">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-900">
+          <span data-lang="es">Búsqueda de Empleo y Filtros</span>
+          <span data-lang="en">Job Search and Filters</span>
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          <span data-lang="es">Utiliza las herramientas de búsqueda avanzada para encontrar ofertas de trabajo que coincidan con tu perfil. Filtra por sector, ubicación, tipo de contrato, salario y experiencia requerida. Guarda tus búsquedas para recibir notificaciones automáticas cuando se publiquen nuevas ofertas que coincidan.</span>
+          <span data-lang="en">Use advanced search tools to find job opportunities that match your profile. Filter by sector, location, contract type, salary, and experience required. Save your searches to receive automatic notifications when new matching offers are published.</span>
+        </p>
+      </div>
+      <div class="flex-1">
+        <img
+          src="https://images.unsplash.com/photo-1772182125359-e472ca9b27c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
+          alt="Búsqueda de Empleo"
+          class="w-full rounded-lg shadow-lg border border-gray-200"
+        />
+      </div>
+    </div>
+
+    <!-- Feature 3 - Perfil Profesional -->
+    <div class="flex flex-col md:flex-row gap-8 items-center mb-16">
+      <div class="flex-1">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-900">
+          <span data-lang="es">Perfil Profesional</span>
+          <span data-lang="en">Professional Profile</span>
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          <span data-lang="es">Crea y gestiona tu perfil profesional. Sube tu currículum, añade tu experiencia laboral, formación académica, habilidades y certificaciones. Mantén tu perfil actualizado para aumentar tus posibilidades de ser seleccionado por las empresas.</span>
+          <span data-lang="en">Create and manage your professional profile. Upload your resume, add your work experience, education, skills, and certifications. Keep your profile updated to increase your chances of being selected by employers.</span>
+        </p>
+      </div>
+      <div class="flex-1">
+        <img
+          src="https://images.unsplash.com/photo-1762340275855-ae8f4c2c144e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
+          alt="Perfil Profesional"
+          class="w-full rounded-lg shadow-lg border border-gray-200"
+        />
+      </div>
+    </div>
+
+    <!-- Feature 4 - Gestión de Candidaturas -->
+    <div class="flex flex-col md:flex-row-reverse gap-8 items-center mb-16">
+      <div class="flex-1">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-900">
+          <span data-lang="es">Gestión de Candidaturas</span>
+          <span data-lang="en">Application Management</span>
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          <span data-lang="es">Realiza el seguimiento de todas tus candidaturas desde un solo lugar. Visualiza el estado de cada postulación, recibe notificaciones sobre actualizaciones y accede al historial de tus entrevistas y comunicaciones con las empresas. Organiza tu búsqueda de empleo de manera eficiente.</span>
+          <span data-lang="en">Track all your job applications from one place. View the status of each application, receive notifications about updates, and access the history of your interviews and communications with companies. Organize your job search efficiently.</span>
+        </p>
+      </div>
+      <div class="flex-1">
+        <img
+          src="https://images.unsplash.com/photo-1759752394755-1241472b589d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
+          alt="Gestión de Candidaturas"
+          class="w-full rounded-lg shadow-lg border border-gray-200"
+        />
+      </div>
+    </div>
+
+    <!-- Feature 5 - Documentos y Currículum -->
+    <div class="flex flex-col md:flex-row gap-8 items-center mb-16">
+      <div class="flex-1">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-900">
+          <span data-lang="es">Documentos y Currículum</span>
+          <span data-lang="en">Documents and Resume</span>
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          <span data-lang="es">Administra todos tus documentos profesionales en un solo lugar. Sube diferentes versiones de tu currículum, cartas de presentación, certificados y otros documentos relevantes. Adjúntalos fácilmente a tus candidaturas y mantenlos siempre accesibles.</span>
+          <span data-lang="en">Manage all your professional documents in one place. Upload different versions of your resume, cover letters, certificates, and other relevant documents. Easily attach them to your applications and keep them always accessible.</span>
+        </p>
+      </div>
+      <div class="flex-1">
+        <img
+          src="https://images.unsplash.com/photo-1618985822345-4afae2dd1997?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
+          alt="Documentos y Currículum"
+          class="w-full rounded-lg shadow-lg border border-gray-200"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     DESCARGA
+═══════════════════════════════════════════════ -->
+<section id="descarga" class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <h2 class="text-3xl font-bold mb-8 text-center text-gray-900">
+      <span data-lang="es">Descargar Aplicación</span>
+      <span data-lang="en">Download Application</span>
+    </h2>
+    <p class="text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+      <span data-lang="es">Elige la versión compatible con tu sistema operativo y comienza a usar la aplicación de bolsa de trabajo hoy mismo.</span>
+      <span data-lang="en">Choose the version compatible with your operating system and start using the job board application today.</span>
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
+      <!-- Windows -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+        <div class="flex justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Windows</h3>
+        <p class="text-gray-600 text-sm mb-4">
+          <span data-lang="es">Versión 2.5.0</span>
+          <span data-lang="en">Version 2.5.0</span>
+        </p>
+        <button class="w-full flex items-center justify-center gap-2 bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span data-lang="es">Descargar</span>
+          <span data-lang="en">Download</span>
+        </button>
+      </div>
+
+      <!-- macOS -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+        <div class="flex justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 20.94c1.5 0 2.75-.56 3.68-1.35.93-.79 1.5-1.87 1.68-3.09H6.64c.18 1.22.75 2.3 1.68 3.09.93.79 2.18 1.35 3.68 1.35z"/><path d="M12 3c-4.4 0-8 3.6-8 8v1h16v-1c0-4.4-3.6-8-8-8z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">macOS</h3>
+        <p class="text-gray-600 text-sm mb-4">
+          <span data-lang="es">Versión 2.5.0</span>
+          <span data-lang="en">Version 2.5.0</span>
+        </p>
+        <button class="w-full flex items-center justify-center gap-2 bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span data-lang="es">Descargar</span>
+          <span data-lang="en">Download</span>
+        </button>
+      </div>
+
+      <!-- Linux -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+        <div class="flex justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Linux</h3>
+        <p class="text-gray-600 text-sm mb-4">
+          <span data-lang="es">Versión 2.5.0</span>
+          <span data-lang="en">Version 2.5.0</span>
+        </p>
+        <button class="w-full flex items-center justify-center gap-2 bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span data-lang="es">Descargar</span>
+          <span data-lang="en">Download</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════ -->
+<section id="faq" class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+
+    <h2 class="text-3xl font-bold mb-8 text-center text-gray-900">
+      <span data-lang="es">Preguntas Frecuentes</span>
+      <span data-lang="en">Frequently Asked Questions</span>
+    </h2>
+
+    <div class="divide-y divide-gray-200 border-t border-b border-gray-200">
+
+      <!-- FAQ Items – ES -->
+      <div data-lang="es">
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Cómo instalo la aplicación de bolsa de trabajo?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Descarga el instalador compatible con tu sistema operativo desde la sección de Descarga. Ejecuta el archivo y sigue las instrucciones en pantalla. La instalación es sencilla y toma solo unos minutos.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Cuáles son los requisitos del sistema?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">La aplicación requiere Windows 10 o superior, macOS 10.15 o superior, o una distribución moderna de Linux. Necesitas al menos 4 GB de RAM, 500 MB de espacio libre en disco y conexión a internet activa.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Cómo creo mi perfil profesional?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Después de iniciar sesión, ve a la sección de Perfil Profesional. Haz clic en «Editar Perfil» y completa todos los campos: experiencia laboral, formación académica, habilidades y sube tu currículum. Cuanto más completo esté tu perfil, mejores serán tus oportunidades de ser encontrado por las empresas.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Cómo puedo buscar ofertas de empleo?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Utiliza la barra de búsqueda en el panel principal o accede a la sección de Búsqueda de Empleo. Puedes filtrar por ubicación, sector, tipo de contrato, salario y experiencia. Guarda tus búsquedas para recibir notificaciones automáticas de nuevas ofertas.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Cómo me postulo a una oferta de empleo?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Haz clic en la oferta que te interese, lee detenidamente los requisitos y la descripción. Si coincide con tu perfil, haz clic en «Postularme». Selecciona el currículum y la carta de presentación que deseas enviar y confirma tu candidatura.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Puedo hacer seguimiento de mis candidaturas?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Sí, en la sección de Gestión de Candidaturas puedes ver todas tus postulaciones, su estado (pendiente, revisada, entrevista programada, rechazada, aceptada) y el historial de comunicaciones con las empresas.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Hay soporte técnico disponible?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Sí, ofrecemos soporte técnico a través de correo electrónico en soporte@zabalburu.com y mediante nuestro formulario de contacto. Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00 horas.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">¿Cómo actualizo mi currículum?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Accede a la sección de Documentos y Currículum. Haz clic en «Subir Nueva Versión», selecciona tu archivo actualizado y guarda. Puedes mantener varias versiones y elegir cuál usar en cada candidatura.</p>
+          </div>
+        </div>
+
+      </div><!-- /data-lang="es" -->
+
+      <!-- FAQ Items – EN -->
+      <div data-lang="en">
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">How do I install the job board application?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Download the installer compatible with your operating system from the Download section. Run the file and follow the on-screen instructions. The installation is straightforward and takes just a few minutes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">What are the system requirements?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">The application requires Windows 10 or higher, macOS 10.15 or higher, or a modern Linux distribution. You need at least 4 GB of RAM, 500 MB of free disk space, and an active internet connection.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">How do I create my professional profile?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">After logging in, go to the Professional Profile section. Click "Edit Profile" and complete all the fields: work experience, education, skills, and upload your resume. The more complete your profile, the better your chances of being found by employers.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">How can I search for job offers?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Use the search bar on the main dashboard or go to the Job Search section. You can filter by location, sector, contract type, salary, and experience. Save your searches to receive automatic notifications of new offers.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">How do I apply for a job offer?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Click on the offer that interests you, carefully read the requirements and description. If it matches your profile, click "Apply". Select the resume and cover letter you want to send, and confirm your application.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">Can I track my applications?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Yes, in the Application Management section you can see all your applications, their status (pending, reviewed, interview scheduled, rejected, accepted), and communication history with companies.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">Is there technical support available?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Yes, we offer technical support via email at soporte@zabalburu.com and through our contact form. Our support hours are Monday to Friday from 9:00 AM to 6:00 PM.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 text-left text-gray-900 hover:text-green-700 transition-colors">
+            <span class="pr-4">How do I update my resume?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="pb-4 text-gray-700 leading-relaxed">Go to the Documents and Resume section. Click "Upload New Version", select your updated file, and save. You can keep multiple versions and choose which one to use in each application.</p>
+          </div>
+        </div>
+
+      </div><!-- /data-lang="en" -->
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CONTACTO
+═══════════════════════════════════════════════ -->
+<section id="contacto" class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <h2 class="text-3xl font-bold mb-8 text-center text-gray-900">
+      <span data-lang="es">Contacto</span>
+      <span data-lang="en">Contact</span>
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+
+      <!-- Email -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="flex justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">
+          <span data-lang="es">Correo Electrónico</span>
+          <span data-lang="en">Email</span>
+        </h3>
+        <p class="text-gray-600">soporte@zabalburu.com</p>
+      </div>
+
+      <!-- Phone -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="flex justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.42 2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">
+          <span data-lang="es">Teléfono</span>
+          <span data-lang="en">Phone</span>
+        </h3>
+        <p class="text-gray-600">+34 944 123 456</p>
+      </div>
+
+      <!-- Address -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="flex justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">
+          <span data-lang="es">Dirección</span>
+          <span data-lang="en">Address</span>
+        </h3>
+        <p class="text-gray-600">
+          <span data-lang="es">Centro Zabalburu, Bilbao, España</span>
+          <span data-lang="en">Centro Zabalburu, Bilbao, Spain</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="bg-gray-900 text-white py-8">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <p class="mb-2">
+      &copy; 2026&nbsp;
+      <a href="https://www.centrozabalburu.com" target="_blank" rel="noopener noreferrer"
+         class="hover:text-green-400 transition-colors">
+        ZABALBURU Ikastetxea S. Coop.
+      </a>.&nbsp;
+      <span data-lang="es">Todos los derechos reservados.</span>
+      <span data-lang="en">All rights reserved.</span>
+    </p>
+    <p class="text-gray-400 text-sm">
+      <span data-lang="es">Manual de Usuario — Aplicación Bolsa de Trabajo v2.5.0</span>
+      <span data-lang="en">User Manual — Job Board Application v2.5.0</span>
+    </p>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+  /* ── Scroll suave ── */
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  /* ── Cambio de idioma ── */
+  let currentLang = 'es';
+  function toggleLang() {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    document.body.className = 'lang-' + currentLang;
+    document.getElementById('lang-label').textContent = currentLang === 'es' ? 'EN' : 'ES';
+    document.documentElement.lang = currentLang;
+    // Cerrar todos los acordeones al cambiar idioma
+    document.querySelectorAll('.faq-answer.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotated');
+    });
+  }
+
+  /* ── Acordeón FAQ ── */
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const chevron = btn.querySelector('.faq-chevron');
+    const isOpen = answer.classList.contains('open');
+
+    // Cerrar todos en el mismo bloque de idioma
+    const parent = btn.closest('[data-lang]');
+    parent.querySelectorAll('.faq-answer.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotated');
+    });
+
+    if (!isOpen) {
+      answer.classList.add('open');
+      chevron.classList.add('rotated');
+    }
+  }
+</script>
+
+</body>
+</html>

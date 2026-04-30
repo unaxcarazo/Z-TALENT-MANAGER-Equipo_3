@@ -1,29 +1,31 @@
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\AdministradorDAO.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CandidatoDAO.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CandidatoImpl.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumIdiomaDAO.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumIdiomaImpl.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumTecnicaDAO.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumTecnicaImpl.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumTitulacionDAO.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumTitulacionImpl.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumTransversalDAO.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CurriculumTransversalImpl.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\ExperienciaDAO.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\ExperienciaImpl.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Administrador.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Candidato.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\CandidatoIdioma.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\CandidatoTecnica.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\CandidatoTitulacion.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\CandidatoTransversal.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\CompetenciaTecnica.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Experiencia.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Idioma.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Titulacion.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Transversal.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Usuario.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\servicio\ZTalentManagerServicio.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\util\JPAUtil.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\util\PasswordUtils.java
-C:\Users\DAW1\Downloads\Z_TALENT_MANAGER (1)\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\Z_TALENT_MANAGER.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/Z_TALENT_MANAGER.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/AdministradorDAO.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoDAO.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoIdiomaDAO.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoIdiomaImpl.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoImpl.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoTecnicaDAO.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoTecnicaImpl.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoTitulacionDAO.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoTitulacionImpl.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoTransversalDAO.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/CandidatoTransversalImpl.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/ExperienciaDAO.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/dao/ExperienciaImpl.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/Administrador.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/Candidato.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/CandidatoIdioma.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/CandidatoTecnica.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/CandidatoTitulacion.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/CandidatoTransversal.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/CompetenciaTecnica.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/Experiencia.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/Idioma.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/Titulacion.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/Transversal.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/modelo/Usuario.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/servicio/ZTalentManagerServicio.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/util/JPAUtil.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/util/PasswordUtils.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/vista/FrmLogin.java
+/Users/MayMansito/Z-TALENT-MANAGER-Equipo_3/Aplicacion/Z_TALENT_MANAGER/src/main/java/s/z_talent_manager/vista/FrmOlvidoContraseña.java

@@ -4,6 +4,8 @@
 
 package s.z_talent_manager;
 
+import s.z_talent_manager.vista.FrmLogin;
+
 /**
  *
  * @author DAW1
@@ -11,6 +13,6 @@ package s.z_talent_manager;
 public class Z_TALENT_MANAGER {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new FrmLogin().setVisible(true);
     }
 }

@@ -6,7 +6,6 @@ package s.z_talent_manager.servicio;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import static jakarta.persistence.Timeout.s;
 import java.util.List;
 import s.z_talent_manager.dao.CandidatoDAO;
 import s.z_talent_manager.dao.CandidatoImpl;
@@ -23,8 +22,6 @@ import s.z_talent_manager.dao.CandidatoIdiomaDAO;
 import s.z_talent_manager.dao.CandidatoTecnicaDAO;
 import s.z_talent_manager.dao.CandidatoTitulacionDAO;
 import s.z_talent_manager.dao.CandidatoTransversalDAO;
-import s.z_talent_manager.modelo.CandidatoIdioma;
-import s.z_talent_manager.modelo.CandidatoTecnica;
 
 /**
  *
@@ -72,14 +69,6 @@ public class ZTalentManagerServicio {
         }
     }
 
-    /* ===== Ver curriculum del candidato. =====
-   - Candidato visualiza el contenido de su curriculum desde las pestañas del perfil. */
- /* public Curriculum getCurriculum(Integer idCurriculum) {
-        try 
-          (EntityManager em = JPAUtil.getEntityManager()) {
-        return curriculumDAO.getCurriculum(em, idCurriculum);
-    }
-}*/
  /* ===== Cambio de contraseña desde candidato. =====
      - Lanza excepción si la contraseña actual introducida por el candidato es incorrecta.
      - Lanza excepción si la nueva contraseña es igual a la anterior. */
@@ -112,81 +101,22 @@ public class ZTalentManagerServicio {
     }
 
     /* ===== Editar Datos Personales del Candidato =====
-     - Candidato modifica los campos: municipio, provincia, telefono, fechaNacimiento,
-        genero desde su perfil. */
-    public void editarDatosPersonales(Candidato candidato) {
-        try (EntityManager em = JPAUtil.getEntityManager()) {
-            EntityTransaction tx = em.getTransaction();
+     - Candidato modifica los campos de su cv desde su perfil. */
+    public void modificarCandidato(EntityManager em, Candidato ca) {
+          EntityTransaction tx = em.getTransaction();
             try {
                 tx.begin();
-                candidatoDAO.modificarCandidato(em, candidato);
+                em.merge(ca);
                 tx.commit();
             } catch (Exception ex) {
                 if (tx.isActive()) {
                     tx.rollback();
                 }
                 throw new RuntimeException(ex.getMessage());
+                
+                
             }
-        }
-    }
-
-//CANDIDATO IDIOMA
-    public CandidatoIdioma nuevoCandidatoIdioma(EntityManager em, CandidatoIdioma ci) {
-        
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            CandidatoIdiomaDAO dao = new CandidatoIdiomaImpl();
-            dao.nuevoCandidatoIdioma(em, ci);
-            tx.commit();
-        } catch (Exception e) {
-            tx.rollback();
-        }
-    }
+        }   
     
-    public void modificarCandidatoIdioma(EntityManager em, CandidatoIdioma ci) {
-        
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            CandidatoIdiomaDAO dao = new CandidatoIdiomaImpl();
-            dao.modificarCandidatoIdioma(em, ci);            
-            tx.commit();
-        } catch (Exception e) {
-            tx.rollback();
-        }
-    }
-    
-    public CandidatoIdioma getCandidatoIdioma(EntityManager em, Integer id) {
-        
-        CandidatoIdiomaDAO dao = new CandidatoIdiomaImpl();
-        return dao.getCandidatoIdioma(em, id);
-    }
-    
-    List<CandidatoIdioma> getCandidatoIdiomas(EntityManager em) {
-        
-        CandidatoIdiomaDAO dao = new CandidatoIdiomaImpl();
-        return dao.getCandidatoIdiomas(em);
-    }
-    
-//CANDIDATO TECNICA
-    
-   public CandidatoTecnica nuevoCandidatoTecnica (EntityManager em, CandidatoTecnica cte){
-   
-   
-   }
-   public void modificarCandidatoTecnica (EntityManager em, CandidatoTecnica cte){
-   
-   
-   }
-   
-    public CandidatoTecnica getCandidatoTecnica (EntityManager em, Integer id){
-        
-    
-    }
-    List<CandidatoTecnica> getCandidatoTecnicas (EntityManager em){
-    
-    }
-    
-    
+           
 }

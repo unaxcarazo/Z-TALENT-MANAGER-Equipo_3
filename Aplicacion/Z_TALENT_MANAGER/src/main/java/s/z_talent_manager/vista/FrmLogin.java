@@ -113,7 +113,6 @@ public class FrmLogin extends javax.swing.JFrame {
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.png"))); // NOI18N
         lblLogo.setToolTipText("");
         lblLogo.setPreferredSize(new java.awt.Dimension(400, 200));
-        lblLogo.setSize(new java.awt.Dimension(400, 200));
         pnlHeader.add(lblLogo);
 
         getContentPane().add(pnlHeader);
@@ -122,14 +121,12 @@ public class FrmLogin extends javax.swing.JFrame {
         pnlBody.setPreferredSize(new java.awt.Dimension(800, 350));
         pnlBody.setLayout(new java.awt.GridBagLayout());
 
-        pnlLogin.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
-        pnlLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        pnlLogin.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         pnlLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pnlLogin.setMaximumSize(new java.awt.Dimension(200, 100));
         pnlLogin.setPreferredSize(new java.awt.Dimension(500, 300));
         pnlLogin.setLayout(new java.awt.GridBagLayout());
 
-        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("USUARIO:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -138,8 +135,6 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblUsuario, gridBagConstraints);
 
-        txtUsuario.setBackground(java.awt.Color.white);
-        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
         txtUsuario.setText("Usuario");
         txtUsuario.setPreferredSize(new java.awt.Dimension(150, 20));
         txtUsuario.setRequestFocusEnabled(false);
@@ -152,7 +147,6 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(txtUsuario, gridBagConstraints);
 
-        lblContraseña.setForeground(new java.awt.Color(0, 0, 0));
         lblContraseña.setText("CONTRASEÑA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -187,7 +181,6 @@ public class FrmLogin extends javax.swing.JFrame {
         pnlLogin.add(lblOlvidoContraseña, gridBagConstraints);
 
         btnLogin.setBackground(new java.awt.Color(101, 158, 234));
-        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
         btnLogin.setText("LOGIN");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;

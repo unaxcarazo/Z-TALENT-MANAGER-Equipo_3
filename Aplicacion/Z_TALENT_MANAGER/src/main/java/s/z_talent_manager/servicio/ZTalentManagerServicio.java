@@ -118,5 +118,23 @@ public class ZTalentManagerServicio {
             }
         }   
     
+    /*CREAR CANDIDATO*/
+    
+        public void CrearCandidato(EntityManager em, Candidato ca) {
+          EntityTransaction tx = em.getTransaction();
+            try {
+                tx.begin();
+                em.persist(ca);
+                tx.commit();
+            } catch (Exception ex) {
+                if (tx.isActive()) {
+                    tx.rollback();
+                }
+                throw new RuntimeException(ex.getMessage());
+                
+                
+            }
+        }   
+    
            
 }

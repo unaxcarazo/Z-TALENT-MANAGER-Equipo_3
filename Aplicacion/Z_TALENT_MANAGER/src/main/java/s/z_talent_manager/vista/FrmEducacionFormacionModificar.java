@@ -8,14 +8,14 @@ package s.z_talent_manager.vista;
  *
  * @author maymansito
  */
-public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
+public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmExperienciaLaboralModificacion.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmEducacionFormacionModificar.class.getName());
 
     /**
      * Creates new form FrmExperienciaLaboralModificacion
      */
-    public FrmExperienciaLaboralModificacion() {
+    public FrmEducacionFormacionModificar() {
         initComponents();
     }
 
@@ -30,39 +30,38 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pnlBody = new javax.swing.JPanel();
-        lblExperienciaLaboral = new javax.swing.JLabel();
+        lblEducacion = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        lblPuestoOcupado = new javax.swing.JLabel();
-        txtPuesto = new javax.swing.JTextField();
-        lblCompañia = new javax.swing.JLabel();
-        txtCompañia = new javax.swing.JTextField();
+        lblTitulacion = new javax.swing.JLabel();
+        cmbNombreEstudio = new javax.swing.JComboBox<>();
+        cmbTipoEstudio = new javax.swing.JComboBox<>();
+        lblCentroEstudio = new javax.swing.JLabel();
+        cmbCentroEstudio = new javax.swing.JComboBox<>();
         lblFechaInicio = new javax.swing.JLabel();
-        txtFechaInicioLaboral = new javax.swing.JFormattedTextField();
+        txtFechaInicioEducacion = new javax.swing.JFormattedTextField();
         lblFechaFinalizacion = new javax.swing.JLabel();
-        lblPrincipalesActividades = new javax.swing.JLabel();
-        txtFechaFinLaboral = new javax.swing.JFormattedTextField();
-        txaActividades = new javax.swing.JTextArea();
-        rbtnEnCursoLaboral = new javax.swing.JRadioButton();
+        txtFechaFinEducacion = new javax.swing.JFormattedTextField();
+        rbtnEnCursoEducacion = new javax.swing.JRadioButton();
         pnlFooter = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Modificar experiencia laboral");
+        setTitle("Modificar educacion y formacion");
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         pnlBody.setBackground(new java.awt.Color(255, 255, 255));
         pnlBody.setPreferredSize(new java.awt.Dimension(800, 550));
         pnlBody.setLayout(new java.awt.GridBagLayout());
 
-        lblExperienciaLaboral.setForeground(new java.awt.Color(51, 51, 51));
-        lblExperienciaLaboral.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblExperienciaLaboral.setText("Experiencia laboral");
-        lblExperienciaLaboral.setPreferredSize(new java.awt.Dimension(800, 16));
+        lblEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        lblEducacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEducacion.setText("Educación y formación");
+        lblEducacion.setPreferredSize(new java.awt.Dimension(800, 16));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        pnlBody.add(lblExperienciaLaboral, gridBagConstraints);
+        pnlBody.add(lblEducacion, gridBagConstraints);
 
         jSeparator1.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator1.setForeground(new java.awt.Color(255, 0, 0));
@@ -74,47 +73,60 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         gridBagConstraints.weightx = 400.0;
         pnlBody.add(jSeparator1, gridBagConstraints);
 
-        lblPuestoOcupado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblPuestoOcupado.setForeground(new java.awt.Color(51, 51, 51));
-        lblPuestoOcupado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPuestoOcupado.setText("Puesto o cargo ocupado  ");
+        lblTitulacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulacion.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTitulacion.setText("Titulacion");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        pnlBody.add(lblPuestoOcupado, gridBagConstraints);
+        pnlBody.add(lblTitulacion, gridBagConstraints);
 
-        txtPuesto.setBackground(new java.awt.Color(255, 255, 255));
-        txtPuesto.setForeground(new java.awt.Color(51, 51, 51));
+        cmbNombreEstudio.setBackground(new java.awt.Color(255, 255, 255));
+        cmbNombreEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        cmbNombreEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 400);
-        pnlBody.add(txtPuesto, gridBagConstraints);
+        pnlBody.add(cmbNombreEstudio, gridBagConstraints);
 
-        lblCompañia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCompañia.setForeground(new java.awt.Color(51, 51, 51));
-        lblCompañia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblCompañia.setText("Compañia");
+        cmbTipoEstudio.setBackground(new java.awt.Color(255, 255, 255));
+        cmbTipoEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        cmbTipoEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        pnlBody.add(lblCompañia, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 400);
+        pnlBody.add(cmbTipoEstudio, gridBagConstraints);
 
-        txtCompañia.setBackground(new java.awt.Color(255, 255, 255));
-        txtCompañia.setForeground(new java.awt.Color(51, 51, 51));
+        lblCentroEstudio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCentroEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        lblCentroEstudio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCentroEstudio.setText("Centro formativo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        pnlBody.add(lblCentroEstudio, gridBagConstraints);
+
+        cmbCentroEstudio.setBackground(new java.awt.Color(255, 255, 255));
+        cmbCentroEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        cmbCentroEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 400);
-        pnlBody.add(txtCompañia, gridBagConstraints);
+        pnlBody.add(cmbCentroEstudio, gridBagConstraints);
 
         lblFechaInicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblFechaInicio.setForeground(new java.awt.Color(51, 51, 51));
@@ -122,26 +134,26 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         lblFechaInicio.setText("Fecha de inicio");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblFechaInicio, gridBagConstraints);
 
-        txtFechaInicioLaboral.setBackground(new java.awt.Color(255, 255, 255));
-        txtFechaInicioLaboral.setForeground(new java.awt.Color(51, 51, 51));
-        txtFechaInicioLaboral.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        txtFechaInicioLaboral.setText("02/02/02");
-        txtFechaInicioLaboral.addActionListener(new java.awt.event.ActionListener() {
+        txtFechaInicioEducacion.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechaInicioEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        txtFechaInicioEducacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        txtFechaInicioEducacion.setText("02/02/02");
+        txtFechaInicioEducacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaInicioLaboralActionPerformed(evt);
+                txtFechaInicioEducacionActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 25, 0, 0);
-        pnlBody.add(txtFechaInicioLaboral, gridBagConstraints);
+        pnlBody.add(txtFechaInicioEducacion, gridBagConstraints);
 
         lblFechaFinalizacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblFechaFinalizacion.setForeground(new java.awt.Color(51, 51, 51));
@@ -149,60 +161,36 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         lblFechaFinalizacion.setText("Fecha de finalizacion");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblFechaFinalizacion, gridBagConstraints);
 
-        lblPrincipalesActividades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblPrincipalesActividades.setForeground(new java.awt.Color(51, 51, 51));
-        lblPrincipalesActividades.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPrincipalesActividades.setText("Principales actividades y responsabilidades");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        pnlBody.add(lblPrincipalesActividades, gridBagConstraints);
-
-        txtFechaFinLaboral.setBackground(new java.awt.Color(255, 255, 255));
-        txtFechaFinLaboral.setForeground(new java.awt.Color(51, 51, 51));
-        txtFechaFinLaboral.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        txtFechaFinLaboral.setText("02/02/02");
-        txtFechaFinLaboral.addActionListener(new java.awt.event.ActionListener() {
+        txtFechaFinEducacion.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechaFinEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        txtFechaFinEducacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        txtFechaFinEducacion.setText("02/02/02");
+        txtFechaFinEducacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaFinLaboralActionPerformed(evt);
+                txtFechaFinEducacionActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 25, 0, 0);
-        pnlBody.add(txtFechaFinLaboral, gridBagConstraints);
+        pnlBody.add(txtFechaFinEducacion, gridBagConstraints);
 
-        txaActividades.setBackground(new java.awt.Color(255, 255, 255));
-        txaActividades.setColumns(20);
-        txaActividades.setForeground(new java.awt.Color(0, 0, 0));
-        txaActividades.setRows(5);
-        txaActividades.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        txaActividades.setMinimumSize(new java.awt.Dimension(300, 100));
+        rbtnEnCursoEducacion.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnEnCursoEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        rbtnEnCursoEducacion.setText("En curso");
+        rbtnEnCursoEducacion.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 25, 0, 0);
-        pnlBody.add(txaActividades, gridBagConstraints);
-
-        rbtnEnCursoLaboral.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnEnCursoLaboral.setForeground(new java.awt.Color(51, 51, 51));
-        rbtnEnCursoLaboral.setText("En curso");
-        rbtnEnCursoLaboral.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 400);
-        pnlBody.add(rbtnEnCursoLaboral, gridBagConstraints);
+        pnlBody.add(rbtnEnCursoEducacion, gridBagConstraints);
 
         getContentPane().add(pnlBody);
 
@@ -224,13 +212,13 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFechaInicioLaboralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaInicioLaboralActionPerformed
+    private void txtFechaInicioEducacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaInicioEducacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaInicioLaboralActionPerformed
+    }//GEN-LAST:event_txtFechaInicioEducacionActionPerformed
 
-    private void txtFechaFinLaboralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinLaboralActionPerformed
+    private void txtFechaFinEducacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinEducacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaFinLaboralActionPerformed
+    }//GEN-LAST:event_txtFechaFinEducacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,26 +242,25 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmExperienciaLaboralModificacion().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmEducacionFormacionModificar().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JComboBox<String> cmbCentroEstudio;
+    private javax.swing.JComboBox<String> cmbNombreEstudio;
+    private javax.swing.JComboBox<String> cmbTipoEstudio;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblCompañia;
-    private javax.swing.JLabel lblExperienciaLaboral;
+    private javax.swing.JLabel lblCentroEstudio;
+    private javax.swing.JLabel lblEducacion;
     private javax.swing.JLabel lblFechaFinalizacion;
     private javax.swing.JLabel lblFechaInicio;
-    private javax.swing.JLabel lblPrincipalesActividades;
-    private javax.swing.JLabel lblPuestoOcupado;
+    private javax.swing.JLabel lblTitulacion;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlFooter;
-    private javax.swing.JRadioButton rbtnEnCursoLaboral;
-    private javax.swing.JTextArea txaActividades;
-    private javax.swing.JTextField txtCompañia;
-    private javax.swing.JFormattedTextField txtFechaFinLaboral;
-    private javax.swing.JFormattedTextField txtFechaInicioLaboral;
-    private javax.swing.JTextField txtPuesto;
+    private javax.swing.JRadioButton rbtnEnCursoEducacion;
+    private javax.swing.JFormattedTextField txtFechaFinEducacion;
+    private javax.swing.JFormattedTextField txtFechaInicioEducacion;
     // End of variables declaration//GEN-END:variables
 }

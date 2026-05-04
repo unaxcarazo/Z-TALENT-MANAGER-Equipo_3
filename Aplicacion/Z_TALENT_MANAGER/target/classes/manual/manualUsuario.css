@@ -1,0 +1,35 @@
+
+    html { scroll-behavior: smooth; }
+
+    /* Accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-answer.open {
+      max-height: 500px;
+    }
+    .faq-chevron {
+      transition: transform 0.3s ease;
+    }
+    .faq-chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* Language toggle */
+    [data-lang] { display: none; }
+    body.lang-es [data-lang="es"] { display: revert; }
+    body.lang-en [data-lang="en"] { display: revert; }
+
+    /* For inline elements we use inline display */
+    span[data-lang], a[data-lang], button[data-lang] { display: none; }
+    body.lang-es span[data-lang="es"],
+    body.lang-es a[data-lang="es"],
+    body.lang-es button[data-lang="es"] { display: inline; }
+    body.lang-en span[data-lang="en"],
+    body.lang-en a[data-lang="en"],
+    body.lang-en button[data-lang="en"] { display: inline; }
+
+    /* Nav links visible always */
+    nav a, nav button { display: inline-flex; }

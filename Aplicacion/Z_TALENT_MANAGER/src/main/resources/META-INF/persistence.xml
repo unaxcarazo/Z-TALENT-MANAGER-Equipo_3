@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.2" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence               https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd">
+  <persistence-unit name="ZTalent_JPA" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>s.z_talent_manager.modelo.Administrador</class>
+    <class>s.z_talent_manager.modelo.Candidato</class>
+    <class>s.z_talent_manager.modelo.CompetenciaTecnica</class>
+    <class>s.z_talent_manager.modelo.Curriculum</class>
+    <class>s.z_talent_manager.modelo.Experiencia</class>
+    <class>s.z_talent_manager.modelo.Idioma</class>
+    <class>s.z_talent_manager.modelo.Titulacion</class>
+    <class>s.z_talent_manager.modelo.Transversal</class>
+    <class>s.z_talent_manager.modelo.Usuario</class>
+    <class>s.z_talent_manager.modelo.CandidatoTitulacion</class>
+    <class>s.z_talent_manager.modelo.CandidatoIdioma</class>
+    <class>s.z_talent_manager.modelo.CandidatoTecnica</class>
+    <class>s.z_talent_manager.modelo.CandidatoTransversal</class>
+    <properties>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+      <property name="jakarta.persistence.jdbc.user" value="daw1"/>
+      <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="jakarta.persistence.jdbc.password" value="tiger"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -6,7 +6,7 @@ package s.z_talent_manager;
 
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
-import s.z_talent_manager.vista.FrmCompetencia;
+import s.z_talent_manager.vista.FrmCompetenciaModificar;
 import s.z_talent_manager.vista.FrmInformacionPersonalModificacion;
 import s.z_talent_manager.vista.FrmLogin;
 
@@ -19,6 +19,6 @@ public class Z_TALENT_MANAGER {
     public static void main(String[] args) {
         
         FlatLaf.setup(new FlatMacLightLaf());
-        new FrmCompetencia().setVisible(true);
+        new FrmCompetenciaModificar().setVisible(true);
     }
 }

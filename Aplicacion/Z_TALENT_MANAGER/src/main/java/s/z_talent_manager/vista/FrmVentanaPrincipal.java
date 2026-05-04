@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import s.z_talent_manager.modelo.Candidato;
+import s.z_talent_manager.modelo.Sesion;
 import s.z_talent_manager.servicio.ZTalentManagerServicio;
 
 /**
@@ -17,10 +18,11 @@ import s.z_talent_manager.servicio.ZTalentManagerServicio;
  * @author fabia
  */
 public class FrmVentanaPrincipal extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmVentanaPrincipal.class.getName());
 
     private ZTalentManagerServicio servicio = ZTalentManagerServicio.getServicio();
+
     /**
      * Creates new form FrmVentanaPrincipal
      */
@@ -30,54 +32,51 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null); // centra la ventana
 
         FrmInfoPersonal panelInfo = new FrmInfoPersonal();
-        FrmExperiencias panelExp  = new FrmExperiencias();
-        FrmTitulacion   panelTit  = new FrmTitulacion();
+        FrmExperiencias panelExp = new FrmExperiencias();
+        FrmTitulacion panelTit = new FrmTitulacion();
         FrmCompetencias panelComp = new FrmCompetencias();
 
         tabbedPane.addTab("Información personal", panelInfo);
-        tabbedPane.addTab("Experiencias",         panelExp);
-        tabbedPane.addTab("Titulación",           panelTit);
-        tabbedPane.addTab("Competencias",         panelComp);
+        tabbedPane.addTab("Experiencias", panelExp);
+        tabbedPane.addTab("Titulación", panelTit);
+        tabbedPane.addTab("Competencias", panelComp);
 
-    cargarDatosDesdeServicio(panelInfo, panelExp, panelTit, panelComp);
-}
+        cargarDatosDesdeServicio(panelInfo, panelExp, panelTit, panelComp);
+    }
 
     private void cargarDatosDesdeServicio(
-        FrmInfoPersonal panelInfo,
-        FrmExperiencias panelExp,
-        FrmTitulacion   panelTit,
-        FrmCompetencias panelComp) {
-    try {
-        Integer idCandidato = 1; // sustituir por el ID del login
-        Candidato candidato = servicio.getCandidato(idCandidato);
+            FrmInfoPersonal panelInfo,
+            FrmExperiencias panelExp,
+            FrmTitulacion panelTit,
+            FrmCompetencias panelComp) {
+        try {
+            Candidato candidato = Sesion.getCandidato();
+            if (candidato == null) {
+                JOptionPane.showMessageDialog(this,
+                        "No se encontró el candidato.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-        if (candidato == null) {
+            jLabel4.setText("¡Bienvenido/a, " + candidato.getNombre() + "!");
+            panelInfo.cargarDatos(candidato);
+
+            panelExp.cargarDatos(candidato.getExperiencias());
+            panelTit.cargarDatos(candidato.getCandidatoTitulaciones());
+            panelComp.cargarDatos(
+                    candidato.getCandidatoIdiomas(),
+                    candidato.getCandidatoTecnicas(),
+                    candidato.getCandidatoTransversales()
+            );
+
+        } catch (Exception ex) {
+            logger.log(java.util.logging.Level.SEVERE, "Error cargando datos", ex);
             JOptionPane.showMessageDialog(this,
-                "No se encontró el candidato.",
-                "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+                    "Error al cargar los datos.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
-
-        jLabel4.setText("¡Bienvenido/a, " + candidato.getNombre() + "!");
-        panelInfo.cargarDatos(candidato);
-
-        panelExp.cargarDatos(candidato.getExperiencias());
-        panelTit.cargarDatos(candidato.getCandidatoTitulaciones());
-        panelComp.cargarDatos(
-        candidato.getCandidatoIdiomas(),
-        candidato.getCandidatoTecnicas(),
-        candidato.getCandidatoTransversales()
-    );
-
-    } catch (Exception ex) {
-        logger.log(java.util.logging.Level.SEVERE, "Error cargando datos", ex);
-        JOptionPane.showMessageDialog(this,
-            "Error al cargar los datos.",
-            "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -208,24 +207,24 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCambiarContraseñaMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarContraseñaMainActionPerformed
-            this.setVisible(false);
+        this.setVisible(false);
 
-    FrmContraseñaOlvidada frmContraseña = new FrmContraseñaOlvidada();
-    frmContraseña.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    frmContraseña.setLocationRelativeTo(null);
-    frmContraseña.setVisible(true);
+        FrmContraseñaOlvidada frmContraseña = new FrmContraseñaOlvidada();
+        frmContraseña.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmContraseña.setLocationRelativeTo(null);
+        frmContraseña.setVisible(true);
 
-    frmContraseña.addWindowListener(new java.awt.event.WindowAdapter() {
-        @Override
-        public void windowClosed(java.awt.event.WindowEvent e) {
-            setVisible(true);
-        }
-    }); 
+        frmContraseña.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                setVisible(true);
+            }
+        });
 
     }//GEN-LAST:event_btnCambiarContraseñaMainActionPerformed
 
     private void btnSalirMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMainActionPerformed
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnSalirMainActionPerformed
 
     /**
@@ -233,21 +232,19 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-         try {
-        FlatLightLaf.setup();
+        try {
+            FlatLightLaf.setup();
 
-        UIManager.put("TabbedPane.selectedBackground", new Color(51,  153, 102));
-        UIManager.put("TabbedPane.background",         new Color(211, 254, 234));
-        UIManager.put("TabbedPane.foreground",         new Color(7,   48,  26));
-        UIManager.put("TabbedPane.selectedForeground", new Color(211, 254, 234));
-        UIManager.put("TabbedPane.underlineColor",     new Color(51,  153, 102));
-        UIManager.put("TabbedPane.hoverColor",         new Color(102, 204, 153));
+            UIManager.put("TabbedPane.selectedBackground", new Color(51, 153, 102));
+            UIManager.put("TabbedPane.background", new Color(211, 254, 234));
+            UIManager.put("TabbedPane.foreground", new Color(7, 48, 26));
+            UIManager.put("TabbedPane.selectedForeground", new Color(211, 254, 234));
+            UIManager.put("TabbedPane.underlineColor", new Color(51, 153, 102));
+            UIManager.put("TabbedPane.hoverColor", new Color(102, 204, 153));
 
-    } catch (Exception ex) {
-        logger.log(java.util.logging.Level.SEVERE, null, ex);
-    }
-
-    
+        } catch (Exception ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FrmVentanaPrincipal().setVisible(true));
@@ -265,4 +262,4 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 
-    }
+}

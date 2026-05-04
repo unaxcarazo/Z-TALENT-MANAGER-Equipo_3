@@ -6,6 +6,7 @@ package s.z_talent_manager.servicio;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import java.util.List;
 import s.z_talent_manager.dao.CandidatoDAO;
 import s.z_talent_manager.dao.CandidatoImpl;
@@ -22,6 +23,7 @@ import s.z_talent_manager.dao.CandidatoIdiomaDAO;
 import s.z_talent_manager.dao.CandidatoTecnicaDAO;
 import s.z_talent_manager.dao.CandidatoTitulacionDAO;
 import s.z_talent_manager.dao.CandidatoTransversalDAO;
+import s.z_talent_manager.modelo.Usuario;
 
 /**
  *
@@ -110,6 +112,31 @@ public class ZTalentManagerServicio {
             }
         }
     }
+    
+    public Usuario login(String email, String password) {
+    try (EntityManager em = JPAUtil.getEntityManager()) {
+        // Al usar Usuario.class, JPA hace el JOIN con la tabla hija automáticamente
+        Usuario usuario = em.createQuery(
+                "SELECT u FROM Usuario u WHERE lower(u.email) = lower(:email)", 
+                Usuario.class)
+                        .setParameter("email", email)
+                .getSingleResult();
+
+        // Conectamos con PasswordUtils para validar el hash
+        if (PasswordUtils.checkPw(password, usuario.getContraseña())) {
+            return usuario; // Retorna el objeto real (ej. una instancia de Cliente)
+        }
+        
+        return null;
+    } catch (NoResultException e) {
+        // Si el usuario no existe en la tabla padre
+        return null;
+    } catch (Exception e) {
+        // Captura errores de hash mal formado o conexión
+        e.printStackTrace();
+        return null;
+    }
+}
 
     /* ===== Editar Datos Personales del Candidato =====
      - Candidato modifica los campos de su cv desde su perfil. */
@@ -127,7 +154,8 @@ public class ZTalentManagerServicio {
                 
                 
             }
-        }   
+    }
+}
     
            
-}
+

@@ -34,12 +34,15 @@ s\z_talent_manager\vista\FrmCompetencias$WrapLayout.class
 s\z_talent_manager\vista\FrmInfoPersonal$AvatarPanel.class
 s\z_talent_manager\dao\CandidatoTecnicaDAO.class
 s\z_talent_manager\vista\FrmLogin$2.class
+s\z_talent_manager\dao\Usuarioimpl.class
 s\z_talent_manager\modelo\CandidatoTecnica.class
 s\z_talent_manager\vista\FrmContraseñaOlvidada$2.class
 s\z_talent_manager\vista\FrmTitulacion$3.class
 s\z_talent_manager\vista\FrmVentanaPrincipal$3.class
+s\z_talent_manager\modelo\Sesion.class
 s\z_talent_manager\vista\FrmTitulacion.class
 s\z_talent_manager\dao\CandidatoTitulacionDAO.class
+s\z_talent_manager\dao\UsuarioDAO.class
 s\z_talent_manager\modelo\CompetenciaTecnica.class
 s\z_talent_manager\modelo\CandidatoTitulacion.class
 s\z_talent_manager\vista\FrmExperienciaLaboralModificacion$1.class

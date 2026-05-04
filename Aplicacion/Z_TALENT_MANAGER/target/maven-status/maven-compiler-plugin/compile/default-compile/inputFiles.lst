@@ -11,6 +11,8 @@ D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\CandidatoTransversalImpl.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\ExperienciaDAO.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\ExperienciaImpl.java
+D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\UsuarioDAO.java
+D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\dao\Usuarioimpl.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Administrador.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Candidato.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\CandidatoIdioma.java
@@ -20,6 +22,7 @@ D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\CompetenciaTecnica.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Experiencia.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Idioma.java
+D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Sesion.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Titulacion.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Transversal.java
 D:\EQUIPO-03\Z-TALENT-MANAGER-Equipo_3\Aplicacion\Z_TALENT_MANAGER\src\main\java\s\z_talent_manager\modelo\Usuario.java

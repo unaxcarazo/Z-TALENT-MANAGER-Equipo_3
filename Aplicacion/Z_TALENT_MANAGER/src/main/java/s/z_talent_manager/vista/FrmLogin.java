@@ -10,6 +10,10 @@ import java.awt.Desktop;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URI;
+import javax.swing.JOptionPane;
+import s.z_talent_manager.modelo.Sesion;
+import s.z_talent_manager.modelo.Usuario;
+import s.z_talent_manager.servicio.ZTalentManagerServicio;
 
 /**
  *
@@ -47,27 +51,11 @@ public class FrmLogin extends javax.swing.JFrame {
     btnLogin.addMouseListener(new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            new FrmContraseñaOlvidada().setVisible(true);
+            
         }
     });
-        /*Al hacer click te lleva a otro panel
-        lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-        lblOlvidoContraseña.addMouseListener(new MouseAdapter() {
-    @Override
-    public void mouseClicked(MouseEvent e) {
+       
         
-        FrmOlvidoContraseña frmOlvidoContraseña= new FrmOlvidoContraseña();
-        frmOlvidoContraseña.setVisible(true);
-        
-        
-        
-         
-        
-
-    }
-});
-         */
         lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         lblOlvidoContraseña.addMouseListener(new MouseAdapter() {
@@ -234,11 +222,59 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+      
         
-         new FrmContraseñaOlvidada().setVisible(true);
-    dispose();
+        String email = txtUsuario.getText();
+String password = new String(txtPassword.getPassword());
+
+try {
+   
+    Usuario usuario = ZTalentManagerServicio.getServicio().login(email, password);
+
+ 
+    if (usuario != null) {
+        Sesion.setUsuario(usuario);
+  
+        if (usuario.getAdministrador() == false) {
+            new FrmVentanaPrincipal().setVisible(true);
+        } else {
+            // new FrmADMIN().setVisible(true);
+            System.out.println("Es administrador");
+        }
         
-     
+ 
+        dispose();
+
+    } else {
+      
+        JOptionPane.showMessageDialog(this, "Email o contraseña incorrectos", "Login Fallido", JOptionPane.ERROR_MESSAGE);
+    }
+
+} catch (Exception e) {
+    // Errores inesperados (conexión BD, etc.)
+    JOptionPane.showMessageDialog(this, "Error de conexión: " + e.getMessage(), "ERROR", JOptionPane.WARNING_MESSAGE);
+}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

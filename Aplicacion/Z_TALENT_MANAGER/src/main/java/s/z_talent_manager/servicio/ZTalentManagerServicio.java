@@ -58,10 +58,21 @@ public class ZTalentManagerServicio {
  /* ===== Ver perfil desde candidato. =====
      - Candidato visualiza su perfil y curriculum. */
     public Candidato getCandidato(Integer idCandidato) {
-        try (EntityManager em = JPAUtil.getEntityManager()) {
-            return candidatoDAO.getCandidato(em, idCandidato);
+    try (EntityManager em = JPAUtil.getEntityManager()) {
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin(); 
+            
+            Candidato c = candidatoDAO.getCandidato(em, idCandidato);
+            
+            tx.commit(); 
+            return c;
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            throw e;
         }
     }
+}
     
     public List<Candidato> getCandidatos() {
         try (EntityManager em = JPAUtil.getEntityManager()) {
@@ -107,24 +118,6 @@ public class ZTalentManagerServicio {
             try {
                 tx.begin();
                 em.merge(ca);
-                tx.commit();
-            } catch (Exception ex) {
-                if (tx.isActive()) {
-                    tx.rollback();
-                }
-                throw new RuntimeException(ex.getMessage());
-                
-                
-            }
-        }   
-    
-    /*CREAR CANDIDATO*/
-    
-        public void CrearCandidato(EntityManager em, Candidato ca) {
-          EntityTransaction tx = em.getTransaction();
-            try {
-                tx.begin();
-                em.persist(ca);
                 tx.commit();
             } catch (Exception ex) {
                 if (tx.isActive()) {

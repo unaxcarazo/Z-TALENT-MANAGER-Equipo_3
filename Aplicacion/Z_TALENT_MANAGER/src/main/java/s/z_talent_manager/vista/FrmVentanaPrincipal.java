@@ -6,6 +6,7 @@ package s.z_talent_manager.vista;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import s.z_talent_manager.modelo.Candidato;
@@ -207,9 +208,9 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCambiarContraseñaMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarContraseñaMainActionPerformed
-           /* this.setVisible(false);
+            this.setVisible(false);
 
-    FrmCambiarContraseña frmContraseña = new FrmCambiarContraseña();
+    FrmContraseñaOlvidada frmContraseña = new FrmContraseñaOlvidada();
     frmContraseña.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     frmContraseña.setLocationRelativeTo(null);
     frmContraseña.setVisible(true);
@@ -219,7 +220,7 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
         public void windowClosed(java.awt.event.WindowEvent e) {
             setVisible(true);
         }
-    }); */
+    }); 
 
     }//GEN-LAST:event_btnCambiarContraseñaMainActionPerformed
 

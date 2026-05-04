@@ -23,7 +23,7 @@ import lombok.ToString;
  * @author DAW1
  */
 @Entity
-@Table (name = "CurriculumTransversal")
+@Table (name = "CandidatoTransversal")
 @Getter
 @Setter
 @NoArgsConstructor

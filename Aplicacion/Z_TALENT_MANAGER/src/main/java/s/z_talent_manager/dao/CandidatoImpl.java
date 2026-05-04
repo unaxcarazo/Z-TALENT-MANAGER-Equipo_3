@@ -34,29 +34,65 @@ public class CandidatoImpl implements CandidatoDAO {
 
     @Override
     public Candidato getCandidato(EntityManager em, Integer id) {
-         try {
-            return em.createQuery("""
-                SELECT ca
-                FROM Candidato ca
-                LEFT JOIN FETCH ca.candidatoIdiomas
-                LEFT JOIN FETCH ca.candidatoTecnicas
-                LEFT JOIN FETCH ca.candidatoTransversales
-                LEFT JOIN FETCH ca.candidatoTitulaciones
-                LEFT JOIN FETCH ca.experiencias                               
-                WHERE ca.idUsuario = :id
-                """, Candidato.class)
-                .setParameter("id", id)
-                .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
+               try {
+      
+        Candidato ca = em.createQuery("""
+            SELECT DISTINCT ca
+            FROM Candidato ca
+            LEFT JOIN FETCH ca.candidatoIdiomas ci
+            LEFT JOIN FETCH ci.idioma
+            WHERE ca.idUsuario = :id
+            """, Candidato.class)
+            .setParameter("id", id)
+            .getSingleResult();
+
+       
+        em.createQuery("""
+            SELECT ca FROM Candidato ca 
+            LEFT JOIN FETCH ca.candidatoTecnicas ct
+            LEFT JOIN FETCH ct.competenciaTecnica
+            WHERE ca.idUsuario = :id
+            """, Candidato.class)
+          .setParameter("id", id).getSingleResult();
+
+ 
+        em.createQuery("""
+            SELECT ca FROM Candidato ca 
+            LEFT JOIN FETCH ca.candidatoTransversales ctr
+            LEFT JOIN FETCH ctr.transversal
+            WHERE ca.idUsuario = :id
+            """, Candidato.class)
+          .setParameter("id", id).getSingleResult();
+
+       
+        em.createQuery("""
+            SELECT ca FROM Candidato ca 
+            LEFT JOIN FETCH ca.candidatoTitulaciones cti
+            LEFT JOIN FETCH cti.titulacion
+            WHERE ca.idUsuario = :id
+            """, Candidato.class)
+          .setParameter("id", id).getSingleResult();
+
+  
+        em.createQuery("""
+            SELECT ca FROM Candidato ca 
+            LEFT JOIN FETCH ca.experiencias 
+            WHERE ca.idUsuario = :id
+            """, Candidato.class)
+          .setParameter("id", id).getSingleResult();
+
+        return ca;
+    } catch (NoResultException e) {
+        return null;
     }
+}
 
     @Override
     public List<Candidato> getCandidatos(EntityManager em) {
         return em.createQuery(
                 """
-                SELECT ca FROM Candidato ca            
+                SELECT ca 
+                FROM Candidato ca            
                 """, Candidato.class)
                 .getResultList(); 
     }

@@ -210,7 +210,7 @@ public class FrmInfoPersonal extends JPanel {
             Window ventanaPrincipal = SwingUtilities.getWindowAncestor(this);
             ventanaPrincipal.setVisible(false);
 
-            FrmEditarInfoPersonal frameEditar = new FrmEditarInfoPersonal();
+            FrmInformacionPersonalModificacion frameEditar = new FrmInformacionPersonalModificacion();
             frameEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frameEditar.setLocationRelativeTo(null);
             frameEditar.setVisible(true);

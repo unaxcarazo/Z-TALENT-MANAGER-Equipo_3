@@ -17,7 +17,7 @@
     <class>s.z_talent_manager.modelo.CandidatoTransversal</class>
     <properties>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-      <property name="jakarta.persistence.jdbc.user" value="daw1"/>
+      <property name="jakarta.persistence.jdbc.user" value="zuser"/>
       <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="jakarta.persistence.jdbc.password" value="tiger"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>

@@ -160,7 +160,7 @@ public class FrmTitulacion extends JPanel {
             Window ventanaActual = SwingUtilities.getWindowAncestor(this);
             ventanaActual.setVisible(false);
 
-            FrmEditarTitulacion frameEditar = new FrmEditarTitulacion();
+            FrmEducacionFormacionModificar frameEditar = new FrmEducacionFormacionModificar();
             frameEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frameEditar.setLocationRelativeTo(null);
             frameEditar.setVisible(true);

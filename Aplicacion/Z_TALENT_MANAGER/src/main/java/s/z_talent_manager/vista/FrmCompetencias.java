@@ -241,7 +241,7 @@ public class FrmCompetencias extends JPanel {
         Window ventanaActual = SwingUtilities.getWindowAncestor(this);
         ventanaActual.setVisible(false);
 
-       FrmEditarCompetencias frameEditar = new FrmEditarCompetencias();
+       FrmCompetenciaModificar frameEditar = new FrmCompetenciaModificar();
         frameEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameEditar.setLocationRelativeTo(null);
         frameEditar.setVisible(true);

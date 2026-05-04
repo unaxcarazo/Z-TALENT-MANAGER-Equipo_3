@@ -44,6 +44,8 @@ public class CandidatoTitulacion {
     @JoinColumn(name = "idTitulacion")
     private Titulacion titulacion;
     
+    private String centroFormativo;
+    
     private LocalDate fechaInicio;
     
     private LocalDate fechaFin;

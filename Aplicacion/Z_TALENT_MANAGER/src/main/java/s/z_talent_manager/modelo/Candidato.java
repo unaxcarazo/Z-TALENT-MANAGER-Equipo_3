@@ -27,17 +27,17 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(exclude = {"experiencias", "curriculumTitulaciones",
-                     "curriculumTransversales", "curriculumTecnicas",
-                     "curriculumIdiomas"})
+@ToString(exclude = {"experiencias", "candidatoTitulaciones",
+                     "candidatoTransversales", "candidatoTecnicas",
+                     "candidatoIdiomas"})
 
 public class Candidato extends Usuario{
    
-    private String nombre;
+   /* private String nombre;
     
     private String primerApellido;
     
-    private String segundoApellido;
+    private String segundoApellido; */
     
     private String municipio;
     
@@ -59,24 +59,57 @@ public class Candidato extends Usuario{
     @OneToMany(mappedBy = "candidato", 
                cascade = CascadeType.ALL, 
                orphanRemoval = true)
-    private List<CandidatoTitulacion> curriculumTitulaciones;
+    private List<CandidatoTitulacion> candidatoTitulaciones;
     
     @OneToMany(mappedBy = "candidato", 
                cascade = CascadeType.ALL, 
                orphanRemoval = true)
-    private List<CandidatoTransversal> curriculumTransversales;
+    private List<CandidatoTransversal> candidatoTransversales;
     
     @OneToMany(mappedBy = "candidato", 
                cascade = CascadeType.ALL, 
                orphanRemoval = true)
-    private List<CandidatoTecnica> curriculumTecnicas;
+    private List<CandidatoTecnica> candidatoTecnicas;
     
     @OneToMany(mappedBy = "candidato", 
                cascade = CascadeType.ALL, 
                orphanRemoval = true)
-    private List<CandidatoIdioma> curriculumIdiomas;
+    private List<CandidatoIdioma> candidatoIdiomas;
     
     @Column(columnDefinition = "DATE NOT NULL")
     private LocalDate fechaCreacion;
    
+    
+    /* Obtener nombre y apellidos de Usuario para que se muestre en los FRM*/
+       // --- MÉTODOS PARA EL NOMBRE ---
+    @Override
+    public String getNombre() {
+        return super.getNombre();
+    }
+    @Override
+    public void setNombre(String nombre) {
+        super.setNombre(nombre);
+    }
+
+    // --- MÉTODOS PARA LOS APELLIDOS ---
+    public String getPrimerApellido() {
+        String ape = super.getApellidos();
+        if (ape == null) return "";
+        return ape.contains(" ") ? ape.split(" ")[0] : ape;
+    }
+
+    public String getSegundoApellido() {
+        String ape = super.getApellidos();
+        if (ape == null || !ape.contains(" ")) return "";
+        return ape.substring(ape.indexOf(" ") + 1);
+    }
+
+    
+    public void setPrimerApellido(String p) {
+        super.setApellidos((p + " " + getSegundoApellido()).trim());
+    }
+
+    public void setSegundoApellido(String s) {
+        super.setApellidos((getPrimerApellido() + " " + s).trim());
+    }
 }

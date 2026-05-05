@@ -16,7 +16,7 @@
     <class>s.z_talent_manager.modelo.CandidatoTecnica</class>
     <class>s.z_talent_manager.modelo.CandidatoTransversal</class>
     <properties>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
       <property name="jakarta.persistence.jdbc.user" value="zuser"/>
       <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="jakarta.persistence.jdbc.password" value="tiger"/>

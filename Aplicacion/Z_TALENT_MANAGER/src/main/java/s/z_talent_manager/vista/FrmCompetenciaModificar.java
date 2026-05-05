@@ -17,10 +17,15 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
     /**
      * Creates new form FrmExperienciaLaboralModificacion
      */
+    
+  
+    
+    
     public FrmCompetenciaModificar() {
-        initComponents();
-        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
-
+    
+    initComponents();
+    jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
+ 
         
 
     }
@@ -251,13 +256,18 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlAñadirEliminarIdioma.setBackground(new java.awt.Color(255, 255, 255));
         pnlAñadirEliminarIdioma.setPreferredSize(new java.awt.Dimension(800, 50));
 
-        btnEliminarIdioma.setForeground(new java.awt.Color(51, 51, 51));
+        btnEliminarIdioma.setForeground(new java.awt.Color(7, 48, 26));
         btnEliminarIdioma.setText("Eliminar");
         pnlAñadirEliminarIdioma.add(btnEliminarIdioma);
 
         btnGuardarIdioma.setBackground(new java.awt.Color(7, 48, 26));
         btnGuardarIdioma.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarIdioma.setText("Añadir");
+        btnGuardarIdioma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarIdiomaActionPerformed(evt);
+            }
+        });
         pnlAñadirEliminarIdioma.add(btnGuardarIdioma);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -515,6 +525,11 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         btnGuardar.setBackground(new java.awt.Color(7, 48, 26));
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         pnlFooter.add(btnGuardar);
 
         getContentPane().add(pnlFooter);
@@ -525,6 +540,14 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void btnGuardarIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarIdiomaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarIdiomaActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments

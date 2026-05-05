@@ -4,6 +4,11 @@
  */
 package s.z_talent_manager.vista;
 
+import javax.swing.JOptionPane;
+import s.z_talent_manager.modelo.Candidato;
+import s.z_talent_manager.modelo.Sesion;
+import s.z_talent_manager.servicio.ZTalentManagerServicio;
+
 /**
  *
  * @author maymansito
@@ -18,9 +23,53 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
     public FrmInformacionPersonalModificacion() {
         initComponents();
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
-
+        cargarDatos();
+        btnCancelar.addActionListener(e -> dispose());
     }
 
+    
+    private void cargarDatos() {
+    Candidato c = (Candidato) Sesion.getUsuario();
+    
+    txtNombre.setText(c.getNombre());
+    txtPrimerApellido.setText(c.getPrimerApellido());
+    txtSegundoApellido.setText(c.getSegundoApellido());
+    txaSobreMi.setText(c.getSobreMi());
+    txtCorreo.setText(c.getEmail());
+    txtTelefono.setText(c.getTelefono());
+    
+    // Fecha de nacimiento
+    if (c.getFechaNacimiento() != null) {
+        txtFechaNacimiento.setValue(java.sql.Date.valueOf(c.getFechaNacimiento()));
+    }
+    
+    // Género
+    cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(
+        new String[]{"Masculino", "Femenino", "Otro"}));
+    if (c.getGenero() != null) {
+        cmbGenero.setSelectedItem(c.getGenero());
+    }
+    
+    // Municipio y provincia como texto libre por ahora
+    cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(
+        new String[]{c.getMunicipio()}));
+    cmbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(
+        new String[]{c.getProvincia()}));
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,7 +144,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(jSeparator1, gridBagConstraints);
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre.setForeground(new java.awt.Color(7, 48, 26));
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNombre.setText("Nombre");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -105,7 +154,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblNombre, gridBagConstraints);
 
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setForeground(new java.awt.Color(51, 51, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -116,7 +164,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(txtNombre, gridBagConstraints);
 
         lblPrimerApellido.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblPrimerApellido.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrimerApellido.setForeground(new java.awt.Color(7, 48, 26));
         lblPrimerApellido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPrimerApellido.setText("Primer Apellido");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -126,7 +174,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblPrimerApellido, gridBagConstraints);
 
-        txtPrimerApellido.setBackground(new java.awt.Color(255, 255, 255));
         txtPrimerApellido.setForeground(new java.awt.Color(51, 51, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -137,7 +184,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(txtPrimerApellido, gridBagConstraints);
 
         lblSegundoApellido.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSegundoApellido.setForeground(new java.awt.Color(51, 51, 51));
+        lblSegundoApellido.setForeground(new java.awt.Color(7, 48, 26));
         lblSegundoApellido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSegundoApellido.setText("Segundo Apellido");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -147,7 +194,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblSegundoApellido, gridBagConstraints);
 
-        txtSegundoApellido.setBackground(new java.awt.Color(255, 255, 255));
         txtSegundoApellido.setForeground(new java.awt.Color(51, 51, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -158,7 +204,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(txtSegundoApellido, gridBagConstraints);
 
         lblSobreMi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSobreMi.setForeground(new java.awt.Color(51, 51, 51));
+        lblSobreMi.setForeground(new java.awt.Color(7, 48, 26));
         lblSobreMi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSobreMi.setText("Sobre mi");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -168,9 +214,8 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblSobreMi, gridBagConstraints);
 
-        txaSobreMi.setBackground(new java.awt.Color(255, 255, 255));
         txaSobreMi.setColumns(20);
-        txaSobreMi.setForeground(new java.awt.Color(0, 0, 0));
+        txaSobreMi.setForeground(new java.awt.Color(7, 48, 26));
         txaSobreMi.setRows(5);
         txaSobreMi.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         txaSobreMi.setMinimumSize(new java.awt.Dimension(400, 100));
@@ -182,7 +227,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(txaSobreMi, gridBagConstraints);
 
         lblFechaNacimiento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblFechaNacimiento.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaNacimiento.setForeground(new java.awt.Color(7, 48, 26));
         lblFechaNacimiento.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblFechaNacimiento.setText("Fecha de Nacimiento");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -192,7 +237,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblFechaNacimiento, gridBagConstraints);
 
-        txtFechaNacimiento.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaNacimiento.setForeground(new java.awt.Color(51, 51, 51));
         txtFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         txtFechaNacimiento.setText("02/02/02");
@@ -209,7 +253,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(txtFechaNacimiento, gridBagConstraints);
 
         lblGenero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblGenero.setForeground(new java.awt.Color(51, 51, 51));
+        lblGenero.setForeground(new java.awt.Color(7, 48, 26));
         lblGenero.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblGenero.setText("Genero");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -219,7 +263,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblGenero, gridBagConstraints);
 
-        cmbGenero.setBackground(new java.awt.Color(255, 255, 255));
         cmbGenero.setForeground(new java.awt.Color(51, 51, 51));
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -252,7 +295,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(jSeparator2, gridBagConstraints);
 
         lblCorreo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCorreo.setForeground(new java.awt.Color(51, 51, 51));
+        lblCorreo.setForeground(new java.awt.Color(7, 48, 26));
         lblCorreo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCorreo.setText("Correo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -262,7 +305,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblCorreo, gridBagConstraints);
 
-        txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
         txtCorreo.setForeground(new java.awt.Color(51, 51, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -273,7 +315,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(txtCorreo, gridBagConstraints);
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTelefono.setForeground(new java.awt.Color(51, 51, 51));
+        lblTelefono.setForeground(new java.awt.Color(7, 48, 26));
         lblTelefono.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTelefono.setText("Telefono");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -283,7 +325,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblTelefono, gridBagConstraints);
 
-        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setForeground(new java.awt.Color(51, 51, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -315,7 +356,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(jSeparator3, gridBagConstraints);
 
         lblMunicipio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblMunicipio.setForeground(new java.awt.Color(51, 51, 51));
+        lblMunicipio.setForeground(new java.awt.Color(7, 48, 26));
         lblMunicipio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblMunicipio.setText("Municipio");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -325,7 +366,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblMunicipio, gridBagConstraints);
 
-        cmbMunicipio.setBackground(new java.awt.Color(255, 255, 255));
         cmbMunicipio.setForeground(new java.awt.Color(51, 51, 51));
         cmbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -337,7 +377,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlBody.add(cmbMunicipio, gridBagConstraints);
 
         lblProvincia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblProvincia.setForeground(new java.awt.Color(51, 51, 51));
+        lblProvincia.setForeground(new java.awt.Color(7, 48, 26));
         lblProvincia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblProvincia.setText("Provincia");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -347,7 +387,6 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblProvincia, gridBagConstraints);
 
-        cmbProvincia.setBackground(new java.awt.Color(255, 255, 255));
         cmbProvincia.setForeground(new java.awt.Color(51, 51, 51));
         cmbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -365,14 +404,18 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
         pnlFooter.setBackground(new java.awt.Color(255, 255, 255));
         pnlFooter.setPreferredSize(new java.awt.Dimension(800, 50));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
+        btnCancelar.setForeground(new java.awt.Color(7, 48, 26));
         btnCancelar.setText("CANCELAR");
         pnlFooter.add(btnCancelar);
 
-        btnGuardar.setBackground(new java.awt.Color(78, 125, 158));
-        btnGuardar.setForeground(new java.awt.Color(51, 51, 51));
+        btnGuardar.setBackground(new java.awt.Color(7, 48, 26));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         pnlFooter.add(btnGuardar);
 
         getContentPane().add(pnlFooter);
@@ -383,6 +426,66 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
     private void txtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacimientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaNacimientoActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
+
+
+ try {
+        Candidato c = (Candidato) Sesion.getUsuario();
+
+        c.setNombre(txtNombre.getText().trim());
+        c.setPrimerApellido(txtPrimerApellido.getText().trim());
+        c.setSegundoApellido(txtSegundoApellido.getText().trim());
+        c.setSobreMi(txaSobreMi.getText().trim());
+        c.setEmail(txtCorreo.getText().trim());
+        c.setTelefono(txtTelefono.getText().trim());
+        c.setGenero((String) cmbGenero.getSelectedItem());
+        c.setMunicipio((String) cmbMunicipio.getSelectedItem());
+        c.setProvincia((String) cmbProvincia.getSelectedItem());
+
+     if (txtFechaNacimiento.getValue() != null) {
+    java.util.Date fecha = (java.util.Date) txtFechaNacimiento.getValue();
+    java.util.Calendar cal = java.util.Calendar.getInstance();
+    cal.setTime(fecha);
+    c.setFechaNacimiento(java.time.LocalDate.of(
+        cal.get(java.util.Calendar.YEAR),
+        cal.get(java.util.Calendar.MONTH) + 1,
+        cal.get(java.util.Calendar.DAY_OF_MONTH)
+    ));
+}
+
+        ZTalentManagerServicio.getServicio().modificarCandidato(c);
+
+        JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
+        
+        dispose();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, 
+            "Error al guardar: " + e.getMessage(), 
+            "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments

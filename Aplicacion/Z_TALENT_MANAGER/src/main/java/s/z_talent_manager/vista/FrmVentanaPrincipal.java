@@ -41,7 +41,8 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
         tabbedPane.addTab("Titulación", panelTit);
         tabbedPane.addTab("Competencias", panelComp);
 
-        cargarDatosDesdeServicio(panelInfo, panelExp, panelTit, panelComp);
+        cargarDatosDesdeServicio(panelInfo, panelExp, panelTit, panelComp); 
+        
     }
 
     private void cargarDatosDesdeServicio(

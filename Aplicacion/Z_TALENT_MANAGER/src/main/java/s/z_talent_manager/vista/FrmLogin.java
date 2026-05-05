@@ -29,10 +29,19 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        tbtnVerContraseña.addActionListener(e -> {
+    if (tbtnVerContraseña.isSelected()) {
+        txtPassword.setEchoChar((char) 0); // muestra el texto
+    } else {
+        txtPassword.setEchoChar('•'); // vuelve a ocultar
+    }
+});
+
 
         // sirve para al hacer click en el hipervinculo te redirija a la pagina   
         lblEnlaceManualUsuario.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
+        txtUsuario.setRequestFocusEnabled(true);
         lblEnlaceManualUsuario.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -45,17 +54,14 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        
-        
-            btnLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    btnLogin.addMouseListener(new MouseAdapter() {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            
-        }
-    });
-       
-        
+        btnLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnLogin.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+        });
+
         lblOlvidoContraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         lblOlvidoContraseña.addMouseListener(new MouseAdapter() {
@@ -94,6 +100,7 @@ public class FrmLogin extends javax.swing.JFrame {
         lblOlvidoContraseña = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
+        tbtnVerContraseña = new javax.swing.JToggleButton();
         PnlBottom = new javax.swing.JPanel();
         lblEnlaceManualUsuario = new javax.swing.JLabel();
 
@@ -129,11 +136,10 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblUsuario, gridBagConstraints);
 
-        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
+        txtUsuario.setForeground(new java.awt.Color(7, 48, 26));
         txtUsuario.setText("Usuario");
-        txtUsuario.setPreferredSize(new java.awt.Dimension(150, 20));
-        txtUsuario.setRequestFocusEnabled(false);
+        txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtUsuario.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -143,7 +149,7 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(txtUsuario, gridBagConstraints);
 
-        lblContraseña.setForeground(new java.awt.Color(51, 51, 51));
+        lblContraseña.setForeground(new java.awt.Color(7, 48, 26));
         lblContraseña.setText("CONTRASEÑA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -153,10 +159,9 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblContraseña, gridBagConstraints);
 
-        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
         txtPassword.setForeground(new java.awt.Color(51, 51, 51));
-        txtPassword.setText("jPasswordField1");
-        txtPassword.setPreferredSize(new java.awt.Dimension(150, 20));
+        txtPassword.setText("Contraseña");
+        txtPassword.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -179,8 +184,8 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(lblOlvidoContraseña, gridBagConstraints);
 
-        btnLogin.setBackground(new java.awt.Color(101, 158, 234));
-        btnLogin.setForeground(new java.awt.Color(51, 51, 51));
+        btnLogin.setBackground(new java.awt.Color(7, 48, 26));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +207,19 @@ public class FrmLogin extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         pnlLogin.add(filler2, gridBagConstraints);
 
+        tbtnVerContraseña.setBackground(new java.awt.Color(51, 153, 102));
+        tbtnVerContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        tbtnVerContraseña.setText("Ver");
+        tbtnVerContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnVerContraseñaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 5;
+        pnlLogin.add(tbtnVerContraseña, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -222,47 +240,52 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-      
-        
+
         String email = txtUsuario.getText();
-String password = new String(txtPassword.getPassword());
+        String password = new String(txtPassword.getPassword());
 
-try {
-   
-    Usuario usuario = ZTalentManagerServicio.getServicio().login(email, password);
+        try {
 
- 
-    if (usuario != null) {
-        Sesion.setUsuario(usuario);
-  
-        if (usuario.getAdministrador() == false) {
-            new FrmVentanaPrincipal().setVisible(true);
-        } else {
-            // new FrmADMIN().setVisible(true);
-            System.out.println("Es administrador");
+            Usuario usuario = ZTalentManagerServicio.getServicio().login(email, password);
+
+            if (usuario != null) {
+                Sesion.setUsuario(usuario);
+
+                if (!Boolean.TRUE.equals(usuario.getAdministrador())) {
+                    new FrmVentanaPrincipal().setVisible(true);
+                } else {
+                    new FrmPanelAdmin().setVisible(true);
+                    System.out.println("Es administrador");
+                }
+
+                dispose();
+
+            } else {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Email o contraseña incorrectos",
+                        "Login Fallido",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            // Errores inesperados (conexión BD, etc.)
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(
+                    
+                    this,
+                    "Error de conexión: " + e.getMessage(),
+                    "ERROR", JOptionPane.WARNING_MESSAGE);
+            
         }
- 
-        dispose();
 
-    } else {
-      
-        JOptionPane.showMessageDialog(
-                this, 
-                "Email o contraseña incorrectos", 
-                "Login Fallido", 
-                JOptionPane.ERROR_MESSAGE);
-    }
 
-    } catch (Exception e) {
-        // Errores inesperados (conexión BD, etc.)
-        JOptionPane.showMessageDialog(
-                this, 
-                "Error de conexión: " + e.getMessage(), 
-                "ERROR", JOptionPane.WARNING_MESSAGE);
- }
-        
-        
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void tbtnVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnVerContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnVerContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +324,7 @@ try {
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLogin;
+    private javax.swing.JToggleButton tbtnVerContraseña;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

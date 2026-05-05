@@ -43,12 +43,14 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import s.z_talent_manager.modelo.Candidato;
+import s.z_talent_manager.modelo.Sesion;
 
 /**
  *
  * @author fabia
  */
 public class FrmInfoPersonal extends JPanel {
+
 
   // ── Paleta ───────────────────────────────────────────────────
     private static final Color VERDE_OSCURO = new Color(7,   48,  26);
@@ -219,6 +221,8 @@ public class FrmInfoPersonal extends JPanel {
                 @Override
                 public void windowClosed(WindowEvent e) {
                     ventanaPrincipal.setVisible(true);
+                    cargarDatos((Candidato) Sesion.getUsuario());
+                    
                 }
             });
         });

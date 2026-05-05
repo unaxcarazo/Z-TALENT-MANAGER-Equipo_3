@@ -74,7 +74,7 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(jSeparator1, gridBagConstraints);
 
         lblTitulacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTitulacion.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulacion.setForeground(new java.awt.Color(7, 48, 26));
         lblTitulacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitulacion.setText("Titulacion");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -105,7 +105,7 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(cmbTipoEstudio, gridBagConstraints);
 
         lblCentroEstudio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCentroEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        lblCentroEstudio.setForeground(new java.awt.Color(7, 48, 26));
         lblCentroEstudio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCentroEstudio.setText("Centro formativo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -126,7 +126,7 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(cmbCentroEstudio, gridBagConstraints);
 
         lblFechaInicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblFechaInicio.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaInicio.setForeground(new java.awt.Color(7, 48, 26));
         lblFechaInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblFechaInicio.setText("Fecha de inicio");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -152,7 +152,7 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(txtFechaInicioEducacion, gridBagConstraints);
 
         lblFechaFinalizacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblFechaFinalizacion.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaFinalizacion.setForeground(new java.awt.Color(7, 48, 26));
         lblFechaFinalizacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblFechaFinalizacion.setText("Fecha de finalizacion");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -178,7 +178,7 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(txtFechaFinEducacion, gridBagConstraints);
 
         rbtnEnCursoEducacion.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnEnCursoEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        rbtnEnCursoEducacion.setForeground(new java.awt.Color(7, 48, 26));
         rbtnEnCursoEducacion.setText("En curso");
         rbtnEnCursoEducacion.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -192,12 +192,12 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlFooter.setBackground(new java.awt.Color(255, 255, 255));
         pnlFooter.setPreferredSize(new java.awt.Dimension(800, 50));
 
-        btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
+        btnCancelar.setForeground(new java.awt.Color(7, 48, 26));
         btnCancelar.setText("CANCELAR");
         pnlFooter.add(btnCancelar);
 
-        btnGuardar.setBackground(new java.awt.Color(78, 125, 158));
-        btnGuardar.setForeground(new java.awt.Color(51, 51, 51));
+        btnGuardar.setBackground(new java.awt.Color(7, 48, 26));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("GUARDAR");
         pnlFooter.add(btnGuardar);
 

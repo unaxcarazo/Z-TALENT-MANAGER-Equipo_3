@@ -114,25 +114,26 @@ public class ZTalentManagerServicio {
     }
     
     public Usuario login(String email, String password) {
-    try (EntityManager em = JPAUtil.getEntityManager()) {
-        // Al usar Usuario.class, JPA hace el JOIN con la tabla hija automáticamente
+   try (EntityManager em = JPAUtil.getEntityManager()) {
         Usuario usuario = em.createQuery(
                 "SELECT u FROM Usuario u WHERE lower(u.email) = lower(:email)", 
                 Usuario.class)
-                        .setParameter("email", email)
+                .setParameter("email", email)
                 .getSingleResult();
 
-        // Conectamos con PasswordUtils para validar el hash
         if (PasswordUtils.checkPw(password, usuario.getContraseña())) {
-            return getCandidato(usuario.getIdUsuario()); // Retorna el objeto real (ej. una instancia de Cliente)
+            // Si es admin devolvemos el usuario directamente
+            if (Boolean.TRUE.equals(usuario.getAdministrador())) {
+                return usuario;
+            }
+            // Si es candidato cargamos el candidato completo
+            return getCandidato(usuario.getIdUsuario());
         }
         
         return null;
     } catch (NoResultException e) {
-        // Si el usuario no existe en la tabla padre
         return null;
     } catch (Exception e) {
-        // Captura errores de hash mal formado o conexión
         e.printStackTrace();
         return null;
     }
@@ -140,21 +141,21 @@ public class ZTalentManagerServicio {
 
     /* ===== Editar Datos Personales del Candidato =====
      - Candidato modifica los campos de su cv desde su perfil. */
-    public void modificarCandidato(EntityManager em, Candidato ca) {
-          EntityTransaction tx = em.getTransaction();
-            try {
-                tx.begin();
-                em.merge(ca);
-                tx.commit();
-            } catch (Exception ex) {
-                if (tx.isActive()) {
-                    tx.rollback();
-                }
-                throw new RuntimeException(ex.getMessage());
-                
-                
+public void modificarCandidato(Candidato ca) {
+    try (EntityManager em = JPAUtil.getEntityManager()) {
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(ca);
+            tx.commit();
+        } catch (Exception ex) {
+            if (tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(ex.getMessage());
+        }
     }
+}
 }
     
            

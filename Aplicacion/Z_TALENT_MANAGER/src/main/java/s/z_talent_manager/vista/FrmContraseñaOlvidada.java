@@ -125,7 +125,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         pnlLogin.setPreferredSize(new java.awt.Dimension(500, 300));
         pnlLogin.setLayout(new java.awt.GridBagLayout());
 
-        lblContraseñaActual.setForeground(new java.awt.Color(51, 51, 51));
+        lblContraseñaActual.setForeground(new java.awt.Color(7, 48, 26));
         lblContraseñaActual.setText("CONTRASEÑA ACTUAL:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -149,7 +149,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(txtPasswordActual, gridBagConstraints);
 
-        lblContraseñaNueva.setForeground(new java.awt.Color(51, 51, 51));
+        lblContraseñaNueva.setForeground(new java.awt.Color(7, 48, 26));
         lblContraseñaNueva.setText("NUEVA CONTRASEÑA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -173,7 +173,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(txtPasswordNueva, gridBagConstraints);
 
-        lblContraseñaConfirmar.setForeground(new java.awt.Color(51, 51, 51));
+        lblContraseñaConfirmar.setForeground(new java.awt.Color(7, 48, 26));
         lblContraseñaConfirmar.setText("CONFIRMAR NUEVA CONTRASEÑA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -208,8 +208,8 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
         pnlLogin.add(lblOlvidoContraseña, gridBagConstraints);
 
-        btnCambiar.setBackground(new java.awt.Color(101, 158, 234));
-        btnCambiar.setForeground(new java.awt.Color(51, 51, 51));
+        btnCambiar.setBackground(new java.awt.Color(7, 48, 26));
+        btnCambiar.setForeground(new java.awt.Color(255, 255, 255));
         btnCambiar.setText("CAMBIAR");
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

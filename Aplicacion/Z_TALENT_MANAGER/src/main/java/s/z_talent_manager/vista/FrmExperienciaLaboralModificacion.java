@@ -75,7 +75,7 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         pnlBody.add(jSeparator1, gridBagConstraints);
 
         lblPuestoOcupado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblPuestoOcupado.setForeground(new java.awt.Color(51, 51, 51));
+        lblPuestoOcupado.setForeground(new java.awt.Color(7, 48, 26));
         lblPuestoOcupado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPuestoOcupado.setText("Puesto o cargo ocupado  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -85,7 +85,6 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblPuestoOcupado, gridBagConstraints);
 
-        txtPuesto.setBackground(new java.awt.Color(255, 255, 255));
         txtPuesto.setForeground(new java.awt.Color(51, 51, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -96,7 +95,7 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         pnlBody.add(txtPuesto, gridBagConstraints);
 
         lblCompañia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCompañia.setForeground(new java.awt.Color(51, 51, 51));
+        lblCompañia.setForeground(new java.awt.Color(7, 48, 26));
         lblCompañia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCompañia.setText("Compañia");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -106,7 +105,6 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         pnlBody.add(lblCompañia, gridBagConstraints);
 
-        txtCompañia.setBackground(new java.awt.Color(255, 255, 255));
         txtCompañia.setForeground(new java.awt.Color(51, 51, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -117,7 +115,7 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         pnlBody.add(txtCompañia, gridBagConstraints);
 
         lblFechaInicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblFechaInicio.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaInicio.setForeground(new java.awt.Color(7, 48, 26));
         lblFechaInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblFechaInicio.setText("Fecha de inicio");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -127,7 +125,6 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblFechaInicio, gridBagConstraints);
 
-        txtFechaInicioLaboral.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaInicioLaboral.setForeground(new java.awt.Color(51, 51, 51));
         txtFechaInicioLaboral.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         txtFechaInicioLaboral.setText("02/02/02");
@@ -144,7 +141,7 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         pnlBody.add(txtFechaInicioLaboral, gridBagConstraints);
 
         lblFechaFinalizacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblFechaFinalizacion.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaFinalizacion.setForeground(new java.awt.Color(7, 48, 26));
         lblFechaFinalizacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblFechaFinalizacion.setText("Fecha de finalizacion");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -155,7 +152,7 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         pnlBody.add(lblFechaFinalizacion, gridBagConstraints);
 
         lblPrincipalesActividades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblPrincipalesActividades.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrincipalesActividades.setForeground(new java.awt.Color(7, 48, 26));
         lblPrincipalesActividades.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPrincipalesActividades.setText("Principales actividades y responsabilidades");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -165,7 +162,6 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblPrincipalesActividades, gridBagConstraints);
 
-        txtFechaFinLaboral.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaFinLaboral.setForeground(new java.awt.Color(51, 51, 51));
         txtFechaFinLaboral.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         txtFechaFinLaboral.setText("02/02/02");
@@ -181,9 +177,8 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 25, 0, 0);
         pnlBody.add(txtFechaFinLaboral, gridBagConstraints);
 
-        txaActividades.setBackground(new java.awt.Color(255, 255, 255));
         txaActividades.setColumns(20);
-        txaActividades.setForeground(new java.awt.Color(0, 0, 0));
+        txaActividades.setForeground(new java.awt.Color(7, 48, 26));
         txaActividades.setRows(5);
         txaActividades.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         txaActividades.setMinimumSize(new java.awt.Dimension(300, 100));
@@ -209,14 +204,18 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         pnlFooter.setBackground(new java.awt.Color(255, 255, 255));
         pnlFooter.setPreferredSize(new java.awt.Dimension(800, 50));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
+        btnCancelar.setForeground(new java.awt.Color(7, 48, 26));
         btnCancelar.setText("CANCELAR");
         pnlFooter.add(btnCancelar);
 
-        btnGuardar.setBackground(new java.awt.Color(78, 125, 158));
-        btnGuardar.setForeground(new java.awt.Color(51, 51, 51));
+        btnGuardar.setBackground(new java.awt.Color(7, 48, 26));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         pnlFooter.add(btnGuardar);
 
         getContentPane().add(pnlFooter);
@@ -231,6 +230,10 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
     private void txtFechaFinLaboralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinLaboralActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaFinLaboralActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments

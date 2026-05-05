@@ -13,14 +13,14 @@
             <nav>
                 <ul>
                     <li><a href="#inicio">Home</a></li>
-                    <li><a href="#funciones">Features</a></li>
+                    <li><a href="#candidato">Candidate</a></li>
+					 <li><a href="#administrador">Administrator</a></li>
                     <li><a href="#descarga">Download</a></li>
                     <li><a href="#contacto">Contact</a></li>
                 </ul>
             </nav>
-            <div class="idioma">
-                <a href="manualUsuario.html" class="boton">ES / EN</a>
-            </div>
+		<div class="idioma">
+			<a href="manualUsuario.html" class="boton">ES / EN</a>
         </div>
     </header>
 
@@ -29,69 +29,87 @@
             <div class="contenedor">
                 <div class="icono-libro">📖</div>
                 <h1>Job Board — User Manual</h1>
-                <p>Welcome to the complete guide for using our application. Here you will find detailed explanations and answers to frequently asked questions.</p>
+                <p>Welcome to the complete guide for our application. Here you will find detailed explanations and answers to frequently asked questions.</p>
                 <a href="#descarga" class="boton-primario">Download Application</a>
             </div>
         </section>
 
-        <section id="funciones">
+<section id="candidato">
             <div class="contenedor">
-                <h2>Application Features</h2>
-
-                <article class="caracteristica">
+                <h2>Candidate Features</h2>
+				
+				<article class="caracteristica ">
                     <div class="texto">
-                        <h3>Main Dashboard</h3>
-                        <p>The main dashboard is your control center. View job offers, track applications, and get a quick overview of your status.</p>
+                        <h3>Login</h3>
+                        <p>This section is the gateway to your professional profile. To ensure the security of your information and provide a personalized experience, you must identify yourself within our system.</p>
                     </div>
                     <div class="imagen">
-                        <img src="./images/imagen1.jpg" alt="Main dashboard screenshot" />
+                        <img src="./images/image7.jpg" alt="Login screenshot" />
                     </div>
                 </article>
 				
-                <article class="caracteristica inverso">
+				<article class="caracteristica inverso">
                     <div class="texto">
-                        <h3>Job Search and Filters</h3>
-                        <p>Use advanced search tools to find job offers that match your profile. Filter by sector, location, contract type, salary, and required experience. Save your searches to receive automatic notifications when matching new offers are published.</p>
+                        <h3>Credential Update</h3>
+                        <p>Within your profile settings, you have the option to modify your access key at any time. This feature is ideal if you wish to update your security or simply change your current key to one that is easier for you to remember.</p>
                     </div>
-                    <div class="imagen">
-                        <img src="./images/imagen2.jpg" alt="Job search and filters screenshot" />
+                    <div class="imagen">   
+						<img src="./images/image6.jpg" alt="Password recovery screenshot" />
                     </div>
                 </article>
-
-                <article class="caracteristica">
+						
+				<article class="caracteristica ">
+                    <div class="texto">
+                        <h3>Forgot Your Password?</h3>
+                        <p>To ensure the security and accessibility of your professional profile, the system allows you to update your password from the settings as long as you know your current key and wish to replace it with one that is easier to remember; however, in the event that you have completely forgotten your credentials, you must complete a Google Form to verify your identity, allowing the administrator to validate your request, perform an internal reset, and send you the new access credentials via email so you can resume your activity immediately.</p>
+                    </div>
+                    <div class="imagen">   
+						<img src="./images/image1.jpg" alt="Password recovery screenshot" />
+                    </div>
+                </article>
+				
+				 <article class="caracteristica inverso">
                     <div class="texto">
                         <h3>Professional Profile</h3>
                         <p>Create and manage your profile. Upload your resume, add work experience, and academic background to stand out to companies.</p>
                     </div>
                     <div class="imagen">
-                        <img src="./images/imagen3.jpg" alt="Profile screenshot" />
+                        <img src="./images/image3.jpg" alt="Profile screenshot" />
+						<img src="./images/image4.jpg" alt="Profile screenshot" />
                     </div>
                 </article>
 				
-                <article class="caracteristica inverso">
-                    <div class="texto">
-                        <h3>Application Management</h3>
-                        <p>Track all your applications from a single place. View the status of each submission, receive update notifications, and access the history of your interviews and communications with companies. Organize your job search efficiently.</p>
-                    </div>
-                    <div class="imagen">
-                        <img src="./images/imagen4.jpg" alt="Application management screenshot" />
-                    </div>
-                </article>
 				
-                <article class="caracteristica">
+				<article class="caracteristica">
                     <div class="texto">
                         <h3>Documents and Resume</h3>
-                        <p>Manage all your professional documents in one place. Upload different versions of your CV, cover letters, certificates, and other relevant documents. Easily attach them to your applications and keep them always accessible.</p>
+                        <p>Manage all your professional documents in one place. Upload different versions of your resume, cover letters, certificates, and other relevant documents. Easily attach them to your applications and keep them always accessible.</p>
                     </div>
                     <div class="imagen">
-                        <img src="./images/imagen5.jpg" alt="Documents and resume screenshot" />
+                        <img src="./images/image.jpg" alt="Documents screenshot" />
                     </div>
                 </article>
+			 </div>
+        </section>
+				
+		<section id="administrador">
+            <div class="contenedor">
+                <h2>Administrator Features</h2>
+				<article class="caracteristica inverso">
+                    <div class="texto">
+                        <h3>Job Search and Filters</h3>
+                        <p>Use the advanced search tools to find job offers that match your profile. Filter by sector, location, contract type, salary, and required experience. Save your searches to receive automatic notifications when new matching offers are published.</p>
+                    </div>
+                    <div class="imagen">
+                        <img src="./images/image.jpg" alt="Job search and filters screenshot" />
+                    </div>
+                </article>
+				
 				
             </div>
         </section>
 
-        <section id="descarga" class="fondo-gris">
+<section id="descarga" class="fondo-gris">
             <div class="contenedor">
                 <h2>Download Application</h2>
                 <div class="grid-descargas">
@@ -121,7 +139,11 @@
     <footer id="contacto">
         <div class="contenedor">
             <p>&copy; 2024 ZABALBURU Ikastetxea - Web Application Development</p>
-            <p>Support: soporte@zabalburu.com</p>
+            <p> <strong> Support: </strong> soporte@zabalburu.com</p>
+			<p> <strong> Address:</strong> C/ Esperanza, 12, 48005 Bilbao.</p>
+			<p> <strong> Phone:</strong> 944 16 31 95 </p>
+			<p> <strong> Website:</strong> zabalburu.org.</p>
+			
         </div>
     </footer>
 

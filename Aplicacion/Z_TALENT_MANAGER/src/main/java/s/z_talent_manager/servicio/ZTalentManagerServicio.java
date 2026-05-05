@@ -124,7 +124,7 @@ public class ZTalentManagerServicio {
 
         // Conectamos con PasswordUtils para validar el hash
         if (PasswordUtils.checkPw(password, usuario.getContraseña())) {
-            return usuario; // Retorna el objeto real (ej. una instancia de Cliente)
+            return getCandidato(usuario.getIdUsuario()); // Retorna el objeto real (ej. una instancia de Cliente)
         }
         
         return null;

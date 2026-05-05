@@ -84,7 +84,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblTitulacion, gridBagConstraints);
 
-        cmbNombreEstudio.setBackground(new java.awt.Color(255, 255, 255));
         cmbNombreEstudio.setForeground(new java.awt.Color(51, 51, 51));
         cmbNombreEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -95,7 +94,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 400);
         pnlBody.add(cmbNombreEstudio, gridBagConstraints);
 
-        cmbTipoEstudio.setBackground(new java.awt.Color(255, 255, 255));
         cmbTipoEstudio.setForeground(new java.awt.Color(51, 51, 51));
         cmbTipoEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -117,7 +115,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         pnlBody.add(lblCentroEstudio, gridBagConstraints);
 
-        cmbCentroEstudio.setBackground(new java.awt.Color(255, 255, 255));
         cmbCentroEstudio.setForeground(new java.awt.Color(51, 51, 51));
         cmbCentroEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -139,7 +136,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblFechaInicio, gridBagConstraints);
 
-        txtFechaInicioEducacion.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaInicioEducacion.setForeground(new java.awt.Color(51, 51, 51));
         txtFechaInicioEducacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         txtFechaInicioEducacion.setText("02/02/02");
@@ -166,7 +162,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
         pnlBody.add(lblFechaFinalizacion, gridBagConstraints);
 
-        txtFechaFinEducacion.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaFinEducacion.setForeground(new java.awt.Color(51, 51, 51));
         txtFechaFinEducacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         txtFechaFinEducacion.setText("02/02/02");
@@ -197,7 +192,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlFooter.setBackground(new java.awt.Color(255, 255, 255));
         pnlFooter.setPreferredSize(new java.awt.Dimension(800, 50));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
         btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
         btnCancelar.setText("CANCELAR");
         pnlFooter.add(btnCancelar);

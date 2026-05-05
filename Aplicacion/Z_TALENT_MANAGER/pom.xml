@@ -64,6 +64,11 @@
             <version>1.18.42</version>
             <scope>provided</scope> 
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE270</version>
+        </dependency>
     </dependencies>
   
     <build>

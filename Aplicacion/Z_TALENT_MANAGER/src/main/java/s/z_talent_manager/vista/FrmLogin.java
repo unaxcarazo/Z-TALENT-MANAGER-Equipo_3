@@ -241,38 +241,25 @@ try {
             // new FrmADMIN().setVisible(true);
             System.out.println("Es administrador");
         }
-        
  
         dispose();
 
     } else {
       
-        JOptionPane.showMessageDialog(this, "Email o contraseña incorrectos", "Login Fallido", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(
+                this, 
+                "Email o contraseña incorrectos", 
+                "Login Fallido", 
+                JOptionPane.ERROR_MESSAGE);
     }
 
-} catch (Exception e) {
-    // Errores inesperados (conexión BD, etc.)
-    JOptionPane.showMessageDialog(this, "Error de conexión: " + e.getMessage(), "ERROR", JOptionPane.WARNING_MESSAGE);
-}
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    } catch (Exception e) {
+        // Errores inesperados (conexión BD, etc.)
+        JOptionPane.showMessageDialog(
+                this, 
+                "Error de conexión: " + e.getMessage(), 
+                "ERROR", JOptionPane.WARNING_MESSAGE);
+ }
         
         
     }//GEN-LAST:event_btnLoginActionPerformed

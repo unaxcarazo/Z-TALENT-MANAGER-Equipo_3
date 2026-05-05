@@ -32,12 +32,6 @@ import lombok.ToString;
                      "candidatoIdiomas"})
 
 public class Candidato extends Usuario{
-   
-   /* private String nombre;
-    
-    private String primerApellido;
-    
-    private String segundoApellido; */
     
     private String municipio;
     

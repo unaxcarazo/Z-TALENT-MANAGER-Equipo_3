@@ -17,15 +17,15 @@ public class Usuarioimpl implements UsuarioDAO {
     @Override
     public Usuario getUsuarioPorEmail(EntityManager em, String email) {
 
-Query q = em.createQuery("""
-                         
-                         SELECT u FROM Usuario u
-                         WHERE u.email = :email
-                         """);
+    Query q = em.createQuery("""
 
-q.setParameter("email", email);
-return (Usuario) q.getSingleResultOrNull();
+                             SELECT u FROM Usuario u
+                             WHERE u.email = :email
+                             """);
+
+    q.setParameter("email", email);
+    return (Usuario) q.getSingleResultOrNull();
+
+        }
 
     }
-    
-}

@@ -4,7 +4,6 @@ s\z_talent_manager\vista\FrmExperienciaLaboralModificacion$2.class
 s\z_talent_manager\vista\FrmPanelAdmin$12.class
 s\z_talent_manager\vista\FrmAdminCrearUsuario.class
 s\z_talent_manager\vista\FrmInfoPersonal$2.class
-s\z_talent_manager\vista\FrmCompetenciaModificar$3.class
 s\z_talent_manager\vista\FrmAdminCrearUsuario$3.class
 s\z_talent_manager\dao\CandidatoTransversalDAO.class
 s\z_talent_manager\vista\FrmInfoPersonal.class
@@ -41,6 +40,7 @@ s\z_talent_manager\vista\FrmCompetenciaModificar$1.class
 s\z_talent_manager\vista\FrmVentanaPrincipal.class
 s\z_talent_manager\modelo\Experiencia.class
 s\z_talent_manager\vista\FrmContraseñaOlvidada$3.class
+s\z_talent_manager\vista\FrmExperienciaLaboralModificacion$3.class
 s\z_talent_manager\modelo\Candidato.class
 s\z_talent_manager\vista\FrmPanelAdmin$6.class
 s\z_talent_manager\vista\FrmInfoPersonal$3.class
@@ -72,7 +72,6 @@ s\z_talent_manager\vista\FrmExperiencias.class
 s\z_talent_manager\vista\FrmPanelAdmin$1.class
 s\z_talent_manager\vista\FrmPanelAdmin$16.class
 s\z_talent_manager\vista\FrmCompetencias$WrapLayout.class
-s\z_talent_manager\vista\FrmCompetenciaModificar$2.class
 s\z_talent_manager\vista\FrmInfoPersonal$AvatarPanel.class
 s\z_talent_manager\vista\FrmPanelAdmin$13.class
 s\z_talent_manager\dao\CandidatoTecnicaDAO.class

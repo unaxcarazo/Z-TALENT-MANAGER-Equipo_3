@@ -40,32 +40,10 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnlBody = new javax.swing.JPanel();
+        lblCompetencia = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        lblComprensionAuditiva = new javax.swing.JLabel();
-        cmbComprensionAuditiva = new javax.swing.JComboBox<>();
-        lblComprensionOral = new javax.swing.JLabel();
-        cmbComprensionOral = new javax.swing.JComboBox<>();
-        lblComprensionLectura = new javax.swing.JLabel();
-        cmbComprensionLectura = new javax.swing.JComboBox<>();
-        lblComprensionEscrita = new javax.swing.JLabel();
-        cmbComprensionAuditiva1 = new javax.swing.JComboBox<>();
-        lblIdioma = new javax.swing.JLabel();
-        cmbIdioma = new javax.swing.JComboBox<>();
-        pnlAñadirEliminarIdioma = new javax.swing.JPanel();
-        btnEliminarIdioma = new javax.swing.JButton();
-        btnGuardarIdioma = new javax.swing.JButton();
         lblCapacidadesTecnicas = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         lblCapacidadesTransversales = new javax.swing.JLabel();
@@ -92,42 +70,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 190, -1));
-
-        jLabel1.setText("Competencia");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
-
-        jLabel2.setText("Nivel");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
-
-        jCheckBox1.setText("T1");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lenguajes"));
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
-
-        jToggleButton1.setText("Java");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jToggleButton1);
-
-        jToggleButton2.setText("Java");
-        jPanel2.add(jToggleButton2);
-
-        jToggleButton3.setText("C");
-        jPanel2.add(jToggleButton3);
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 120, 120));
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modificar informacion personal");
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
@@ -140,6 +82,15 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.setPreferredSize(new java.awt.Dimension(800, 700));
         pnlBody.setLayout(new java.awt.GridBagLayout());
 
+        lblCompetencia.setForeground(new java.awt.Color(51, 51, 51));
+        lblCompetencia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCompetencia.setText("Competencia");
+        lblCompetencia.setPreferredSize(new java.awt.Dimension(800, 16));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        pnlBody.add(lblCompetencia, gridBagConstraints);
+
         jSeparator1.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator1.setForeground(new java.awt.Color(255, 0, 0));
         jSeparator1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -151,132 +102,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         gridBagConstraints.weightx = 400.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         pnlBody.add(jSeparator1, gridBagConstraints);
-
-        lblComprensionAuditiva.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblComprensionAuditiva.setForeground(new java.awt.Color(7, 48, 26));
-        lblComprensionAuditiva.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblComprensionAuditiva.setText("Comprension auditiva");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblComprensionAuditiva, gridBagConstraints);
-
-        cmbComprensionAuditiva.setForeground(new java.awt.Color(51, 51, 51));
-        cmbComprensionAuditiva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbComprensionAuditiva, gridBagConstraints);
-
-        lblComprensionOral.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblComprensionOral.setForeground(new java.awt.Color(7, 48, 26));
-        lblComprensionOral.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblComprensionOral.setText("Comprension oral");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblComprensionOral, gridBagConstraints);
-
-        cmbComprensionOral.setForeground(new java.awt.Color(51, 51, 51));
-        cmbComprensionOral.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbComprensionOral, gridBagConstraints);
-
-        lblComprensionLectura.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblComprensionLectura.setForeground(new java.awt.Color(7, 48, 26));
-        lblComprensionLectura.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblComprensionLectura.setText("Comprension lectura");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblComprensionLectura, gridBagConstraints);
-
-        cmbComprensionLectura.setForeground(new java.awt.Color(51, 51, 51));
-        cmbComprensionLectura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbComprensionLectura, gridBagConstraints);
-
-        lblComprensionEscrita.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblComprensionEscrita.setForeground(new java.awt.Color(7, 48, 26));
-        lblComprensionEscrita.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblComprensionEscrita.setText("Comprension escrita");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblComprensionEscrita, gridBagConstraints);
-
-        cmbComprensionAuditiva1.setForeground(new java.awt.Color(51, 51, 51));
-        cmbComprensionAuditiva1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbComprensionAuditiva1, gridBagConstraints);
-
-        lblIdioma.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblIdioma.setForeground(new java.awt.Color(7, 48, 26));
-        lblIdioma.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblIdioma.setText("Idioma");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblIdioma, gridBagConstraints);
-
-        cmbIdioma.setForeground(new java.awt.Color(51, 51, 51));
-        cmbIdioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbIdioma, gridBagConstraints);
-
-        pnlAñadirEliminarIdioma.setBackground(new java.awt.Color(255, 255, 255));
-        pnlAñadirEliminarIdioma.setPreferredSize(new java.awt.Dimension(800, 50));
-
-        btnEliminarIdioma.setForeground(new java.awt.Color(7, 48, 26));
-        btnEliminarIdioma.setText("Eliminar");
-        pnlAñadirEliminarIdioma.add(btnEliminarIdioma);
-
-        btnGuardarIdioma.setBackground(new java.awt.Color(7, 48, 26));
-        btnGuardarIdioma.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardarIdioma.setText("Añadir");
-        btnGuardarIdioma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarIdiomaActionPerformed(evt);
-            }
-        });
-        pnlAñadirEliminarIdioma.add(btnGuardarIdioma);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 450, 3, 3);
-        pnlBody.add(pnlAñadirEliminarIdioma, gridBagConstraints);
 
         lblCapacidadesTecnicas.setForeground(new java.awt.Color(51, 51, 51));
         lblCapacidadesTecnicas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -337,7 +162,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblAutonomia, gridBagConstraints);
 
         cmbAutonomia.setForeground(new java.awt.Color(51, 51, 51));
-        cmbAutonomia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 21;
@@ -357,7 +181,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblTrabajoEnEquipo, gridBagConstraints);
 
         cmbTrabajoEnEquipo.setForeground(new java.awt.Color(51, 51, 51));
-        cmbTrabajoEnEquipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 27;
@@ -377,7 +200,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblComunicacionEfectiva, gridBagConstraints);
 
         cmbComunicacionEfectiva.setForeground(new java.awt.Color(51, 51, 51));
-        cmbComunicacionEfectiva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 25;
@@ -398,7 +220,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblResolucionDeProblemas, gridBagConstraints);
 
         cmbResolucionDeProblemas.setForeground(new java.awt.Color(51, 51, 51));
-        cmbResolucionDeProblemas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 29;
@@ -422,7 +243,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblGestionDeTiempo, gridBagConstraints);
 
         cmbGestionDeTiempo.setForeground(new java.awt.Color(51, 51, 51));
-        cmbGestionDeTiempo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 23;
@@ -442,7 +262,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblLiderazgo, gridBagConstraints);
 
         cmbLiderazgo.setForeground(new java.awt.Color(51, 51, 51));
-        cmbLiderazgo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 27;
@@ -463,7 +282,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblAdaptabilidad, gridBagConstraints);
 
         cmbAdaptabilidad.setForeground(new java.awt.Color(51, 51, 51));
-        cmbAdaptabilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 21;
@@ -483,7 +301,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblCreatividad, gridBagConstraints);
 
         cmbCreatividad.setForeground(new java.awt.Color(51, 51, 51));
-        cmbCreatividad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 23;
@@ -503,7 +320,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pnlBody.add(lblPensamientoCritico, gridBagConstraints);
 
         cmbPensamientoCritico.setForeground(new java.awt.Color(51, 51, 51));
-        cmbPensamientoCritico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 25;
@@ -537,14 +353,6 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void btnGuardarIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarIdiomaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarIdiomaActionPerformed
-
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -576,54 +384,32 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnEliminarIdioma;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnGuardarIdioma;
     private javax.swing.JComboBox<String> cmbAdaptabilidad;
     private javax.swing.JComboBox<String> cmbAutonomia;
-    private javax.swing.JComboBox<String> cmbComprensionAuditiva;
-    private javax.swing.JComboBox<String> cmbComprensionAuditiva1;
-    private javax.swing.JComboBox<String> cmbComprensionLectura;
-    private javax.swing.JComboBox<String> cmbComprensionOral;
     private javax.swing.JComboBox<String> cmbComunicacionEfectiva;
     private javax.swing.JComboBox<String> cmbCreatividad;
     private javax.swing.JComboBox<String> cmbGestionDeTiempo;
-    private javax.swing.JComboBox<String> cmbIdioma;
     private javax.swing.JComboBox<String> cmbLiderazgo;
     private javax.swing.JComboBox<String> cmbPensamientoCritico;
     private javax.swing.JComboBox<String> cmbResolucionDeProblemas;
     private javax.swing.JComboBox<String> cmbTrabajoEnEquipo;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JLabel lblAdaptabilidad;
     private javax.swing.JLabel lblAutonomia;
     private javax.swing.JLabel lblCapacidadesTecnicas;
     private javax.swing.JLabel lblCapacidadesTransversales;
-    private javax.swing.JLabel lblComprensionAuditiva;
-    private javax.swing.JLabel lblComprensionEscrita;
-    private javax.swing.JLabel lblComprensionLectura;
-    private javax.swing.JLabel lblComprensionOral;
+    private javax.swing.JLabel lblCompetencia;
     private javax.swing.JLabel lblComunicacionEfectiva;
     private javax.swing.JLabel lblCreatividad;
     private javax.swing.JLabel lblGestionDeTiempo;
-    private javax.swing.JLabel lblIdioma;
     private javax.swing.JLabel lblLiderazgo;
     private javax.swing.JLabel lblPensamientoCritico;
     private javax.swing.JLabel lblResolucionDeProblemas;
     private javax.swing.JLabel lblTrabajoEnEquipo;
-    private javax.swing.JPanel pnlAñadirEliminarIdioma;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlFooter;
     // End of variables declaration//GEN-END:variables

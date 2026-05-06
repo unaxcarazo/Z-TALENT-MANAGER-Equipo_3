@@ -139,17 +139,28 @@ nav ul li a {
     cursor: pointer;
 }
 
-.fondo-gris { background: #f9fafb; padding: 60px 0; }
-.descarga-subtitulo { text-align: center; margin-bottom: 20px; }
+.fondo-gris { background: #f9fafb; 
+			  padding: 60px 0; }
+			  
+.descarga-subtitulo { text-align: center; 
+					  margin-bottom: 20px; }
 
 /* --- FAQ --- */
 #faq { padding: 40px 0; }
 .faq-bloque { margin-bottom: 30px; }
-.faq-item { border: 1px solid #eee; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
-summary { cursor: pointer; font-weight: bold; }
+.faq-item { border: 1px solid #eee; 
+	        padding: 15px; 
+			border-radius: 8px; 
+			margin-bottom: 10px; }
+			
+summary { cursor: pointer; 
+		  font-weight: bold; }
 
 /* --- FOOTER --- */
-footer { padding: 40px 0; border-top: 1px solid #eee; text-align: center; color: #666; }
+footer { padding: 40px 0; 
+		 border-top: 1px solid #eee; 
+		 text-align: center; 
+		 color: #666; }
 
 /* --- MEDIA QUERIES (MAGIA RESPONSIVE) --- */
 @media (max-width: 768px) {

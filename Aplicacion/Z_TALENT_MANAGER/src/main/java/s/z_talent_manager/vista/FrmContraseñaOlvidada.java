@@ -24,7 +24,6 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
      */
     public FrmContraseñaOlvidada() {
         initComponents();
-
         setLocationRelativeTo(null);
 
         // sirve para al hacer click en el hipervinculo te redirija a la pagina   
@@ -103,7 +102,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
         PnlBottom = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Z_Talent Manager");
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -277,6 +276,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new FrmContraseñaOlvidada().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -17,19 +17,11 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
      */
     public FrmPanelAdmin() {
         initComponents();
-
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH); // Pantalla completa
         // Hacer el layout responsivo
         pnlPrincipal.setPreferredSize(null);
-        // Hacer que pnlPrincipal ocupe todo el contenido
-        getContentPane().setLayout(new java.awt.BorderLayout());
-        getContentPane().add(pnlPrincipal, java.awt.BorderLayout.CENTER);
-
-        pnlPrincipal.setPreferredSize(null); // Quitar tamaño fijo
-        // Busca esta línea en initComponents y cámbiala a mano en el constructor:
-        pnlContenido.setPreferredSize(null); // Elimina el Dimension(0, 450) fijo
-        pnlHeader.setPreferredSize(null); // Elimina el Dimension(1100, 90) fijo
-
+        
+        
         // Placeholder "Search..."
         txtSearch.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
@@ -77,24 +69,15 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         pnlFiltros = new javax.swing.JPanel();
         pnlCompTec = new javax.swing.JPanel();
         lblCompTec = new javax.swing.JLabel();
-        pnlDesarrollo = new javax.swing.JPanel();
-        tglJavaScript = new javax.swing.JToggleButton();
-        tglPython = new javax.swing.JToggleButton();
-        tglReact = new javax.swing.JToggleButton();
-        tglNoode = new javax.swing.JToggleButton();
-        tglJavaSql = new javax.swing.JToggleButton();
-        tglApache = new javax.swing.JToggleButton();
-        tglAws = new javax.swing.JToggleButton();
-        tglKubernetes = new javax.swing.JToggleButton();
-        tglLinux = new javax.swing.JToggleButton();
-        tglDocker = new javax.swing.JToggleButton();
-        pnlDiseño = new javax.swing.JPanel();
-        tglFigma = new javax.swing.JToggleButton();
-        tglAdobe = new javax.swing.JToggleButton();
-        tglCss = new javax.swing.JToggleButton();
-        tglGoogle = new javax.swing.JToggleButton();
-        tglMeta = new javax.swing.JToggleButton();
-        tglAds = new javax.swing.JToggleButton();
+        lblDatosTecnica = new javax.swing.JPanel();
+        chkSql = new javax.swing.JCheckBox();
+        chkJava = new javax.swing.JCheckBox();
+        chkPython = new javax.swing.JCheckBox();
+        chkReact = new javax.swing.JCheckBox();
+        chkDocker = new javax.swing.JCheckBox();
+        chkAws = new javax.swing.JCheckBox();
+        chkNoode = new javax.swing.JCheckBox();
+        jToggleButton1 = new javax.swing.JToggleButton();
         pnlIdioma = new javax.swing.JPanel();
         lblIdioma = new javax.swing.JLabel();
         pnlIdiomas = new javax.swing.JPanel();
@@ -103,20 +86,19 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         chkIng = new javax.swing.JCheckBox();
         chkFra = new javax.swing.JCheckBox();
         chkAle = new javax.swing.JCheckBox();
+        chkPort = new javax.swing.JCheckBox();
         pnlTituloTr = new javax.swing.JPanel();
         lblTransversales = new javax.swing.JLabel();
         pnlTransversales = new javax.swing.JPanel();
         chkAutnomia = new javax.swing.JCheckBox();
         chkCompromiso = new javax.swing.JCheckBox();
         chkImpl = new javax.swing.JCheckBox();
-        chkImpl1 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaContenidos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlPrincipal.setBackground(new java.awt.Color(211, 254, 234));
-        pnlPrincipal.setPreferredSize(new java.awt.Dimension(800, 600));
         pnlPrincipal.setLayout(new java.awt.BorderLayout());
 
         pnlHeader.setBackground(new java.awt.Color(211, 254, 234));
@@ -244,192 +226,81 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         lblCompTec.setText("Competencia Técnica");
         pnlCompTec.add(lblCompTec, java.awt.BorderLayout.NORTH);
 
-        pnlDesarrollo.setBackground(new java.awt.Color(244, 253, 248));
-        pnlDesarrollo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desarrollo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13), new java.awt.Color(42, 74, 56))); // NOI18N
-        pnlDesarrollo.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        pnlDesarrollo.setLayout(new java.awt.GridLayout(0, 2, 3, 3));
+        lblDatosTecnica.setBackground(new java.awt.Color(244, 253, 248));
+        lblDatosTecnica.setLayout(new java.awt.GridLayout(0, 2, 4, 2));
 
-        tglJavaScript.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglJavaScript.setForeground(new java.awt.Color(42, 74, 56));
-        tglJavaScript.setText("JavaScript");
-        tglJavaScript.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglJavaScript.addActionListener(new java.awt.event.ActionListener() {
+        chkSql.setBackground(new java.awt.Color(244, 253, 248));
+        chkSql.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkSql.setForeground(new java.awt.Color(42, 74, 56));
+        chkSql.setText("SQL");
+        chkSql.setFocusPainted(false);
+        chkSql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglJavaScriptActionPerformed(evt);
+                chkSqlActionPerformed(evt);
             }
         });
-        pnlDesarrollo.add(tglJavaScript);
+        lblDatosTecnica.add(chkSql);
 
-        tglPython.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglPython.setForeground(new java.awt.Color(42, 74, 56));
-        tglPython.setText("Python");
-        tglPython.addActionListener(new java.awt.event.ActionListener() {
+        chkJava.setBackground(new java.awt.Color(244, 253, 248));
+        chkJava.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkJava.setForeground(new java.awt.Color(42, 74, 56));
+        chkJava.setText("Java");
+        chkJava.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglPythonActionPerformed(evt);
+                chkJavaActionPerformed(evt);
             }
         });
-        pnlDesarrollo.add(tglPython);
+        lblDatosTecnica.add(chkJava);
 
-        tglReact.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglReact.setForeground(new java.awt.Color(42, 74, 56));
-        tglReact.setText("React");
-        tglReact.addActionListener(new java.awt.event.ActionListener() {
+        chkPython.setBackground(new java.awt.Color(244, 253, 248));
+        chkPython.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkPython.setForeground(new java.awt.Color(42, 74, 56));
+        chkPython.setText("Python");
+        chkPython.setFocusPainted(false);
+        lblDatosTecnica.add(chkPython);
+
+        chkReact.setBackground(new java.awt.Color(244, 253, 248));
+        chkReact.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkReact.setForeground(new java.awt.Color(42, 74, 56));
+        chkReact.setText("React");
+        chkReact.setFocusPainted(false);
+        lblDatosTecnica.add(chkReact);
+
+        chkDocker.setBackground(new java.awt.Color(244, 253, 248));
+        chkDocker.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkDocker.setForeground(new java.awt.Color(42, 74, 56));
+        chkDocker.setText("Docker");
+        chkDocker.setFocusPainted(false);
+        chkDocker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglReactActionPerformed(evt);
+                chkDockerActionPerformed(evt);
             }
         });
-        pnlDesarrollo.add(tglReact);
+        lblDatosTecnica.add(chkDocker);
 
-        tglNoode.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglNoode.setForeground(new java.awt.Color(42, 74, 56));
-        tglNoode.setText("Noode.js");
-        tglNoode.addActionListener(new java.awt.event.ActionListener() {
+        chkAws.setBackground(new java.awt.Color(244, 253, 248));
+        chkAws.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkAws.setForeground(new java.awt.Color(42, 74, 56));
+        chkAws.setText("AWS");
+        chkAws.setFocusable(false);
+        lblDatosTecnica.add(chkAws);
+
+        chkNoode.setBackground(new java.awt.Color(244, 253, 248));
+        chkNoode.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkNoode.setForeground(new java.awt.Color(42, 74, 56));
+        chkNoode.setText("Noode.js");
+        chkNoode.setFocusPainted(false);
+        lblDatosTecnica.add(chkNoode);
+
+        jToggleButton1.setText("Prueba");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglNoodeActionPerformed(evt);
+                jToggleButton1ActionPerformed(evt);
             }
         });
-        pnlDesarrollo.add(tglNoode);
+        lblDatosTecnica.add(jToggleButton1);
 
-        tglJavaSql.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglJavaSql.setForeground(new java.awt.Color(42, 74, 56));
-        tglJavaSql.setText("SQL");
-        tglJavaSql.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglJavaSql.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglJavaSqlActionPerformed(evt);
-            }
-        });
-        pnlDesarrollo.add(tglJavaSql);
-
-        tglApache.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglApache.setForeground(new java.awt.Color(42, 74, 56));
-        tglApache.setText("Apache Spark");
-        tglApache.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglApache.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglApacheActionPerformed(evt);
-            }
-        });
-        pnlDesarrollo.add(tglApache);
-
-        tglAws.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglAws.setForeground(new java.awt.Color(42, 74, 56));
-        tglAws.setText("AWS");
-        tglAws.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglAws.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglAwsActionPerformed(evt);
-            }
-        });
-        pnlDesarrollo.add(tglAws);
-
-        tglKubernetes.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglKubernetes.setForeground(new java.awt.Color(42, 74, 56));
-        tglKubernetes.setText("Kubernetes");
-        tglKubernetes.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglKubernetes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglKubernetesActionPerformed(evt);
-            }
-        });
-        pnlDesarrollo.add(tglKubernetes);
-
-        tglLinux.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglLinux.setForeground(new java.awt.Color(42, 74, 56));
-        tglLinux.setText("Linux");
-        tglLinux.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglLinux.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglLinuxActionPerformed(evt);
-            }
-        });
-        pnlDesarrollo.add(tglLinux);
-
-        tglDocker.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglDocker.setForeground(new java.awt.Color(42, 74, 56));
-        tglDocker.setText("Docker");
-        tglDocker.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglDocker.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglDockerActionPerformed(evt);
-            }
-        });
-        pnlDesarrollo.add(tglDocker);
-
-        pnlCompTec.add(pnlDesarrollo, java.awt.BorderLayout.CENTER);
-
-        pnlDiseño.setBackground(new java.awt.Color(244, 253, 248));
-        pnlDiseño.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Diseño", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13), new java.awt.Color(42, 74, 56))); // NOI18N
-        pnlDiseño.setForeground(new java.awt.Color(42, 74, 56));
-        pnlDiseño.setFocusable(false);
-        pnlDiseño.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        pnlDiseño.setLayout(new java.awt.GridLayout(0, 2, 3, 3));
-
-        tglFigma.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglFigma.setForeground(new java.awt.Color(42, 74, 56));
-        tglFigma.setText("Figma");
-        tglFigma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglFigmaActionPerformed(evt);
-            }
-        });
-        pnlDiseño.add(tglFigma);
-
-        tglAdobe.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglAdobe.setForeground(new java.awt.Color(42, 74, 56));
-        tglAdobe.setText("AdobeXD");
-        tglAdobe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglAdobeActionPerformed(evt);
-            }
-        });
-        pnlDiseño.add(tglAdobe);
-
-        tglCss.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglCss.setForeground(new java.awt.Color(42, 74, 56));
-        tglCss.setText("CSS/Tailwind");
-        tglCss.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglCss.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglCssActionPerformed(evt);
-            }
-        });
-        pnlDiseño.add(tglCss);
-
-        tglGoogle.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglGoogle.setForeground(new java.awt.Color(42, 74, 56));
-        tglGoogle.setText("GoogleAnalytics");
-        tglGoogle.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglGoogle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglGoogleActionPerformed(evt);
-            }
-        });
-        pnlDiseño.add(tglGoogle);
-
-        tglMeta.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglMeta.setForeground(new java.awt.Color(42, 74, 56));
-        tglMeta.setText("Meta");
-        tglMeta.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglMeta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglMetaActionPerformed(evt);
-            }
-        });
-        pnlDiseño.add(tglMeta);
-
-        tglAds.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tglAds.setForeground(new java.awt.Color(42, 74, 56));
-        tglAds.setText("ADS");
-        tglAds.setPreferredSize(new java.awt.Dimension(40, 15));
-        tglAds.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglAdsActionPerformed(evt);
-            }
-        });
-        pnlDiseño.add(tglAds);
-
-        pnlCompTec.add(pnlDiseño, java.awt.BorderLayout.SOUTH);
+        pnlCompTec.add(lblDatosTecnica, java.awt.BorderLayout.CENTER);
 
         pnlFiltros.add(pnlCompTec);
 
@@ -444,7 +315,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         pnlIdioma.add(lblIdioma, java.awt.BorderLayout.PAGE_START);
 
         pnlIdiomas.setBackground(new java.awt.Color(244, 253, 248));
-        pnlIdiomas.setLayout(new java.awt.GridLayout(0, 2, 2, 2));
+        pnlIdiomas.setLayout(new java.awt.GridLayout(0, 2, 3, 2));
 
         chkEusk.setBackground(new java.awt.Color(244, 253, 248));
         chkEusk.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -506,6 +377,18 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         });
         pnlIdiomas.add(chkAle);
 
+        chkPort.setBackground(new java.awt.Color(244, 253, 248));
+        chkPort.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkPort.setForeground(new java.awt.Color(42, 74, 56));
+        chkPort.setText("Portugués");
+        chkPort.setFocusPainted(false);
+        chkPort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPortActionPerformed(evt);
+            }
+        });
+        pnlIdiomas.add(chkPort);
+
         pnlIdioma.add(pnlIdiomas, java.awt.BorderLayout.CENTER);
 
         pnlFiltros.add(pnlIdioma);
@@ -518,8 +401,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         lblTransversales.setText("Transversales");
         pnlTituloTr.add(lblTransversales, java.awt.BorderLayout.PAGE_START);
 
-        pnlTransversales.setBackground(new java.awt.Color(244, 253, 248));
-        pnlTransversales.setLayout(new java.awt.GridLayout(0, 2, 2, 2));
+        pnlTransversales.setLayout(new java.awt.GridLayout(0, 1, 3, 0));
 
         chkAutnomia.setBackground(new java.awt.Color(244, 253, 248));
         chkAutnomia.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -543,17 +425,6 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
             }
         });
         pnlTransversales.add(chkImpl);
-
-        chkImpl1.setBackground(new java.awt.Color(244, 253, 248));
-        chkImpl1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        chkImpl1.setForeground(new java.awt.Color(42, 74, 56));
-        chkImpl1.setText("Implicación");
-        chkImpl1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkImpl1ActionPerformed(evt);
-            }
-        });
-        pnlTransversales.add(chkImpl1);
 
         pnlTituloTr.add(pnlTransversales, java.awt.BorderLayout.CENTER);
 
@@ -606,36 +477,15 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContrActionPerformed
-        FrmContraseñaOlvidada frm = new FrmContraseñaOlvidada();
-        frm.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        frm.setLocationRelativeTo(null);
-        frm.setSize(700, 600);
-        frm.setVisible(true);
+        contraseñaOlvidada();
     }//GEN-LAST:event_btnContrActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        int respuesta = javax.swing.JOptionPane.showConfirmDialog(
-                this,
-                "¿Estás seguro de que quieres cerrar sesión?",
-                "Cerrar Sesión",
-                javax.swing.JOptionPane.YES_NO_OPTION,
-                javax.swing.JOptionPane.QUESTION_MESSAGE
-        );
-
-        if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
-            new FrmLogin().setVisible(true);
-            this.dispose();
-            // Aquí abres tu pantalla de Login, por ejemplo:
-            // new FrmLogin().setVisible(true);
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void bntCrearCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCrearCandidatoActionPerformed
-        FrmAdminCrearUsuario frm = new FrmAdminCrearUsuario();
-        frm.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        frm.setLocationRelativeTo(null);
-        frm.setSize(700, 600);
-        frm.setVisible(true);
+        navegarACrearUsuario();
     }//GEN-LAST:event_bntCrearCandidatoActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -645,6 +495,18 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void chkSqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSqlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkSqlActionPerformed
+
+    private void chkJavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkJavaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkJavaActionPerformed
+
+    private void chkDockerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkDockerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkDockerActionPerformed
 
     private void chkEuskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEuskActionPerformed
         // TODO add your handling code here:
@@ -666,77 +528,17 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAleActionPerformed
 
+    private void chkPortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPortActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkPortActionPerformed
+
     private void chkImplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkImplActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkImplActionPerformed
 
-    private void tglJavaScriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglJavaScriptActionPerformed
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tglJavaScriptActionPerformed
-
-    private void tglPythonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglPythonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglPythonActionPerformed
-
-    private void tglFigmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglFigmaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglFigmaActionPerformed
-
-    private void tglAdobeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglAdobeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglAdobeActionPerformed
-
-    private void tglReactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglReactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglReactActionPerformed
-
-    private void tglNoodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglNoodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglNoodeActionPerformed
-
-    private void tglJavaSqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglJavaSqlActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglJavaSqlActionPerformed
-
-    private void tglApacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglApacheActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglApacheActionPerformed
-
-    private void tglAwsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglAwsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglAwsActionPerformed
-
-    private void tglKubernetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglKubernetesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglKubernetesActionPerformed
-
-    private void tglLinuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglLinuxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglLinuxActionPerformed
-
-    private void tglDockerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglDockerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglDockerActionPerformed
-
-    private void tglCssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglCssActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglCssActionPerformed
-
-    private void tglGoogleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglGoogleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglGoogleActionPerformed
-
-    private void tglMetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglMetaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglMetaActionPerformed
-
-    private void tglAdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglAdsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglAdsActionPerformed
-
-    private void chkImpl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkImpl1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkImpl1ActionPerformed
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -770,16 +572,25 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JCheckBox chkAle;
     private javax.swing.JCheckBox chkAutnomia;
+    private javax.swing.JCheckBox chkAws;
     private javax.swing.JCheckBox chkCast;
     private javax.swing.JCheckBox chkCompromiso;
+    private javax.swing.JCheckBox chkDocker;
     private javax.swing.JCheckBox chkEusk;
     private javax.swing.JCheckBox chkFra;
     private javax.swing.JCheckBox chkImpl;
-    private javax.swing.JCheckBox chkImpl1;
     private javax.swing.JCheckBox chkIng;
+    private javax.swing.JCheckBox chkJava;
+    private javax.swing.JCheckBox chkNoode;
+    private javax.swing.JCheckBox chkPort;
+    private javax.swing.JCheckBox chkPython;
+    private javax.swing.JCheckBox chkReact;
+    private javax.swing.JCheckBox chkSql;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblCompTec;
+    private javax.swing.JPanel lblDatosTecnica;
     private javax.swing.JLabel lblIdioma;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblTransversales;
@@ -789,8 +600,6 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCompTec;
     private javax.swing.JPanel pnlContenido;
     private javax.swing.JPanel pnlCrearCandidato;
-    private javax.swing.JPanel pnlDesarrollo;
-    private javax.swing.JPanel pnlDiseño;
     private javax.swing.JPanel pnlFiltros;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlIdioma;
@@ -800,22 +609,20 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTituloTr;
     private javax.swing.JPanel pnlTransversales;
     private javax.swing.JTable tablaContenidos;
-    private javax.swing.JToggleButton tglAdobe;
-    private javax.swing.JToggleButton tglAds;
-    private javax.swing.JToggleButton tglApache;
-    private javax.swing.JToggleButton tglAws;
-    private javax.swing.JToggleButton tglCss;
-    private javax.swing.JToggleButton tglDocker;
-    private javax.swing.JToggleButton tglFigma;
-    private javax.swing.JToggleButton tglGoogle;
-    private javax.swing.JToggleButton tglJavaScript;
-    private javax.swing.JToggleButton tglJavaSql;
-    private javax.swing.JToggleButton tglKubernetes;
-    private javax.swing.JToggleButton tglLinux;
-    private javax.swing.JToggleButton tglMeta;
-    private javax.swing.JToggleButton tglNoode;
-    private javax.swing.JToggleButton tglPython;
-    private javax.swing.JToggleButton tglReact;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+    private void navegarACrearUsuario() {
+        FrmAdminCrearUsuario frm = new FrmAdminCrearUsuario();
+        frm.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        frm.setVisible(true);
+        this.dispose(); // Cierra la ventana actual
+    }
+    
+    private void contraseñaOlvidada(){
+        FrmContraseñaOlvidada frm = new FrmContraseñaOlvidada();
+        frm.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        frm.setVisible(true);
+        this.dispose(); // Cierra la ventana actual
+    }
 }

@@ -49,7 +49,7 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         txtRepContr = new javax.swing.JTextField();
         lblCrearCuenta = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlPrincipal.setBackground(new java.awt.Color(211, 254, 234));
         pnlPrincipal.setLayout(new java.awt.BorderLayout());
@@ -256,7 +256,10 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVolverActionPerformed
-         this.dispose();
+        FrmPanelAdmin frm = new FrmPanelAdmin();
+        frm.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        frm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bntVolverActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -309,7 +312,7 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-       
+        java.awt.EventQueue.invokeLater(() -> new FrmAdminCrearUsuario().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

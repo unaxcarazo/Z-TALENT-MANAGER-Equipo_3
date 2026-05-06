@@ -795,7 +795,15 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
             new String [] {
                 "Nombre", "Apellidos", "Email", "Titulacion", "Competencias", "Idiomas", "Transversales"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tablaContenidos.setPreferredSize(new java.awt.Dimension(400, 80));
         srpnTabla.setViewportView(tablaContenidos);
 

@@ -8,6 +8,7 @@ package s.z_talent_manager.vista;
  *
  * @author DAW1
  */
+
 public class FrmAdminCrearUsuario extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmAdminCrearUsuario.class.getName());
@@ -407,7 +408,7 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
     }
 
     private void crearCandidato() {
-        // Validaciones básicas
+        // 1. Validaciones básicas de interfaz (esto está perfecto)
         if (txtNombre.getText().isBlank() || txtApellidos.getText().isBlank()
                 || txtCorreo.getText().isBlank() || txtCreaContr.getText().isBlank()) {
             javax.swing.JOptionPane.showMessageDialog(this,
@@ -417,67 +418,79 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         }
 
         if (!txtCorreo.getText().equals(txtRepCorreo.getText())) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Los correos no coinciden.",
-                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Los correos no coinciden.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (!txtCreaContr.getText().equals(txtRepContr.getText())) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Las contraseñas no coinciden.",
-                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
 
+        jakarta.persistence.EntityManager em = null;
         try {
-            jakarta.persistence.EntityManager em
-                    = s.z_talent_manager.util.JPAUtil.getEntityManager();
+            em = s.z_talent_manager.util.JPAUtil.getEntityManager();
 
-            // ✅ Verificar si el email ya existe usando tu UsuarioDAO
-            s.z_talent_manager.dao.UsuarioDAO usuarioDao
-                    = new s.z_talent_manager.dao.Usuarioimpl();
-            s.z_talent_manager.modelo.Usuario usuarioExistente
-                    = usuarioDao.getUsuarioPorEmail(em, txtCorreo.getText().trim());
+            // LIMPIEZA DE CACHÉ: Obliga a JPA a mirar la base de datos real, no la memoria
+            em.clear();
+
+            // 2. Verificación de Email Duplicado
+            String emailLimpio = txtCorreo.getText().trim().toLowerCase();
+            s.z_talent_manager.dao.UsuarioDAO usuarioDao = new s.z_talent_manager.dao.Usuarioimpl();
+            s.z_talent_manager.modelo.Usuario usuarioExistente = usuarioDao.getUsuarioPorEmail(em, emailLimpio);
 
             if (usuarioExistente != null) {
                 javax.swing.JOptionPane.showMessageDialog(this,
                         "Ya existe un usuario con ese correo electrónico.",
                         "Email duplicado", javax.swing.JOptionPane.WARNING_MESSAGE);
-                em.close();
                 return;
             }
 
-            // ✅ Crear objeto Candidato
-            s.z_talent_manager.modelo.Candidato candidato
-                    = new s.z_talent_manager.modelo.Candidato();
+            // 3. Preparar el objeto para guardar
+            s.z_talent_manager.modelo.Candidato candidato = new s.z_talent_manager.modelo.Candidato();
             candidato.setNombre(txtNombre.getText().trim());
             candidato.setApellidos(txtApellidos.getText().trim());
-            candidato.setEmail(txtCorreo.getText().trim());
+            candidato.setEmail(emailLimpio);
             candidato.setContraseña(txtCreaContr.getText().trim());
             candidato.setAdministrador(false);
             candidato.setFechaCreacion(java.time.LocalDate.now());
 
-            // ✅ Guardar en BD
+            // 4. Operación de base de datos
             jakarta.persistence.EntityTransaction tx = em.getTransaction();
             tx.begin();
-            s.z_talent_manager.dao.CandidatoDAO dao
-                    = new s.z_talent_manager.dao.CandidatoImpl();
-            dao.nuevoCandidato(em, candidato);
-            tx.commit();
-            em.close();
+            try {
+                s.z_talent_manager.dao.CandidatoDAO dao = new s.z_talent_manager.dao.CandidatoImpl();
+                dao.nuevoCandidato(em, candidato);
+                tx.commit();
 
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Candidato creado correctamente.",
-                    "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
+                javax.swing.JOptionPane.showMessageDialog(this, "Candidato creado correctamente.", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+            } catch (Exception ex) {
+                if (tx.isActive()) {
+                    tx.rollback(); // Si falla el commit, deshacemos cambios
+                }
+                throw ex; // Re-lanzamos para que lo capture el catch principal
+            }
 
         } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Error al crear el candidato: " + e.getMessage(),
-                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            // MANEJO DE ERRORES "AMIGABLE"
+            String errorMsg = e.getMessage();
+            if (errorMsg != null && errorMsg.contains("ORA-00001")) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "No se pudo guardar: El Email o el ID ya existen en el sistema.\n(Sincroniza la secuencia en Oracle si el email es nuevo).",
+                        "Error de Duplicado", javax.swing.JOptionPane.ERROR_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error inesperado: " + errorMsg,
+                        "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close(); // Cerramos SIEMPRE al final
+            }
         }
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntVolver;

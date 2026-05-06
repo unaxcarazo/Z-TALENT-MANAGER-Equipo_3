@@ -47,7 +47,7 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
 
         // Estilo campos
         for (javax.swing.JTextField txt : new javax.swing.JTextField[]{
-            txtNombre, txtApellidos, txtNomUsu, txtCorreo,
+            txtNombre, txtApellidos, txtCorreo,
             txtRepCorreo, txtCreaContr, txtRepContr}) {
             txt.setBackground(bgField);
             txt.setBorder(javax.swing.BorderFactory.createLineBorder(borderColor));
@@ -57,7 +57,7 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
 
         // Estilo labels
         for (javax.swing.JLabel lbl : new javax.swing.JLabel[]{
-            lblNombre, lblApellidos, lblNomUsu, lblCorreo,
+            lblNombre, lblApellidos, lblCorreo,
             lblRepCorreo, lblCreaContr, lblRepContr}) {
             lbl.setFont(lblFont);
             lbl.setForeground(lblColor);
@@ -77,13 +77,7 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         gbc.gridx = 1;
         pnlCentral.add(txtApellidos, gbc);
 
-        // ── Fila 2: Nombre Usuario (ocupa las 2 columnas) ──
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        pnlCentral.add(lblNomUsu, gbc);
-        gbc.gridy = 3;
-        pnlCentral.add(txtNomUsu, gbc);
+        
 
         // ── Fila 4: Correo | Repite Correo ──
         gbc.gridwidth = 1;
@@ -151,8 +145,6 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         lblApellidos = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
-        lblNomUsu = new javax.swing.JLabel();
-        txtNomUsu = new javax.swing.JTextField();
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         lblRepCorreo = new javax.swing.JLabel();
@@ -249,23 +241,6 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
             }
         });
         pnlCentral.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 150, 30));
-
-        lblNomUsu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblNomUsu.setForeground(new java.awt.Color(7, 48, 26));
-        lblNomUsu.setText("Nombre Usuario :");
-        lblNomUsu.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        lblNomUsu.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        pnlCentral.add(lblNomUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
-
-        txtNomUsu.setBackground(new java.awt.Color(248, 253, 249));
-        txtNomUsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 240, 212)));
-        txtNomUsu.setMargin(new java.awt.Insets(5, 10, 5, 10));
-        txtNomUsu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomUsuActionPerformed(evt);
-            }
-        });
-        pnlCentral.add(txtNomUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 150, 30));
 
         lblCorreo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblCorreo.setForeground(new java.awt.Color(7, 48, 26));
@@ -386,10 +361,6 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
     private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosActionPerformed
-
-    private void txtNomUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomUsuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomUsuActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
@@ -515,7 +486,6 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblCreaContr;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblNomUsu;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRepContr;
     private javax.swing.JLabel lblRepCorreo;
@@ -525,7 +495,6 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtCreaContr;
-    private javax.swing.JTextField txtNomUsu;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRepContr;
     private javax.swing.JTextField txtRepCorreo;

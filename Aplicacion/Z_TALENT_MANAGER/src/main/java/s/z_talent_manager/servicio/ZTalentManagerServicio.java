@@ -24,6 +24,7 @@ import s.z_talent_manager.dao.CandidatoTecnicaDAO;
 import s.z_talent_manager.dao.CandidatoTitulacionDAO;
 import s.z_talent_manager.dao.CandidatoTransversalDAO;
 import s.z_talent_manager.modelo.Idioma;
+import s.z_talent_manager.modelo.Titulacion;
 import s.z_talent_manager.modelo.Usuario;
 
 /**
@@ -55,6 +56,7 @@ public class ZTalentManagerServicio {
         curriculumTitulacionDAO = new CandidatoTitulacionImpl();
         curriculumTransversalDAO = new CandidatoTransversalImpl();
         experienciaDAO = new ExperienciaImpl();
+        candidatoTitulacionDAO = new CandidatoTitulacionImpl();
     }
 
     /* CANDIDATO --Hiem */
@@ -170,6 +172,20 @@ public class ZTalentManagerServicio {
     }
 }
     
+    public Titulacion getTitulacionPorNombre(String nombre) {
+        try (EntityManager em = JPAUtil.getEntityManager()) {
+        return em.createQuery("SELECT t FROM Titulacion t WHERE t.nombre = :nom", Titulacion.class)
+                 .setParameter("nom", nombre)
+                 .getSingleResult();
+    } catch (Exception e) {
+        return null; // O maneja el error si el idioma no existe
+    }
+}
+    public List<Titulaciones> getTitulaciones(){
+            try (EntityManager em = JPAUtil.getEntityManager()) {
+            return titulacionDAO.getTitulaciones(em);
+        }
+    }
     
     public Candidato modificarCandidato(Candidato ca) { // Cambia 'void' por 'Candidato'
     try (EntityManager em = JPAUtil.getEntityManager()) {

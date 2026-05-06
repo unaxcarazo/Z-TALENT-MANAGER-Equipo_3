@@ -4,6 +4,14 @@
  */
 package s.z_talent_manager.vista;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import s.z_talent_manager.modelo.Candidato;
+import s.z_talent_manager.modelo.CandidatoTitulacion;
+import s.z_talent_manager.modelo.Sesion;
+import s.z_talent_manager.modelo.Titulacion;
+import s.z_talent_manager.servicio.ZTalentManagerServicio;
+
 /**
  *
  * @author maymansito
@@ -17,7 +25,106 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
      */
     public FrmEducacionFormacionModificar() {
         initComponents();
+        setLocationRelativeTo(null);
+        cargarCombos();
+
+        btnCancelar.addActionListener(e -> dispose());
+
+        rbtnEnCursoEducacion.addActionListener(e -> {
+            txtFechaFinEducacion.setEnabled(!rbtnEnCursoEducacion.isSelected());
+            if (rbtnEnCursoEducacion.isSelected()) {
+                txtFechaFinEducacion.setText("");
+            }
+        });
+
+        btnGuardar.addActionListener(e -> guardar());
     }
+        
+
+    private void cargarCombos() {
+        try {
+            // Cargar titulaciones disponibles
+            List<Titulacion> titulaciones = ZTalentManagerServicio.getServicio().getTitulaciones();
+            cmbNombreEstudio.removeAllItems();
+            cmbTipoEstudio.removeAllItems();
+
+            for (Titulacion t : titulaciones) {
+                cmbNombreEstudio.addItem(t.getNombreEstudio());
+                // Evita duplicados en tipo de estudio
+                boolean existe = false;
+                for (int i = 0; i < cmbTipoEstudio.getItemCount(); i++) {
+                    if (cmbTipoEstudio.getItemAt(i).equals(t.getTipoEstudio())) {
+                        existe = true;
+                        break;
+                    }
+                }
+                if (!existe) cmbTipoEstudio.addItem(t.getTipoEstudio());
+            }
+
+            // Centro formativo - texto libre, mejor usar JTextField
+            // Si viene de BD añádelo igual que los anteriores
+            cmbCentroEstudio.removeAllItems();
+            cmbCentroEstudio.addItem("Universidad Politécnica de Madrid");
+            // etc, o cárgalos desde servicio si tienes método
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error cargando datos: " + ex.getMessage());
+        }
+    }
+    
+    private void guardar() {
+    try {
+        Candidato candidato = (Candidato) Sesion.getUsuario();
+
+        // Buscar la titulación seleccionada en la BD
+        String nombreSeleccionado = (String) cmbNombreEstudio.getSelectedItem();
+        Titulacion titulacion = ZTalentManagerServicio.getServicio()
+            .getTitulacionPorNombre(nombreSeleccionado);
+
+        if (titulacion == null) {
+            JOptionPane.showMessageDialog(this, "Selecciona una titulación válida.");
+            return;
+        }
+
+        CandidatoTitulacion nueva = new CandidatoTitulacion();
+        nueva.setCandidato(candidato);
+        nueva.setTitulacion(titulacion);
+        nueva.setCentroFormativo((String) cmbCentroEstudio.getSelectedItem());
+
+        // Fecha inicio
+        if (txtFechaInicioEducacion.getValue() != null) {
+            java.util.Date fi = (java.util.Date) txtFechaInicioEducacion.getValue();
+            java.util.Calendar cal = java.util.Calendar.getInstance();
+            cal.setTime(fi);
+            nueva.setFechaInicio(java.time.LocalDate.of(
+                cal.get(java.util.Calendar.YEAR),
+                cal.get(java.util.Calendar.MONTH) + 1,
+                cal.get(java.util.Calendar.DAY_OF_MONTH)));
+        }
+
+        // Fecha fin (si no está en curso)
+        if (!rbtnEnCursoEducacion.isSelected() && txtFechaFinEducacion.getValue() != null) {
+            java.util.Date ff = (java.util.Date) txtFechaFinEducacion.getValue();
+            java.util.Calendar cal = java.util.Calendar.getInstance();
+            cal.setTime(ff);
+            nueva.setFechaFin(java.time.LocalDate.of(
+                cal.get(java.util.Calendar.YEAR),
+                cal.get(java.util.Calendar.MONTH) + 1,
+                cal.get(java.util.Calendar.DAY_OF_MONTH)));
+        }
+
+        ZTalentManagerServicio.getServicio().añadirTitulacion(nueva);
+
+        JOptionPane.showMessageDialog(this, "Titulación guardada correctamente.");
+        dispose();
+
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al guardar: " + ex.getMessage(),
+            "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,7 +192,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(lblTitulacion, gridBagConstraints);
 
         cmbNombreEstudio.setForeground(new java.awt.Color(51, 51, 51));
-        cmbNombreEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -95,7 +201,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(cmbNombreEstudio, gridBagConstraints);
 
         cmbTipoEstudio.setForeground(new java.awt.Color(51, 51, 51));
-        cmbTipoEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -116,7 +221,6 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         pnlBody.add(lblCentroEstudio, gridBagConstraints);
 
         cmbCentroEstudio.setForeground(new java.awt.Color(51, 51, 51));
-        cmbCentroEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -199,6 +303,11 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
         btnGuardar.setBackground(new java.awt.Color(7, 48, 26));
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         pnlFooter.add(btnGuardar);
 
         getContentPane().add(pnlFooter);
@@ -213,6 +322,10 @@ public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
     private void txtFechaFinEducacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinEducacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaFinEducacionActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -28,6 +28,7 @@ s\z_talent_manager\vista\FrmPanelAdmin$8.class
 s\z_talent_manager\util\PasswordUtils.class
 s\z_talent_manager\vista\FrmLogin$2.class
 s\z_talent_manager\vista\FrmPanelAdmin$28.class
+s\z_talent_manager\vista\FrmAdminCrearUsuario$9.class
 s\z_talent_manager\modelo\CandidatoTecnica.class
 s\z_talent_manager\vista\FrmContraseñaOlvidada$2.class
 s\z_talent_manager\vista\FrmPanelAdmin$30.class
@@ -36,6 +37,7 @@ s\z_talent_manager\vista\FrmPanelAdmin$5.class
 s\z_talent_manager\vista\FrmVentanaPrincipal$3.class
 s\z_talent_manager\vista\FrmPanelAdmin$20.class
 s\z_talent_manager\modelo\Sesion.class
+s\z_talent_manager\vista\FrmPanelAdmin$37.class
 s\z_talent_manager\vista\FrmPanelAdmin$27.class
 s\z_talent_manager\vista\FrmPanelAdmin.class
 s\z_talent_manager\dao\UsuarioDAO.class
@@ -57,15 +59,18 @@ s\z_talent_manager\modelo\CandidatoIdioma.class
 s\z_talent_manager\modelo\Usuario.class
 s\z_talent_manager\vista\FrmCompetencias$1.class
 s\z_talent_manager\vista\FrmPanelAdmin$15.class
+s\z_talent_manager\vista\FrmPanelAdmin$38.class
 s\z_talent_manager\vista\FrmTitulacion$1.class
 s\z_talent_manager\vista\FrmExperiencias$1.class
 s\z_talent_manager\vista\FrmAdminCrearUsuario$4.class
+s\z_talent_manager\vista\FrmAdminCrearUsuario$10.class
 s\z_talent_manager\dao\CandidatoIdiomaDAO.class
 s\z_talent_manager\vista\FrmLogin$4.class
 s\z_talent_manager\vista\FrmAdminCrearUsuario$7.class
 s\z_talent_manager\vista\FrmContraseñaOlvidada.class
 s\z_talent_manager\dao\CandidatoImpl.class
 s\z_talent_manager\vista\FrmLogin$1.class
+s\z_talent_manager\vista\FrmPanelAdmin$39.class
 s\z_talent_manager\vista\FrmContraseñaOlvidada$1.class
 s\z_talent_manager\vista\FrmPanelAdmin$29.class
 s\z_talent_manager\vista\FrmPanelAdmin$7.class
@@ -81,6 +86,7 @@ s\z_talent_manager\Z_TALENT_MANAGER.class
 s\z_talent_manager\vista\FrmExperiencias.class
 s\z_talent_manager\vista\FrmPanelAdmin$1.class
 s\z_talent_manager\vista\FrmPanelAdmin$16.class
+s\z_talent_manager\vista\FrmPanelAdmin$36.class
 s\z_talent_manager\vista\FrmPanelAdmin$33.class
 s\z_talent_manager\vista\FrmCompetencias$WrapLayout.class
 s\z_talent_manager\vista\FrmInfoPersonal$AvatarPanel.class
@@ -90,6 +96,7 @@ s\z_talent_manager\vista\FrmPanelAdmin$10.class
 s\z_talent_manager\dao\Usuarioimpl.class
 s\z_talent_manager\vista\FrmPanelAdmin$17.class
 s\z_talent_manager\vista\FrmTitulacion$3.class
+s\z_talent_manager\vista\FrmPanelAdmin$40.class
 s\z_talent_manager\vista\FrmTitulacion.class
 s\z_talent_manager\dao\CandidatoTitulacionDAO.class
 s\z_talent_manager\modelo\CandidatoTitulacion.class

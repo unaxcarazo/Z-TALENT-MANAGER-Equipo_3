@@ -24,8 +24,13 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
      */
     public FrmContraseñaOlvidada() {
         initComponents();
-
-        setLocationRelativeTo(null);
+        // ✅ Centrar en pantalla correctamente
+        pack();
+        setSize(700, 600);
+        java.awt.Dimension pantalla = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (pantalla.width - getWidth()) / 2;
+        int y = (pantalla.height - getHeight()) / 2;
+        setLocation(x, y);
 
         // sirve para al hacer click en el hipervinculo te redirija a la pagina   
         lblEnlaceManualUsuario.setCursor(new Cursor(Cursor.HAND_CURSOR));

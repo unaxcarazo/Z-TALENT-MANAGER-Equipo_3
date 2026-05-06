@@ -19,44 +19,37 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         initComponents();
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
 
-        // ✅ ContentPane ocupa todo
+        // ContentPane ocupa todo
         getContentPane().setLayout(new java.awt.BorderLayout());
         getContentPane().add(pnlPrincipal, java.awt.BorderLayout.CENTER);
         pnlPrincipal.setPreferredSize(null);
         pnlHeader.setPreferredSize(null);
 
-        // ✅ Quitar los paneles que vamos a reorganizar
+        // Quitar los paneles que vamos a reorganizar
         pnlPrincipal.remove(pnlHeader);
         pnlPrincipal.remove(pnlCentral);
         pnlPrincipal.remove(pnlContenido);
 
-        // ✅ Panel superior ÚNICO que agrupa Header + Bienvenida + Search + Botón
+        // Panel superior ÚNICO
         javax.swing.JPanel pnlNorth = new javax.swing.JPanel(new java.awt.BorderLayout());
         pnlNorth.setBackground(new java.awt.Color(211, 254, 234));
-
-        // Header (logo + cambiar contraseña + salir)
         pnlNorth.add(pnlHeader, java.awt.BorderLayout.NORTH);
 
-        // Panel central: bienvenida + búsqueda + botón
         javax.swing.JPanel pnlMid = new javax.swing.JPanel();
         pnlMid.setLayout(new javax.swing.BoxLayout(pnlMid, javax.swing.BoxLayout.Y_AXIS));
         pnlMid.setBackground(new java.awt.Color(211, 254, 234));
         pnlMid.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 30, 10, 30));
 
-        // Bienvenida centrada
         lblBienvenida.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
         pnlMid.add(lblBienvenida);
 
-        // Búsqueda centrada
         javax.swing.JPanel pnlSearchWrapper = new javax.swing.JPanel(
                 new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 8));
         pnlSearchWrapper.setBackground(new java.awt.Color(211, 254, 234));
         txtSearch.setPreferredSize(new java.awt.Dimension(500, 36));
         pnlSearchWrapper.add(txtSearch);
-        pnlSearchWrapper.add(btnBuscar);
         pnlMid.add(pnlSearchWrapper);
 
-        // Botón Crear Candidato centrado
         javax.swing.JPanel pnlBtnWrapper = new javax.swing.JPanel(
                 new java.awt.FlowLayout(java.awt.FlowLayout.CENTER));
         pnlBtnWrapper.setBackground(new java.awt.Color(211, 254, 234));
@@ -66,15 +59,79 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
 
         pnlNorth.add(pnlMid, java.awt.BorderLayout.CENTER);
 
-        // ✅ Añadir todo a pnlPrincipal
+        // FIX TOGGLES - tamaño fijo para que quepan de 2 en 2
+        java.awt.Dimension tglSize = new java.awt.Dimension(120, 26);
+        tglJavaScript.setPreferredSize(tglSize);
+        tglJavaScript.setMaximumSize(tglSize);
+        tglPython.setPreferredSize(tglSize);
+        tglPython.setMaximumSize(tglSize);
+        tglReact.setPreferredSize(tglSize);
+        tglReact.setMaximumSize(tglSize);
+        tglNoode.setPreferredSize(tglSize);
+        tglNoode.setMaximumSize(tglSize);
+        tglJavaSql.setPreferredSize(tglSize);
+        tglJavaSql.setMaximumSize(tglSize);
+        tglApache.setPreferredSize(tglSize);
+        tglApache.setMaximumSize(tglSize);
+        tglAws.setPreferredSize(tglSize);
+        tglAws.setMaximumSize(tglSize);
+        tglKubernetes.setPreferredSize(tglSize);
+        tglKubernetes.setMaximumSize(tglSize);
+        tglLinux.setPreferredSize(tglSize);
+        tglLinux.setMaximumSize(tglSize);
+        tglDocker.setPreferredSize(tglSize);
+        tglDocker.setMaximumSize(tglSize);
+        tglFigma.setPreferredSize(tglSize);
+        tglFigma.setMaximumSize(tglSize);
+        tglAdobe.setPreferredSize(tglSize);
+        tglAdobe.setMaximumSize(tglSize);
+        tglCss.setPreferredSize(tglSize);
+        tglCss.setMaximumSize(tglSize);
+        tglGoogle.setPreferredSize(tglSize);
+        tglGoogle.setMaximumSize(tglSize);
+        tglMeta.setPreferredSize(tglSize);
+        tglMeta.setMaximumSize(tglSize);
+        tglAds.setPreferredSize(tglSize);
+        tglAds.setMaximumSize(tglSize);
+
+        // FIX SCROLL - los paneles deben alinearse y expandirse correctamente
+        pnlCompTec.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+        pnlIdioma.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+        pnlTituloTr.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+        pnlCompTec.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        pnlIdioma.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        pnlTituloTr.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        pnlDesarrollo.setPreferredSize(new java.awt.Dimension(260, 180));
+        pnlDesarrollo.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 180));
+        pnlDiseño.setPreferredSize(new java.awt.Dimension(260, 120));
+        pnlDiseño.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 120));
+
+        // FIX SCROLL - envolver pnlFiltros en un panel de ancho fijo
+        pnlContenido.remove(pnlFiltros);
+        pnlFiltros.setPreferredSize(new java.awt.Dimension(270, 800)); // ← ancho fijo, altura grande
+
+        javax.swing.JScrollPane scrollFiltros = new javax.swing.JScrollPane();
+        scrollFiltros.setPreferredSize(new java.awt.Dimension(290, 0));
+        scrollFiltros.setMinimumSize(new java.awt.Dimension(290, 0));
+        scrollFiltros.setHorizontalScrollBarPolicy(
+                javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollFiltros.setVerticalScrollBarPolicy(
+                javax.swing.JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollFiltros.setBorder(javax.swing.BorderFactory.createLineBorder(
+                new java.awt.Color(184, 240, 212)));
+        scrollFiltros.getVerticalScrollBar().setUnitIncrement(16);
+        scrollFiltros.setViewportView(pnlFiltros); // ← asignar DESPUÉS de crear el scroll
+
         pnlContenido.setPreferredSize(null);
+        pnlContenido.add(scrollFiltros, java.awt.BorderLayout.WEST);
+
         tablaContenidos.setPreferredSize(null);
         tablaContenidos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
 
-        pnlPrincipal.add(pnlNorth, java.awt.BorderLayout.NORTH);       // ← todo arriba
-        pnlPrincipal.add(pnlContenido, java.awt.BorderLayout.CENTER);  // ← tabla crece
+        pnlPrincipal.add(pnlNorth, java.awt.BorderLayout.NORTH);
+        pnlPrincipal.add(pnlContenido, java.awt.BorderLayout.CENTER);
 
-        // ✅ Placeholder Search
+        // Placeholder Search
         txtSearch.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
@@ -93,7 +150,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
             }
         });
 
-        // ✅ Filtro en tiempo real
+        // Filtro en tiempo real
         javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel> sorter
                 = new javax.swing.table.TableRowSorter<>(
                         (javax.swing.table.DefaultTableModel) tablaContenidos.getModel());
@@ -128,6 +185,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
                 filtrar();
             }
         });
+
         cargarTabla();
     }
 
@@ -153,7 +211,6 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         bntCrearCandidato = new javax.swing.JButton();
         pnlBusqueda = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
         pnlContenido = new javax.swing.JPanel();
         pnlFiltros = new javax.swing.JPanel();
         pnlCompTec = new javax.swing.JPanel();
@@ -180,7 +237,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         lblIdioma = new javax.swing.JLabel();
         pnlIdiomas = new javax.swing.JPanel();
         chkEusk = new javax.swing.JCheckBox();
-        chkCast = new javax.swing.JCheckBox();
+        chkEsp = new javax.swing.JCheckBox();
         chkIng = new javax.swing.JCheckBox();
         chkFra = new javax.swing.JCheckBox();
         chkAle = new javax.swing.JCheckBox();
@@ -252,6 +309,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
 
         pnlCentral.setBackground(new java.awt.Color(211, 254, 234));
         pnlCentral.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 30, 10, 30));
+        pnlCentral.setPreferredSize(new java.awt.Dimension(284, 90));
         pnlCentral.setLayout(new java.awt.BorderLayout());
 
         lblBienvenida.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
@@ -296,19 +354,6 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         });
         pnlBusqueda.add(txtSearch);
 
-        btnBuscar.setBackground(new java.awt.Color(51, 153, 102));
-        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setText("🔍");
-        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar.setFocusPainted(false);
-        btnBuscar.setPreferredSize(new java.awt.Dimension(42, 36));
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        pnlBusqueda.add(btnBuscar);
-
         javax.swing.GroupLayout pnlCrearCandidatoLayout = new javax.swing.GroupLayout(pnlCrearCandidato);
         pnlCrearCandidato.setLayout(pnlCrearCandidatoLayout);
         pnlCrearCandidatoLayout.setHorizontalGroup(
@@ -335,15 +380,16 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
 
         pnlContenido.setBackground(new java.awt.Color(211, 254, 234));
         pnlContenido.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 20, 10, 20));
-        pnlContenido.setPreferredSize(new java.awt.Dimension(0, 480));
+        pnlContenido.setPreferredSize(new java.awt.Dimension(0, 500));
         pnlContenido.setLayout(new java.awt.BorderLayout());
 
         pnlFiltros.setBackground(new java.awt.Color(244, 253, 248));
         pnlFiltros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 240, 212)));
-        pnlFiltros.setPreferredSize(new java.awt.Dimension(280, 0));
+        pnlFiltros.setPreferredSize(new java.awt.Dimension(240, 0));
         pnlFiltros.setLayout(new javax.swing.BoxLayout(pnlFiltros, javax.swing.BoxLayout.Y_AXIS));
 
         pnlCompTec.setBackground(new java.awt.Color(244, 253, 248));
+        pnlCompTec.setPreferredSize(new java.awt.Dimension(220, 296));
         pnlCompTec.setLayout(new java.awt.BorderLayout());
 
         lblCompTec.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
@@ -359,7 +405,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglJavaScript.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglJavaScript.setForeground(new java.awt.Color(42, 74, 56));
         tglJavaScript.setText("JavaScript");
-        tglJavaScript.setPreferredSize(new java.awt.Dimension(85, 22));
+        tglJavaScript.setPreferredSize(new java.awt.Dimension(110, 22));
         tglJavaScript.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglJavaScriptActionPerformed(evt);
@@ -370,6 +416,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglPython.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglPython.setForeground(new java.awt.Color(42, 74, 56));
         tglPython.setText("Python");
+        tglPython.setPreferredSize(new java.awt.Dimension(110, 22));
         tglPython.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglPythonActionPerformed(evt);
@@ -380,6 +427,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglReact.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglReact.setForeground(new java.awt.Color(42, 74, 56));
         tglReact.setText("React");
+        tglReact.setPreferredSize(new java.awt.Dimension(110, 22));
         tglReact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglReactActionPerformed(evt);
@@ -390,6 +438,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglNoode.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglNoode.setForeground(new java.awt.Color(42, 74, 56));
         tglNoode.setText("Noode.js");
+        tglNoode.setPreferredSize(new java.awt.Dimension(110, 22));
         tglNoode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglNoodeActionPerformed(evt);
@@ -400,7 +449,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglJavaSql.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglJavaSql.setForeground(new java.awt.Color(42, 74, 56));
         tglJavaSql.setText("SQL");
-        tglJavaSql.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglJavaSql.setPreferredSize(new java.awt.Dimension(110, 22));
         tglJavaSql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglJavaSqlActionPerformed(evt);
@@ -411,7 +460,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglApache.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglApache.setForeground(new java.awt.Color(42, 74, 56));
         tglApache.setText("Apache Spark");
-        tglApache.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglApache.setPreferredSize(new java.awt.Dimension(110, 22));
         tglApache.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglApacheActionPerformed(evt);
@@ -422,7 +471,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglAws.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglAws.setForeground(new java.awt.Color(42, 74, 56));
         tglAws.setText("AWS");
-        tglAws.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglAws.setPreferredSize(new java.awt.Dimension(110, 22));
         tglAws.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglAwsActionPerformed(evt);
@@ -433,7 +482,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglKubernetes.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglKubernetes.setForeground(new java.awt.Color(42, 74, 56));
         tglKubernetes.setText("Kubernetes");
-        tglKubernetes.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglKubernetes.setPreferredSize(new java.awt.Dimension(110, 22));
         tglKubernetes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglKubernetesActionPerformed(evt);
@@ -444,7 +493,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglLinux.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglLinux.setForeground(new java.awt.Color(42, 74, 56));
         tglLinux.setText("Linux");
-        tglLinux.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglLinux.setPreferredSize(new java.awt.Dimension(110, 22));
         tglLinux.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglLinuxActionPerformed(evt);
@@ -455,7 +504,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglDocker.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglDocker.setForeground(new java.awt.Color(42, 74, 56));
         tglDocker.setText("Docker");
-        tglDocker.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglDocker.setPreferredSize(new java.awt.Dimension(110, 22));
         tglDocker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglDockerActionPerformed(evt);
@@ -470,12 +519,13 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         pnlDiseño.setForeground(new java.awt.Color(42, 74, 56));
         pnlDiseño.setFocusable(false);
         pnlDiseño.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        pnlDiseño.setPreferredSize(new java.awt.Dimension(260, 130));
+        pnlDiseño.setPreferredSize(new java.awt.Dimension(260, 110));
         pnlDiseño.setLayout(new java.awt.GridLayout(0, 2, 2, 2));
 
         tglFigma.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglFigma.setForeground(new java.awt.Color(42, 74, 56));
         tglFigma.setText("Figma");
+        tglFigma.setPreferredSize(new java.awt.Dimension(110, 22));
         tglFigma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglFigmaActionPerformed(evt);
@@ -485,7 +535,8 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
 
         tglAdobe.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglAdobe.setForeground(new java.awt.Color(42, 74, 56));
-        tglAdobe.setText("AdobeXD");
+        tglAdobe.setText("Adobe XD");
+        tglAdobe.setPreferredSize(new java.awt.Dimension(110, 22));
         tglAdobe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglAdobeActionPerformed(evt);
@@ -496,7 +547,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglCss.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglCss.setForeground(new java.awt.Color(42, 74, 56));
         tglCss.setText("CSS/Tailwind");
-        tglCss.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglCss.setPreferredSize(new java.awt.Dimension(110, 22));
         tglCss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglCssActionPerformed(evt);
@@ -507,7 +558,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglGoogle.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglGoogle.setForeground(new java.awt.Color(42, 74, 56));
         tglGoogle.setText("GoogleAnalytics");
-        tglGoogle.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglGoogle.setPreferredSize(new java.awt.Dimension(110, 22));
         tglGoogle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglGoogleActionPerformed(evt);
@@ -518,7 +569,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglMeta.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglMeta.setForeground(new java.awt.Color(42, 74, 56));
         tglMeta.setText("Meta");
-        tglMeta.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglMeta.setPreferredSize(new java.awt.Dimension(110, 22));
         tglMeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglMetaActionPerformed(evt);
@@ -529,7 +580,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         tglAds.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tglAds.setForeground(new java.awt.Color(42, 74, 56));
         tglAds.setText("ADS");
-        tglAds.setPreferredSize(new java.awt.Dimension(40, 15));
+        tglAds.setPreferredSize(new java.awt.Dimension(110, 22));
         tglAds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglAdsActionPerformed(evt);
@@ -566,17 +617,17 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         });
         pnlIdiomas.add(chkEusk);
 
-        chkCast.setBackground(new java.awt.Color(244, 253, 248));
-        chkCast.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        chkCast.setForeground(new java.awt.Color(42, 74, 56));
-        chkCast.setText("Castellano");
-        chkCast.setFocusPainted(false);
-        chkCast.addActionListener(new java.awt.event.ActionListener() {
+        chkEsp.setBackground(new java.awt.Color(244, 253, 248));
+        chkEsp.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        chkEsp.setForeground(new java.awt.Color(42, 74, 56));
+        chkEsp.setText("Español");
+        chkEsp.setFocusPainted(false);
+        chkEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkCastActionPerformed(evt);
+                chkEspActionPerformed(evt);
             }
         });
-        pnlIdiomas.add(chkCast);
+        pnlIdiomas.add(chkEsp);
 
         chkIng.setBackground(new java.awt.Color(244, 253, 248));
         chkIng.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -632,19 +683,29 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         chkTraEqui.setBackground(new java.awt.Color(244, 253, 248));
         chkTraEqui.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         chkTraEqui.setForeground(new java.awt.Color(42, 74, 56));
-        chkTraEqui.setText("Trabajo en Equipo");
+        chkTraEqui.setText("Trabajo en equipo");
+        chkTraEqui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkTraEquiActionPerformed(evt);
+            }
+        });
         pnlTransversales.add(chkTraEqui);
 
         chkComu.setBackground(new java.awt.Color(244, 253, 248));
         chkComu.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         chkComu.setForeground(new java.awt.Color(42, 74, 56));
         chkComu.setText("Comunicación efectiva");
+        chkComu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkComuActionPerformed(evt);
+            }
+        });
         pnlTransversales.add(chkComu);
 
         chkGstTmp.setBackground(new java.awt.Color(244, 253, 248));
         chkGstTmp.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         chkGstTmp.setForeground(new java.awt.Color(42, 74, 56));
-        chkGstTmp.setText("Gestión de tiempo");
+        chkGstTmp.setText("Gestión del tiempo");
         chkGstTmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkGstTmpActionPerformed(evt);
@@ -732,7 +793,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellidos", "Municipio", "Email", "Competencias", "Idiomas", "Transversales"
+                "Nombre", "Apellidos", "Email", "Titulacion", "Competencias", "Idiomas", "Transversales"
             }
         ));
         tablaContenidos.setPreferredSize(new java.awt.Dimension(400, 80));
@@ -752,11 +813,11 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 811, Short.MAX_VALUE)
+            .addGap(0, 818, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 16, Short.MAX_VALUE)))
+                    .addGap(0, 23, Short.MAX_VALUE)))
         );
 
         pack();
@@ -765,9 +826,15 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
     private void btnContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContrActionPerformed
         FrmContraseñaOlvidada frm = new FrmContraseñaOlvidada();
         frm.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        frm.setLocationRelativeTo(null);
         frm.setSize(700, 600);
         frm.setVisible(true);
+        // Cuando se cierre FrmAdminCrearUsuario, refresca la tabla
+        frm.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                cargarTabla(); // ← recarga los candidatos automáticamente
+            }
+        });
     }//GEN-LAST:event_btnContrActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -793,7 +860,7 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         frm.setLocationRelativeTo(null);
         frm.setSize(700, 600);
         frm.setVisible(true);
-        // ✅ Cuando se cierre FrmAdminCrearUsuario, refresca la tabla
+        // Cuando se cierre FrmAdminCrearUsuario, refresca la tabla
         frm.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
@@ -806,121 +873,125 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
     private void chkEuskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEuskActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkEuskActionPerformed
 
-    private void chkCastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCastActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkCastActionPerformed
+    private void chkEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEspActionPerformed
+        aplicarFiltros();
+    }//GEN-LAST:event_chkEspActionPerformed
 
     private void chkIngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkIngActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkIngActionPerformed
 
     private void chkFraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkFraActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkFraActionPerformed
 
     private void chkAleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAleActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkAleActionPerformed
 
     private void chkResoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkResoActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkResoActionPerformed
 
     private void tglJavaScriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglJavaScriptActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglJavaScriptActionPerformed
 
     private void tglPythonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglPythonActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglPythonActionPerformed
 
     private void tglFigmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglFigmaActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglFigmaActionPerformed
 
     private void tglAdobeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglAdobeActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglAdobeActionPerformed
 
     private void tglReactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglReactActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglReactActionPerformed
 
     private void tglNoodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglNoodeActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglNoodeActionPerformed
 
     private void tglJavaSqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglJavaSqlActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglJavaSqlActionPerformed
 
     private void tglApacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglApacheActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglApacheActionPerformed
 
     private void tglAwsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglAwsActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglAwsActionPerformed
 
     private void tglKubernetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglKubernetesActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglKubernetesActionPerformed
 
     private void tglLinuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglLinuxActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglLinuxActionPerformed
 
     private void tglDockerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglDockerActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglDockerActionPerformed
 
     private void tglCssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglCssActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglCssActionPerformed
 
     private void tglGoogleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglGoogleActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglGoogleActionPerformed
 
     private void tglMetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglMetaActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglMetaActionPerformed
 
     private void tglAdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglAdsActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_tglAdsActionPerformed
 
     private void chkGstTmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkGstTmpActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkGstTmpActionPerformed
 
     private void chkLiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLiderActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkLiderActionPerformed
 
     private void chkAdapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAdapActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkAdapActionPerformed
 
     private void chkCreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCreaActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkCreaActionPerformed
 
     private void chkPensCritActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPensCritActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkPensCritActionPerformed
 
     private void chkAutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutActionPerformed
-        // TODO add your handling code here:
+        aplicarFiltros();
     }//GEN-LAST:event_chkAutActionPerformed
+
+    private void chkTraEquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTraEquiActionPerformed
+        aplicarFiltros();
+    }//GEN-LAST:event_chkTraEquiActionPerformed
+
+    private void chkComuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkComuActionPerformed
+        aplicarFiltros();
+    }//GEN-LAST:event_chkComuActionPerformed
 
     private void cargarTabla() {
         javax.swing.table.DefaultTableModel modelo
@@ -934,6 +1005,12 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
             java.util.List<s.z_talent_manager.modelo.Candidato> candidatos = dao.getCandidatos(em);
 
             for (s.z_talent_manager.modelo.Candidato ca : candidatos) {
+
+                // Titulacion
+                String titulaciones = ca.getCandidatoTitulaciones() == null ? ""
+                        : ca.getCandidatoTitulaciones().stream()
+                                .map(ct -> ct.getTitulacion().getTipoEstudio())
+                                .collect(java.util.stream.Collectors.joining(", "));
 
                 // Competencias técnicas
                 String competencias = ca.getCandidatoTecnicas() == null ? ""
@@ -956,8 +1033,8 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
                 modelo.addRow(new Object[]{
                     ca.getNombre(),
                     ca.getApellidos(),
-                    ca.getMunicipio(),
                     ca.getEmail(),
+                    titulaciones,
                     competencias,
                     idiomas,
                     transversales
@@ -971,6 +1048,164 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
                     "Error al cargar candidatos: " + e.getMessage(),
                     "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
+
+        tablaContenidos.addMouseMotionListener(
+                new java.awt.event.MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(java.awt.event.MouseEvent e
+            ) {
+                int fila = tablaContenidos.rowAtPoint(e.getPoint());
+                int col = tablaContenidos.columnAtPoint(e.getPoint());
+                if (fila >= 0 && col >= 0) {
+                    Object valor = tablaContenidos.getValueAt(fila, col);
+                    if (valor != null && !valor.toString().isBlank()) {
+                        tablaContenidos.setToolTipText(valor.toString());
+                    } else {
+                        tablaContenidos.setToolTipText(null);
+                    }
+                }
+            }
+        }
+        );
+    }
+
+    private void aplicarFiltros() {
+        javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel> sorter
+                = (javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel>) tablaContenidos.getRowSorter();
+
+        // Recoger competencias técnicas seleccionadas (toggles)
+        java.util.List<String> tecnicas = new java.util.ArrayList<>();
+        if (tglJavaScript.isSelected()) {
+            tecnicas.add("JavaScript");
+        }
+        if (tglPython.isSelected()) {
+            tecnicas.add("Python");
+        }
+        if (tglReact.isSelected()) {
+            tecnicas.add("React");
+        }
+        if (tglNoode.isSelected()) {
+            tecnicas.add("Node.js");
+        }
+        if (tglJavaSql.isSelected()) {
+            tecnicas.add("SQL");
+        }
+        if (tglApache.isSelected()) {
+            tecnicas.add("Apache Spark");
+        }
+        if (tglAws.isSelected()) {
+            tecnicas.add("AWS");
+        }
+        if (tglKubernetes.isSelected()) {
+            tecnicas.add("Kubernetes");
+        }
+        if (tglLinux.isSelected()) {
+            tecnicas.add("Linux");
+        }
+        if (tglDocker.isSelected()) {
+            tecnicas.add("Docker");
+        }
+        if (tglFigma.isSelected()) {
+            tecnicas.add("Figma");
+        }
+        if (tglAdobe.isSelected()) {
+            tecnicas.add("Adobe XD");
+        }
+        if (tglCss.isSelected()) {
+            tecnicas.add("CSS / Tailwind");
+        }
+        if (tglGoogle.isSelected()) {
+            tecnicas.add("Google Analytics");
+        }
+        if (tglMeta.isSelected()) {
+            tecnicas.add("Meta");
+        }
+        if (tglAds.isSelected()) {
+            tecnicas.add("ADS");
+        }
+
+        // Recoger idiomas seleccionados (checkboxes)
+        java.util.List<String> idiomas = new java.util.ArrayList<>();
+        if (chkEusk.isSelected()) {
+            idiomas.add("Euskera");
+        }
+        if (chkEsp.isSelected()) {
+            idiomas.add("Español");
+        }
+        if (chkIng.isSelected()) {
+            idiomas.add("Inglés");
+        }
+        if (chkFra.isSelected()) {
+            idiomas.add("Francés");
+        }
+        if (chkAle.isSelected()) {
+            idiomas.add("Alemán");
+        }
+
+        // Recoger transversales seleccionados (checkboxes)
+        java.util.List<String> transversales = new java.util.ArrayList<>();
+        if (chkTraEqui.isSelected()) {
+            transversales.add("Trabajo en equipo");
+        }
+        if (chkComu.isSelected()) {
+            transversales.add("Comunicación efectiva");
+        }
+        if (chkGstTmp.isSelected()) {
+            transversales.add("Gestión del tiempo");
+        }
+        if (chkLider.isSelected()) {
+            transversales.add("Liderazgo");
+        }
+        if (chkAdap.isSelected()) {
+            transversales.add("Adaptabilidad");
+        }
+        if (chkCrea.isSelected()) {
+            transversales.add("Creatividad");
+        }
+        if (chkPensCrit.isSelected()) {
+            transversales.add("Pensamiento Crítico");
+        }
+        if (chkAut.isSelected()) {
+            transversales.add("Autonomía");
+        }
+        if (chkReso.isSelected()) {
+            transversales.add("Resolución de problemas");
+        }
+
+        // Si no hay nada seleccionado, quitar filtro
+        if (tecnicas.isEmpty() && idiomas.isEmpty() && transversales.isEmpty()) {
+            sorter.setRowFilter(null);
+            return;
+        }
+
+        // Aplicar filtro combinado
+        sorter.setRowFilter(new javax.swing.RowFilter<javax.swing.table.DefaultTableModel, Integer>() {
+            @Override
+            public boolean include(Entry<? extends javax.swing.table.DefaultTableModel, ? extends Integer> entry) {
+                // Columna 4 = Competencias, 5 = Idiomas, 6 = Transversales
+                String compFila = entry.getStringValue(4).toLowerCase();
+                String idioFila = entry.getStringValue(5).toLowerCase();
+                String transFila = entry.getStringValue(6).toLowerCase();
+
+                // Cada filtro activo debe cumplirse (AND entre categorías)
+                for (String t : tecnicas) {
+                    if (!compFila.contains(t.toLowerCase())) {
+                        return false;
+                    }
+                }
+                for (String i : idiomas) {
+                    if (!idioFila.contains(i.toLowerCase())) {
+                        return false;
+                    }
+                }
+                for (String tr : transversales) {
+                    if (!transFila.contains(tr.toLowerCase())) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        });
     }
 
     /**
@@ -1000,15 +1235,14 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCrearCandidato;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnContr;
     private javax.swing.JButton btnSalir;
     private javax.swing.JCheckBox chkAdap;
     private javax.swing.JCheckBox chkAle;
     private javax.swing.JCheckBox chkAut;
-    private javax.swing.JCheckBox chkCast;
     private javax.swing.JCheckBox chkComu;
     private javax.swing.JCheckBox chkCrea;
+    private javax.swing.JCheckBox chkEsp;
     private javax.swing.JCheckBox chkEusk;
     private javax.swing.JCheckBox chkFra;
     private javax.swing.JCheckBox chkGstTmp;

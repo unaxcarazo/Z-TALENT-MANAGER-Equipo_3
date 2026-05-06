@@ -279,42 +279,47 @@ public class FrmCompetencias extends JPanel {
         }
     });
 
-     // Botón editar → abre ventana edición
-       JButton btnEditar = crearBoton("Editar");
-        btnEditar.addActionListener(e -> {
-        Window ventanaActual = SwingUtilities.getWindowAncestor(this);
-        ventanaActual.setVisible(false);
+    JButton btnEditar = crearBoton("Editar");
+    btnEditar.addActionListener(e -> {
+    Window ventanaActual = SwingUtilities.getWindowAncestor(this);
+    ventanaActual.setVisible(false);
 
-       FrmCompetenciaModificar frameEditar = new FrmCompetenciaModificar();
-        frameEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frameEditar.setLocationRelativeTo(null);
-        frameEditar.setVisible(true);
+    FrmCompetenciaModificar frameEditar = new FrmCompetenciaModificar();
+    frameEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    frameEditar.setLocationRelativeTo(null);
+    frameEditar.setVisible(true);
+     
+    frameEditar.addWindowListener(new WindowAdapter() {
+         @Override public void windowClosed(WindowEvent e) {
+             ventanaActual.setVisible(true);
+         }
+     });
+  });
 
-        frameEditar.addWindowListener(new WindowAdapter() {
-            @Override public void windowClosed(WindowEvent e) {
-                ventanaActual.setVisible(true);
-            }
-        });
-    });
+    // Panel izquierda: Añadir + Eliminar
+    JPanel panelBotonesIzq = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 2));
+    panelBotonesIzq.setOpaque(false);
+    panelBotonesIzq.add(btnAñadir);
+    panelBotonesIzq.add(btnEliminar);
 
-        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 4));
-        panelBotones.setOpaque(false);
-        panelBotones.add(btnAñadir);
-        panelBotones.add(btnEditar);
-        g.gridx = 0; g.gridy = 3; g.gridwidth = 5;
-        g.weightx = 0; g.fill = GridBagConstraints.HORIZONTAL;
-        panel.add(panelBotones, g);
-        
-          // Panel izquierda: Añadir + Eliminar
-        JPanel panelBotonesIzq = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 4));
-        panelBotonesIzq.setOpaque(false);
-        panelBotonesIzq.add(btnAñadir);
-        panelBotonesIzq.add(btnEliminar);
+    // Panel derecha: Editar
+    JPanel panelBotonesDer = new JPanel(new FlowLayout(FlowLayout.CENTER, 4, 2));
+    panelBotonesDer.setOpaque(false);
+    panelBotonesDer.add(btnEditar);
 
-        
-        return panel;
+    // Contenedor fila de botones con BorderLayout
+    JPanel panelBotones = new JPanel(new BorderLayout());
+    panelBotones.setOpaque(false);
+    panelBotones.add(panelBotonesIzq, BorderLayout.WEST);
+    panelBotones.add(panelBotonesDer, BorderLayout.EAST);
 
-        }
+    g.gridx = 0; g.gridy = 3; g.gridwidth = 5;
+    g.weightx = 1.0; g.fill = GridBagConstraints.HORIZONTAL;
+    panel.add(panelBotones, g);
+
+    return panel;
+}
+
 
 
 

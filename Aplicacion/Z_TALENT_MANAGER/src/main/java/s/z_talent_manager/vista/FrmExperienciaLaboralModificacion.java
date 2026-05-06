@@ -4,6 +4,13 @@
  */
 package s.z_talent_manager.vista;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import s.z_talent_manager.modelo.Candidato;
+import s.z_talent_manager.modelo.Experiencia;
+import s.z_talent_manager.modelo.Sesion;
+import s.z_talent_manager.servicio.ZTalentManagerServicio;
+
 /**
  *
  * @author maymansito
@@ -232,7 +239,91 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFechaFinLaboralActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+
+ try {
+        Candidato c = (Candidato) Sesion.getUsuario();
+        Experiencia nuevaExp = new Experiencia();
+        nuevaExp.setCompañia(txtCompañia.getText().trim());
+        nuevaExp.setPuesto(txtPuesto.getText().trim());
+        nuevaExp.setDescripcion(txaActividades.getText().trim());
+        
+     if (txtFechaInicioLaboral.getValue() != null) {
+    java.util.Date fecha = (java.util.Date) txtFechaInicioLaboral.getValue();
+    java.util.Calendar cal = java.util.Calendar.getInstance();
+    cal.setTime(fecha);
+    nuevaExp.setFechaInicio(java.time.LocalDate.of(
+        cal.get(java.util.Calendar.YEAR),
+        cal.get(java.util.Calendar.MONTH) + 1,
+        cal.get(java.util.Calendar.DAY_OF_MONTH)
+    ));
+}
+
+          if (txtFechaFinLaboral.getValue() != null) {
+    java.util.Date fecha = (java.util.Date) txtFechaFinLaboral.getValue();
+    java.util.Calendar cal = java.util.Calendar.getInstance();
+    cal.setTime(fecha);
+    nuevaExp.setFechaFin(java.time.LocalDate.of(
+        cal.get(java.util.Calendar.YEAR),
+        cal.get(java.util.Calendar.MONTH) + 1,
+        cal.get(java.util.Calendar.DAY_OF_MONTH)
+    ));
+}
+          
+        // Asociamos la experiencia al candidato
+    nuevaExp.setCandidato(c); 
+    
+    // Añadimos la experiencia a la lista del candidato (para que merge la vea)
+    if (c.getExperiencias() == null) {
+        c.setExperiencias(new ArrayList<>());
+    }
+    c.getExperiencias().add(nuevaExp);
+        ZTalentManagerServicio.getServicio().modificarCandidato(c);
+
+
+        JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
+        
+        dispose();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, 
+            "Error al guardar: " + e.getMessage(), 
+            "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

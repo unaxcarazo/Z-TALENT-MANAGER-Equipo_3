@@ -26,6 +26,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -37,7 +38,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import s.z_talent_manager.modelo.Candidato;
 import s.z_talent_manager.modelo.Experiencia;
+import s.z_talent_manager.modelo.Sesion;
+import s.z_talent_manager.servicio.ZTalentManagerServicio;
 
 /**
  *
@@ -153,11 +157,59 @@ public class FrmExperiencias extends JPanel {
         g.weightx = 0.55; g.weighty = 1.0;
         add(scrollTabla, g);
 
-        // ── Botón Editar bajo la tabla ────────────────────────────
+        // ── Botóneh  bajo la tabla ────────────────────────────
+        
+        
+            JButton btnEliminar = crearBoton("Eliminar experiencia");
+        btnEliminar.addActionListener(e -> {
+        int filaSeleccionada = tabla.getSelectedRow();
+    if (filaSeleccionada != -1) {
+        int confirmar = JOptionPane.showConfirmDialog(
+            this,
+            "¿Estás seguro de que quieres eliminar esta experiencia?",
+            "Confirmar eliminación",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE
+        );
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+ try {
+    Candidato c = (Candidato) Sesion.getUsuario();
+    
+    // Obtenemos la experiencia de la lista usando el índice de la tabla
+    Experiencia expAEliminar = c.getExperiencias().get(filaSeleccionada);
+    
+    // La borramos de la lista del objeto Candidato
+    c.getExperiencias().remove(expAEliminar);
+    
+    // LLAMADA CRUCIAL: Asignamos el resultado a la variable 'actualizado'
+
+    Candidato actualizado = ZTalentManagerServicio.getServicio().modificarCandidato(c);
+    
+    // Ahora sí podemos usar 'actualizado' para refrescar la sesión y la tabla
+    Sesion.setUsuario(actualizado);
+    cargarDatos(actualizado.getExperiencias());
+    
+    limpiarFormulario();
+    
+    JOptionPane.showMessageDialog(this, "Experiencia eliminada correctamente.");
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    JOptionPane.showMessageDialog(this, "Error al eliminar: " + ex.getMessage());
+}
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Selecciona una experiencia de la tabla para eliminar.");
+    }
+    });
+
+        
+        
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 4));
         panelBotones.setOpaque(false);
 
-        JButton btnEditar = crearBoton("Editar");
+        JButton btnEditar = crearBoton("Añadir experiencia");
         btnEditar.addActionListener(e -> {
         Window ventanaActual = SwingUtilities.getWindowAncestor(this);
         ventanaActual.setVisible(false);
@@ -170,6 +222,10 @@ public class FrmExperiencias extends JPanel {
 
         frameEditar.addWindowListener(new WindowAdapter() {
             @Override public void windowClosed(WindowEvent e) {
+                Candidato c = (Candidato) Sesion.getUsuario();
+            
+      
+            cargarDatos(c.getExperiencias());
                 tabla.clearSelection();
                 limpiarFormulario();
                 ventanaActual.setVisible(true);
@@ -180,6 +236,13 @@ public class FrmExperiencias extends JPanel {
         panelBotones.add(btnEditar);
 
         g.gridx = 0; g.gridy = 2;
+        g.fill = GridBagConstraints.HORIZONTAL;
+        g.weightx = 0; g.weighty = 0;
+        add(panelBotones, g);
+        
+         panelBotones.add(btnEliminar);
+
+        g.gridx = 0; g.gridy = 3;
         g.fill = GridBagConstraints.HORIZONTAL;
         g.weightx = 0; g.weighty = 0;
         add(panelBotones, g);

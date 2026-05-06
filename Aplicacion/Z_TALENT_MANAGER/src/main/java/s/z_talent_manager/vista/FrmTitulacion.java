@@ -25,6 +25,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -150,11 +151,11 @@ public class FrmTitulacion extends JPanel {
         g.weightx = 0.55; g.weighty = 1.0;
         add(scrollTabla, g);
 
-        // ── Botón Editar bajo la tabla ────────────────────────────
+        // ── Botóneh bajo la tabla ────────────────────────────
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 4));
         panelBotones.setOpaque(false);
 
-        JButton btnEditar = crearBoton("Editar");
+        JButton btnEditar = crearBoton("Añadir titulacion");
         btnEditar.addActionListener(e -> {
             
             Window ventanaActual = SwingUtilities.getWindowAncestor(this);
@@ -174,11 +175,45 @@ public class FrmTitulacion extends JPanel {
             });
         });
 
+                  JButton btnEliminar = crearBoton("Eliminar Titulacion");
+        btnEliminar.addActionListener(e -> {
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            int confirmar = JOptionPane.showConfirmDialog(
+                this,
+                "¿Estás seguro de que quieres eliminar esta titulacion?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE
+            );
+            if (confirmar == JOptionPane.YES_OPTION) {
+                modeloTabla.removeRow(filaSeleccionada);
+            }
+        } else {
+            JOptionPane.showMessageDialog(
+                this,
+                "Selecciona una titulacion de la tabla para eliminar.",
+                "Sin selección",
+                JOptionPane.WARNING_MESSAGE
+            );
+        }
+    });
+        
+        
+        
+        
         panelBotones.add(btnEditar);
         g.gridx = 0; g.gridy = 2;
         g.fill = GridBagConstraints.HORIZONTAL;
         g.weightx = 0; g.weighty = 0;
         add(panelBotones, g);
+                panelBotones.add(btnEliminar);
+        g.gridx = 0; g.gridy = 2;
+        g.fill = GridBagConstraints.HORIZONTAL;
+        g.weightx = 0; g.weighty = 0;
+        add(panelBotones, g);
+        
+
         
         // ════════════════════════════════════════════════
         // COLUMNA 1 — Formulario solo lectura

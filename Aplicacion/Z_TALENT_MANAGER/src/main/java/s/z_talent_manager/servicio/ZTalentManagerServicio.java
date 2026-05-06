@@ -23,6 +23,7 @@ import s.z_talent_manager.dao.CandidatoIdiomaDAO;
 import s.z_talent_manager.dao.CandidatoTecnicaDAO;
 import s.z_talent_manager.dao.CandidatoTitulacionDAO;
 import s.z_talent_manager.dao.CandidatoTransversalDAO;
+import s.z_talent_manager.modelo.Idioma;
 import s.z_talent_manager.modelo.Usuario;
 
 /**
@@ -141,7 +142,7 @@ public class ZTalentManagerServicio {
 
     /* ===== Editar Datos Personales del Candidato =====
      - Candidato modifica los campos de su cv desde su perfil. */
-public void modificarCandidato(Candidato ca) {
+/*public void modificarCandidato(Candidato ca) {
     try (EntityManager em = JPAUtil.getEntityManager()) {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -156,7 +157,41 @@ public void modificarCandidato(Candidato ca) {
         }
     }
 }
+*/
+    
+    
+    public Idioma getIdiomaPorNombre(String nombre) {
+    try (EntityManager em = JPAUtil.getEntityManager()) {
+        return em.createQuery("SELECT i FROM Idioma i WHERE i.nombre = :nom", Idioma.class)
+                 .setParameter("nom", nombre)
+                 .getSingleResult();
+    } catch (Exception e) {
+        return null; // O maneja el error si el idioma no existe
+    }
 }
     
+    
+    public Candidato modificarCandidato(Candidato ca) { // Cambia 'void' por 'Candidato'
+    try (EntityManager em = JPAUtil.getEntityManager()) {
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            Candidato actualizado = em.merge(ca); // Guardamos el resultado
+            tx.commit();
+            em.clear();
+            return actualizado; // Devolvemos el objeto actualizado
+        } catch (Exception ex) {
+            if (tx.isActive()) tx.rollback();
+            throw new RuntimeException(ex.getMessage());
+        }
+      finally {
+            em.close();
+    }
+    }
+    }
+}
+
+    
+
            
 

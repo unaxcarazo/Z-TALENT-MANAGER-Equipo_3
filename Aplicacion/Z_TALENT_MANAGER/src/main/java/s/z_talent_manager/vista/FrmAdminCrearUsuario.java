@@ -17,6 +17,120 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
      */
     public FrmAdminCrearUsuario() {
         initComponents();
+
+        // ContentPane responsivo
+        getContentPane().setLayout(new java.awt.BorderLayout());
+        getContentPane().add(pnlPrincipal, java.awt.BorderLayout.CENTER);
+        pnlPrincipal.setPreferredSize(null);
+        pnlHeader.setPreferredSize(null);
+
+        // Centrar en pantalla
+        setSize(700, 600);
+        java.awt.Dimension pantalla = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((pantalla.width - getWidth()) / 2, (pantalla.height - getHeight()) / 2);
+        setResizable(true);
+
+        // Reemplazar AbsoluteLayout por GridBagLayout responsivo
+        pnlCentral.removeAll();
+        pnlCentral.setLayout(new java.awt.GridBagLayout());
+        pnlCentral.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 60, 30, 60));
+
+        java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
+        gbc.insets = new java.awt.Insets(8, 10, 8, 10);
+        gbc.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gbc.weightx = 1.0;
+
+        java.awt.Color bgField = new java.awt.Color(248, 253, 249);
+        java.awt.Color borderColor = new java.awt.Color(184, 240, 212);
+        java.awt.Font lblFont = new java.awt.Font("SansSerif", 1, 14);
+        java.awt.Color lblColor = new java.awt.Color(7, 48, 26);
+
+        // Estilo campos
+        for (javax.swing.JTextField txt : new javax.swing.JTextField[]{
+            txtNombre, txtApellidos, txtNomUsu, txtCorreo,
+            txtRepCorreo, txtCreaContr, txtRepContr}) {
+            txt.setBackground(bgField);
+            txt.setBorder(javax.swing.BorderFactory.createLineBorder(borderColor));
+            txt.setMargin(new java.awt.Insets(5, 10, 5, 10));
+            txt.setPreferredSize(new java.awt.Dimension(0, 35));
+        }
+
+        // Estilo labels
+        for (javax.swing.JLabel lbl : new javax.swing.JLabel[]{
+            lblNombre, lblApellidos, lblNomUsu, lblCorreo,
+            lblRepCorreo, lblCreaContr, lblRepContr}) {
+            lbl.setFont(lblFont);
+            lbl.setForeground(lblColor);
+        }
+
+        // ── Fila 0: Nombre | Apellidos ──
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        pnlCentral.add(lblNombre, gbc);
+        gbc.gridx = 1;
+        pnlCentral.add(lblApellidos, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        pnlCentral.add(txtNombre, gbc);
+        gbc.gridx = 1;
+        pnlCentral.add(txtApellidos, gbc);
+
+        // ── Fila 2: Nombre Usuario (ocupa las 2 columnas) ──
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        pnlCentral.add(lblNomUsu, gbc);
+        gbc.gridy = 3;
+        pnlCentral.add(txtNomUsu, gbc);
+
+        // ── Fila 4: Correo | Repite Correo ──
+        gbc.gridwidth = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        pnlCentral.add(lblCorreo, gbc);
+        gbc.gridx = 1;
+        pnlCentral.add(lblRepCorreo, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        pnlCentral.add(txtCorreo, gbc);
+        gbc.gridx = 1;
+        pnlCentral.add(txtRepCorreo, gbc);
+
+        // ── Fila 6: Contraseña | Repite Contraseña ──
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        pnlCentral.add(lblCreaContr, gbc);
+        gbc.gridx = 1;
+        pnlCentral.add(lblRepContr, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 7;
+        pnlCentral.add(txtCreaContr, gbc);
+        gbc.gridx = 1;
+        pnlCentral.add(txtRepContr, gbc);
+
+        // ── Fila 8: Botón centrado ──
+        gbc.gridx = 0;
+        gbc.gridy = 8;
+        gbc.gridwidth = 2;
+        gbc.fill = java.awt.GridBagConstraints.NONE;
+        gbc.anchor = java.awt.GridBagConstraints.CENTER;
+        btnCrearCuenta.setPreferredSize(new java.awt.Dimension(160, 40));
+        btnCrearCuenta.setBackground(new java.awt.Color(51, 153, 102));
+        btnCrearCuenta.setForeground(java.awt.Color.WHITE);
+        btnCrearCuenta.setFont(new java.awt.Font("SansSerif", 1, 14));
+        pnlCentral.add(btnCrearCuenta, gbc);
+
+        // Acción botón Crear Cuenta
+        btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearCandidato();
+            }
+        });
     }
 
     /**
@@ -47,7 +161,7 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         txtCreaContr = new javax.swing.JTextField();
         lblRepContr = new javax.swing.JLabel();
         txtRepContr = new javax.swing.JTextField();
-        lblCrearCuenta = new javax.swing.JButton();
+        btnCrearCuenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -221,13 +335,18 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         });
         pnlCentral.add(txtRepContr, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 220, 30));
 
-        lblCrearCuenta.setBackground(new java.awt.Color(51, 153, 102));
-        lblCrearCuenta.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        lblCrearCuenta.setText("Crear Cuenta");
-        lblCrearCuenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        lblCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pnlCentral.add(lblCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
+        btnCrearCuenta.setBackground(new java.awt.Color(51, 153, 102));
+        btnCrearCuenta.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrearCuenta.setText("Crear Cuenta");
+        btnCrearCuenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearCuentaActionPerformed(evt);
+            }
+        });
+        pnlCentral.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
 
         pnlPrincipal.add(pnlCentral, java.awt.BorderLayout.CENTER);
 
@@ -252,11 +371,12 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1078, 545));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVolverActionPerformed
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_bntVolverActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -287,6 +407,10 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRepContrActionPerformed
 
+    private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearCuentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -309,15 +433,87 @@ public class FrmAdminCrearUsuario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-       
+    }
+
+    private void crearCandidato() {
+        // Validaciones básicas
+        if (txtNombre.getText().isBlank() || txtApellidos.getText().isBlank()
+                || txtCorreo.getText().isBlank() || txtCreaContr.getText().isBlank()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Por favor rellena todos los campos obligatorios.",
+                    "Campos vacíos", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (!txtCorreo.getText().equals(txtRepCorreo.getText())) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Los correos no coinciden.",
+                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (!txtCreaContr.getText().equals(txtRepContr.getText())) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Las contraseñas no coinciden.",
+                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            jakarta.persistence.EntityManager em
+                    = s.z_talent_manager.util.JPAUtil.getEntityManager();
+
+            // ✅ Verificar si el email ya existe usando tu UsuarioDAO
+            s.z_talent_manager.dao.UsuarioDAO usuarioDao
+                    = new s.z_talent_manager.dao.Usuarioimpl();
+            s.z_talent_manager.modelo.Usuario usuarioExistente
+                    = usuarioDao.getUsuarioPorEmail(em, txtCorreo.getText().trim());
+
+            if (usuarioExistente != null) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ya existe un usuario con ese correo electrónico.",
+                        "Email duplicado", javax.swing.JOptionPane.WARNING_MESSAGE);
+                em.close();
+                return;
+            }
+
+            // ✅ Crear objeto Candidato
+            s.z_talent_manager.modelo.Candidato candidato
+                    = new s.z_talent_manager.modelo.Candidato();
+            candidato.setNombre(txtNombre.getText().trim());
+            candidato.setApellidos(txtApellidos.getText().trim());
+            candidato.setEmail(txtCorreo.getText().trim());
+            candidato.setContraseña(txtCreaContr.getText().trim());
+            candidato.setAdministrador(false);
+            candidato.setFechaCreacion(java.time.LocalDate.now());
+
+            // ✅ Guardar en BD
+            jakarta.persistence.EntityTransaction tx = em.getTransaction();
+            tx.begin();
+            s.z_talent_manager.dao.CandidatoDAO dao
+                    = new s.z_talent_manager.dao.CandidatoImpl();
+            dao.nuevoCandidato(em, candidato);
+            tx.commit();
+            em.close();
+
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Candidato creado correctamente.",
+                    "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al crear el candidato: " + e.getMessage(),
+                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntVolver;
+    private javax.swing.JButton btnCrearCuenta;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblCreaContr;
-    private javax.swing.JButton lblCrearCuenta;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNomUsu;
     private javax.swing.JLabel lblNombre;

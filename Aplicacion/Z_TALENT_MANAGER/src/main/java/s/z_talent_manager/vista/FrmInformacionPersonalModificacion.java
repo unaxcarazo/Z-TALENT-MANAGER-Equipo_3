@@ -457,6 +457,7 @@ public class FrmInformacionPersonalModificacion extends javax.swing.JFrame {
 
         ZTalentManagerServicio.getServicio().modificarCandidato(c);
 
+
         JOptionPane.showMessageDialog(this, "Datos guardados correctamente");
         
         dispose();

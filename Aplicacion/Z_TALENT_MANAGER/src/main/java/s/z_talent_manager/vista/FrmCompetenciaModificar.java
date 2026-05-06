@@ -4,30 +4,19 @@
  */
 package s.z_talent_manager.vista;
 
-
-
 /**
  *
- * @author maymansito
+ * @author DAW1
  */
 public class FrmCompetenciaModificar extends javax.swing.JFrame {
-
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmCompetenciaModificar.class.getName());
 
     /**
-     * Creates new form FrmExperienciaLaboralModificacion
+     * Creates new form FrmCompetenciaModificar
      */
-    
-  
-    
-    
     public FrmCompetenciaModificar() {
-    
-    initComponents();
-    jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
- 
-        
-
+        initComponents();
     }
 
     /**
@@ -38,324 +27,618 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        pnlBody = new javax.swing.JPanel();
-        lblCompetencia = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        lblCapacidadesTecnicas = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        lblCapacidadesTransversales = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        tbtnFigma = new javax.swing.JToggleButton();
+        tbtnAdobeXd = new javax.swing.JToggleButton();
+        tbtnGoogleAnalytics = new javax.swing.JToggleButton();
+        tbtnMeta = new javax.swing.JToggleButton();
+        tbtnTailwind = new javax.swing.JToggleButton();
+        tbtnAds = new javax.swing.JToggleButton();
+        tbtnSQL = new javax.swing.JToggleButton();
+        tbtnJava = new javax.swing.JToggleButton();
+        tbtnCSS = new javax.swing.JToggleButton();
+        jPanel2 = new javax.swing.JPanel();
+        tbtnJavaScript = new javax.swing.JToggleButton();
+        tbtnPython = new javax.swing.JToggleButton();
+        tbtnApacheSpark = new javax.swing.JToggleButton();
+        tbtnReact = new javax.swing.JToggleButton();
+        tbtnLinux = new javax.swing.JToggleButton();
+        tbtnAWS = new javax.swing.JToggleButton();
+        tbtnMongoDB = new javax.swing.JToggleButton();
+        tbtnKubernetes = new javax.swing.JToggleButton();
+        tbtnDocker = new javax.swing.JToggleButton();
         jSeparator3 = new javax.swing.JSeparator();
-        lblAutonomia = new javax.swing.JLabel();
-        cmbAutonomia = new javax.swing.JComboBox<>();
-        lblTrabajoEnEquipo = new javax.swing.JLabel();
-        cmbTrabajoEnEquipo = new javax.swing.JComboBox<>();
-        lblComunicacionEfectiva = new javax.swing.JLabel();
-        cmbComunicacionEfectiva = new javax.swing.JComboBox<>();
-        lblResolucionDeProblemas = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         cmbResolucionDeProblemas = new javax.swing.JComboBox<>();
-        lblGestionDeTiempo = new javax.swing.JLabel();
-        cmbGestionDeTiempo = new javax.swing.JComboBox<>();
-        lblLiderazgo = new javax.swing.JLabel();
-        cmbLiderazgo = new javax.swing.JComboBox<>();
-        lblAdaptabilidad = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        cmbAtunomia = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         cmbAdaptabilidad = new javax.swing.JComboBox<>();
-        lblCreatividad = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        cmbTrabajoEnEquipo = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        cmbGestionDeTiempo = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         cmbCreatividad = new javax.swing.JComboBox<>();
-        lblPensamientoCritico = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         cmbPensamientoCritico = new javax.swing.JComboBox<>();
-        pnlFooter = new javax.swing.JPanel();
-        btnCancelar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        cmbLiderazgo = new javax.swing.JComboBox<>();
+        cmbComunicacionEfectiva = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Modificar informacion personal");
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+        setBackground(new java.awt.Color(222, 229, 227));
+        setPreferredSize(new java.awt.Dimension(800, 650));
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(800, 550));
+        jPanel1.setBackground(new java.awt.Color(233, 239, 237));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        pnlBody.setBackground(new java.awt.Color(255, 255, 255));
-        pnlBody.setPreferredSize(new java.awt.Dimension(800, 700));
-        pnlBody.setLayout(new java.awt.GridBagLayout());
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CAPACIDADES TÉCNICAS");
 
-        lblCompetencia.setForeground(new java.awt.Color(51, 51, 51));
-        lblCompetencia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblCompetencia.setText("Competencia");
-        lblCompetencia.setPreferredSize(new java.awt.Dimension(800, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        pnlBody.add(lblCompetencia, gridBagConstraints);
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("COMPETENCIAS");
 
-        jSeparator1.setBackground(new java.awt.Color(51, 51, 51));
-        jSeparator1.setForeground(new java.awt.Color(255, 0, 0));
-        jSeparator1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 400.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(jSeparator1, gridBagConstraints);
+        jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
 
-        lblCapacidadesTecnicas.setForeground(new java.awt.Color(51, 51, 51));
-        lblCapacidadesTecnicas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblCapacidadesTecnicas.setText("Capcidades tecnicas");
-        lblCapacidadesTecnicas.setPreferredSize(new java.awt.Dimension(800, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblCapacidadesTecnicas, gridBagConstraints);
+        jPanel4.setLayout(new java.awt.BorderLayout());
 
-        jSeparator2.setBackground(new java.awt.Color(51, 51, 51));
-        jSeparator2.setForeground(new java.awt.Color(255, 0, 0));
-        jSeparator2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 400.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(jSeparator2, gridBagConstraints);
-
-        lblCapacidadesTransversales.setForeground(new java.awt.Color(51, 51, 51));
-        lblCapacidadesTransversales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblCapacidadesTransversales.setText("Capacidades transversales");
-        lblCapacidadesTransversales.setPreferredSize(new java.awt.Dimension(800, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblCapacidadesTransversales, gridBagConstraints);
-
-        jSeparator3.setBackground(new java.awt.Color(51, 51, 51));
-        jSeparator3.setForeground(new java.awt.Color(255, 0, 0));
-        jSeparator3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 400.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(jSeparator3, gridBagConstraints);
-
-        lblAutonomia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblAutonomia.setForeground(new java.awt.Color(7, 48, 26));
-        lblAutonomia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAutonomia.setText("Autonomia");
-        lblAutonomia.setPreferredSize(new java.awt.Dimension(350, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblAutonomia, gridBagConstraints);
-
-        cmbAutonomia.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbAutonomia, gridBagConstraints);
-
-        lblTrabajoEnEquipo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTrabajoEnEquipo.setForeground(new java.awt.Color(7, 48, 26));
-        lblTrabajoEnEquipo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTrabajoEnEquipo.setText("Trabajo en equipo");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblTrabajoEnEquipo, gridBagConstraints);
-
-        cmbTrabajoEnEquipo.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 27;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbTrabajoEnEquipo, gridBagConstraints);
-
-        lblComunicacionEfectiva.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblComunicacionEfectiva.setForeground(new java.awt.Color(7, 48, 26));
-        lblComunicacionEfectiva.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblComunicacionEfectiva.setText("Trabajo en equipo");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblComunicacionEfectiva, gridBagConstraints);
-
-        cmbComunicacionEfectiva.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 25;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbComunicacionEfectiva, gridBagConstraints);
-
-        lblResolucionDeProblemas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblResolucionDeProblemas.setForeground(new java.awt.Color(7, 48, 26));
-        lblResolucionDeProblemas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblResolucionDeProblemas.setText("Resolucion de problemas");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblResolucionDeProblemas, gridBagConstraints);
-
-        cmbResolucionDeProblemas.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 29;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbResolucionDeProblemas, gridBagConstraints);
-
-        lblGestionDeTiempo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblGestionDeTiempo.setForeground(new java.awt.Color(7, 48, 26));
-        lblGestionDeTiempo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblGestionDeTiempo.setText("Gestion de tiempo");
-        lblGestionDeTiempo.setMaximumSize(new java.awt.Dimension(63, 16));
-        lblGestionDeTiempo.setMinimumSize(new java.awt.Dimension(63, 16));
-        lblGestionDeTiempo.setPreferredSize(new java.awt.Dimension(63, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblGestionDeTiempo, gridBagConstraints);
-
-        cmbGestionDeTiempo.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbGestionDeTiempo, gridBagConstraints);
-
-        lblLiderazgo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblLiderazgo.setForeground(new java.awt.Color(7, 48, 26));
-        lblLiderazgo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblLiderazgo.setText("Liderazgo");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblLiderazgo, gridBagConstraints);
-
-        cmbLiderazgo.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 27;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbLiderazgo, gridBagConstraints);
-
-        lblAdaptabilidad.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblAdaptabilidad.setForeground(new java.awt.Color(7, 48, 26));
-        lblAdaptabilidad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAdaptabilidad.setText("Adaptabilidad");
-        lblAdaptabilidad.setPreferredSize(new java.awt.Dimension(350, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblAdaptabilidad, gridBagConstraints);
-
-        cmbAdaptabilidad.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 21;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbAdaptabilidad, gridBagConstraints);
-
-        lblCreatividad.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCreatividad.setForeground(new java.awt.Color(7, 48, 26));
-        lblCreatividad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblCreatividad.setText("Creatividad");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblCreatividad, gridBagConstraints);
-
-        cmbCreatividad.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbCreatividad, gridBagConstraints);
-
-        lblPensamientoCritico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblPensamientoCritico.setForeground(new java.awt.Color(7, 48, 26));
-        lblPensamientoCritico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPensamientoCritico.setText("Pensamiento critico");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(lblPensamientoCritico, gridBagConstraints);
-
-        cmbPensamientoCritico.setForeground(new java.awt.Color(51, 51, 51));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 25;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        pnlBody.add(cmbPensamientoCritico, gridBagConstraints);
-
-        jScrollPane1.setViewportView(pnlBody);
-
-        getContentPane().add(jScrollPane1);
-
-        pnlFooter.setBackground(new java.awt.Color(255, 255, 255));
-        pnlFooter.setPreferredSize(new java.awt.Dimension(800, 50));
-
-        btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
-        btnCancelar.setText("CANCELAR");
-        pnlFooter.add(btnCancelar);
-
-        btnGuardar.setBackground(new java.awt.Color(7, 48, 26));
-        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setText("GUARDAR");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        tbtnFigma.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnFigma.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnFigma.setText("Figma");
+        tbtnFigma.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnFigma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                tbtnFigmaActionPerformed(evt);
             }
         });
-        pnlFooter.add(btnGuardar);
 
-        getContentPane().add(pnlFooter);
+        tbtnAdobeXd.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnAdobeXd.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnAdobeXd.setText("Adobe XD");
+        tbtnAdobeXd.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnAdobeXd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnAdobeXdActionPerformed(evt);
+            }
+        });
+
+        tbtnGoogleAnalytics.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnGoogleAnalytics.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnGoogleAnalytics.setText("Google Analytics");
+        tbtnGoogleAnalytics.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnGoogleAnalytics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnGoogleAnalyticsActionPerformed(evt);
+            }
+        });
+
+        tbtnMeta.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnMeta.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnMeta.setText("Meta");
+        tbtnMeta.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnMeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnMetaActionPerformed(evt);
+            }
+        });
+
+        tbtnTailwind.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnTailwind.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnTailwind.setText("Tailwind");
+        tbtnTailwind.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnTailwind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnTailwindActionPerformed(evt);
+            }
+        });
+
+        tbtnAds.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnAds.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnAds.setText("ADS");
+        tbtnAds.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnAds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnAdsActionPerformed(evt);
+            }
+        });
+
+        tbtnSQL.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnSQL.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnSQL.setText("SQL");
+        tbtnSQL.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnSQL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnSQLActionPerformed(evt);
+            }
+        });
+
+        tbtnJava.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnJava.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnJava.setText("Java");
+        tbtnJava.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnJava.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnJavaActionPerformed(evt);
+            }
+        });
+
+        tbtnCSS.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnCSS.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnCSS.setText("CSS");
+        tbtnCSS.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnCSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnCSSActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(tbtnFigma, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbtnAds, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tbtnSQL, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(tbtnAdobeXd, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbtnTailwind, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tbtnJava, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(tbtnGoogleAnalytics, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbtnMeta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tbtnCSS, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbtnSQL, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnAds, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnFigma, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tbtnTailwind, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tbtnJava, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tbtnAdobeXd, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbtnGoogleAnalytics, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnMeta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnCSS, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel4.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        tbtnJavaScript.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnJavaScript.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnJavaScript.setText("JavaScript");
+        tbtnJavaScript.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnJavaScript.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnJavaScriptActionPerformed(evt);
+            }
+        });
+
+        tbtnPython.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnPython.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnPython.setText("Python");
+        tbtnPython.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnPython.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnPythonActionPerformed(evt);
+            }
+        });
+
+        tbtnApacheSpark.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnApacheSpark.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnApacheSpark.setText("Apache Spark");
+        tbtnApacheSpark.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnApacheSpark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnApacheSparkActionPerformed(evt);
+            }
+        });
+
+        tbtnReact.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnReact.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnReact.setText("React");
+        tbtnReact.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnReact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnReactActionPerformed(evt);
+            }
+        });
+
+        tbtnLinux.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnLinux.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnLinux.setText("Linux");
+        tbtnLinux.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnLinux.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnLinuxActionPerformed(evt);
+            }
+        });
+
+        tbtnAWS.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnAWS.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnAWS.setText("AWS");
+        tbtnAWS.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnAWS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnAWSActionPerformed(evt);
+            }
+        });
+
+        tbtnMongoDB.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnMongoDB.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnMongoDB.setText("MongoDB");
+        tbtnMongoDB.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnMongoDB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnMongoDBActionPerformed(evt);
+            }
+        });
+
+        tbtnKubernetes.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnKubernetes.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnKubernetes.setText("Kubernetes");
+        tbtnKubernetes.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnKubernetes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnKubernetesActionPerformed(evt);
+            }
+        });
+
+        tbtnDocker.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tbtnDocker.setForeground(new java.awt.Color(42, 74, 56));
+        tbtnDocker.setText("Docker");
+        tbtnDocker.setPreferredSize(new java.awt.Dimension(40, 15));
+        tbtnDocker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnDockerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(tbtnJavaScript, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbtnAWS, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tbtnMongoDB, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(tbtnPython, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbtnLinux, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tbtnKubernetes, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(tbtnApacheSpark, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbtnReact, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tbtnDocker, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbtnMongoDB, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnAWS, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnJavaScript, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tbtnLinux, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tbtnKubernetes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tbtnPython, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbtnApacheSpark, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnReact, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnDocker, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jSeparator3.setForeground(new java.awt.Color(153, 153, 153));
+
+        jButton1.setBackground(new java.awt.Color(7, 48, 26));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("GUARDAR");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("CAPACIDADES TRANSVERSALES");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel4.setText("Resolución de problemas");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel5.setText("Autonomía");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel6.setText("Adaptabilidad");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel7.setText("Trabajo en equipo");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel8.setText("Gestión del tiempo");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel9.setText("Creatividad");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel10.setText("Comunicacion efectiva");
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel11.setText("Liderazgo");
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(7, 48, 26));
+        jLabel12.setText("Pensamiento crítico");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(205, 205, 205)
+                                        .addComponent(jButton1))))
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(cmbAtunomia, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(cmbTrabajoEnEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(cmbResolucionDeProblemas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(cmbGestionDeTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(cmbAdaptabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbCreatividad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(cmbComunicacionEfectiva, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(cmbLiderazgo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbPensamientoCritico, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))))))
+                .addContainerGap(439, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(214, 214, 214)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(423, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbGestionDeTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cmbResolucionDeProblemas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbAtunomia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbAdaptabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbTrabajoEnEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbCreatividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbLiderazgo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbComunicacionEfectiva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbPensamientoCritico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addComponent(jLabel2)
+                    .addContainerGap(634, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1259, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void tbtnApacheSparkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnApacheSparkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_tbtnApacheSparkActionPerformed
+
+    private void tbtnMongoDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnMongoDBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnMongoDBActionPerformed
+
+    private void tbtnPythonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnPythonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnPythonActionPerformed
+
+    private void tbtnLinuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnLinuxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnLinuxActionPerformed
+
+    private void tbtnReactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnReactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnReactActionPerformed
+
+    private void tbtnAWSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnAWSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnAWSActionPerformed
+
+    private void tbtnJavaScriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnJavaScriptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnJavaScriptActionPerformed
+
+    private void tbtnKubernetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnKubernetesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnKubernetesActionPerformed
+
+    private void tbtnDockerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnDockerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnDockerActionPerformed
+
+    private void tbtnFigmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnFigmaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnFigmaActionPerformed
+
+    private void tbtnAdobeXdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnAdobeXdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnAdobeXdActionPerformed
+
+    private void tbtnGoogleAnalyticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnGoogleAnalyticsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnGoogleAnalyticsActionPerformed
+
+    private void tbtnMetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnMetaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnMetaActionPerformed
+
+    private void tbtnTailwindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnTailwindActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnTailwindActionPerformed
+
+    private void tbtnAdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnAdsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnAdsActionPerformed
+
+    private void tbtnSQLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnSQLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnSQLActionPerformed
+
+    private void tbtnJavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnJavaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnJavaActionPerformed
+
+    private void tbtnCSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnCSSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnCSSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,10 +666,8 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cmbAdaptabilidad;
-    private javax.swing.JComboBox<String> cmbAutonomia;
+    private javax.swing.JComboBox<String> cmbAtunomia;
     private javax.swing.JComboBox<String> cmbComunicacionEfectiva;
     private javax.swing.JComboBox<String> cmbCreatividad;
     private javax.swing.JComboBox<String> cmbGestionDeTiempo;
@@ -394,23 +675,42 @@ public class FrmCompetenciaModificar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbPensamientoCritico;
     private javax.swing.JComboBox<String> cmbResolucionDeProblemas;
     private javax.swing.JComboBox<String> cmbTrabajoEnEquipo;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel lblAdaptabilidad;
-    private javax.swing.JLabel lblAutonomia;
-    private javax.swing.JLabel lblCapacidadesTecnicas;
-    private javax.swing.JLabel lblCapacidadesTransversales;
-    private javax.swing.JLabel lblCompetencia;
-    private javax.swing.JLabel lblComunicacionEfectiva;
-    private javax.swing.JLabel lblCreatividad;
-    private javax.swing.JLabel lblGestionDeTiempo;
-    private javax.swing.JLabel lblLiderazgo;
-    private javax.swing.JLabel lblPensamientoCritico;
-    private javax.swing.JLabel lblResolucionDeProblemas;
-    private javax.swing.JLabel lblTrabajoEnEquipo;
-    private javax.swing.JPanel pnlBody;
-    private javax.swing.JPanel pnlFooter;
+    private javax.swing.JToggleButton tbtnAWS;
+    private javax.swing.JToggleButton tbtnAdobeXd;
+    private javax.swing.JToggleButton tbtnAds;
+    private javax.swing.JToggleButton tbtnApacheSpark;
+    private javax.swing.JToggleButton tbtnCSS;
+    private javax.swing.JToggleButton tbtnDocker;
+    private javax.swing.JToggleButton tbtnFigma;
+    private javax.swing.JToggleButton tbtnGoogleAnalytics;
+    private javax.swing.JToggleButton tbtnJava;
+    private javax.swing.JToggleButton tbtnJavaScript;
+    private javax.swing.JToggleButton tbtnKubernetes;
+    private javax.swing.JToggleButton tbtnLinux;
+    private javax.swing.JToggleButton tbtnMeta;
+    private javax.swing.JToggleButton tbtnMongoDB;
+    private javax.swing.JToggleButton tbtnPython;
+    private javax.swing.JToggleButton tbtnReact;
+    private javax.swing.JToggleButton tbtnSQL;
+    private javax.swing.JToggleButton tbtnTailwind;
     // End of variables declaration//GEN-END:variables
 }

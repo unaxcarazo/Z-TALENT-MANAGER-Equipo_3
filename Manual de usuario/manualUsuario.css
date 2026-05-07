@@ -1,0 +1,275 @@
+	/* RESET BÁSICO (Modelo de cajas - Guía 3) */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Segoe UI', Arial, sans-serif;
+		line-height: 1.6;
+		color: #333;
+		background-color: #ffffff;
+	}
+
+	.contenedor {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	/* HEADER FIJO (Guía 3 y 4) */
+	#cabecera-principal {
+		position: sticky;
+		top: 0;
+		background-color: #ffffff;
+		border-bottom: 1px solid #e2e8f0;
+		z-index: 100;
+		padding: 15px 0;
+	}
+
+	.contenedor-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.logo {
+		font-weight: bold;
+		color: #15803d; /* Verde Zabalburu */
+		font-size: 1.2rem;
+	}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+	}
+
+	nav ul li {
+		margin-left: 25px;
+	}
+
+	nav ul li a {
+		text-decoration: none;
+		color: #4b5563;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	nav ul li a:hover {
+		color: #15803d;
+	}
+
+	/* SECCIÓN HERO (Guía 3: Fondos y Alineación) */
+	.hero {
+		background: linear-gradient(to bottom right, #f0fdf4, #ecfccb);
+		padding: 80px 0;
+		text-align: center;
+	}
+
+	.icono-libro {
+		font-size: 3rem;
+		background-color: #15803d;
+		width: 80px;
+		height: 80px;
+		line-height: 80px;
+		border-radius: 50%;
+		margin: 0 auto 20px;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 20px;
+		color: #111827;
+	}
+
+	.boton-primario {
+		display: inline-block;
+		background-color: #15803d;
+		color: white;
+		padding: 12px 25px;
+		text-decoration: none;
+		border-radius: 8px;
+		margin-top: 30px;
+	}
+
+	/* FUNCIONES (Guía 3: Float/Flex y Márgenes) */
+	#funciones {
+		padding: 60px 0;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 2rem;
+		margin-bottom: 50px;
+	}
+
+	.caracteristica {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+		margin-bottom: 60px;
+	}
+
+	.inverso {
+		flex-direction: row-reverse;
+	}
+
+	.texto {
+		flex: 1;
+	}
+
+	.texto h3 {
+		font-size: 1.5rem;
+		margin-bottom: 15px;
+		color: #15803d;
+	}
+
+	.imagen {
+		flex: 1;
+	}
+
+	.imagen img {
+		width: 100%;
+		border-radius: 12px;
+		box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+	}
+
+/* TARJETAS DE DESCARGA (Guía 3: Borders y Padding) */
+	.fondo-gris {
+		background-color: #f9fafb;
+		padding: 60px 0;
+	}
+
+	.grid-descargas {
+		display: flex;
+		justify-content: space-around;
+		gap: 20px;
+	}
+
+	.tarjeta {
+		background: white;
+		padding: 30px;
+		border-radius: 10px;
+		text-align: center;
+		flex: 1;
+		border: 1px solid #e5e7eb;
+	}
+
+	.boton-descarga {
+		background-color: #15803d;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+		margin-top: 15px;
+		width: 100%;
+	}
+
+/* FOOTER */
+	footer {
+		background-color: #ffffff;
+		padding: 40px 0;
+		border-top: 1px solid #e5e7eb;
+		text-align: center;
+		color: #6b7280;
+		font-size: 0.9rem;
+	}
+	
+	/* Texto descriptivo bajo "Descargar Aplicación" */
+	.descarga-subtitulo {
+		text-align: center;
+		color: #555;
+		margin-bottom: 2rem;
+		font-size: 1rem;
+	}
+
+    /* Alternar idioma entre Español e Inglés */
+    [data-lang] { display: none; }
+    body.lang-es [data-lang="es"] { display: revert; }
+    body.lang-en [data-lang="en"] { display: revert; }
+
+    /* Para los elementos en línea utilizamos la visualización en línea */
+    span[data-lang], a[data-lang], button[data-lang] { display: none; }
+    body.lang-es span[data-lang="es"],
+    body.lang-es a[data-lang="es"],
+    body.lang-es button[data-lang="es"] { display: inline; }
+    body.lang-en span[data-lang="en"],
+    body.lang-en a[data-lang="en"],
+    body.lang-en button[data-lang="en"] { display: inline; }
+
+    /* Los enlaces nav siempre están visibles */
+    nav a, nav button { display: inline-flex; }
+  </style>
+  
+  /* ESTILO PARA EL SELECTOR DE IDIOMA */
+	.boton-idioma {
+		text-decoration: none;
+		background-color: transparent;
+		color: #15803d; /* Verde Zabalburu  */
+		border: 1px solid #15803d;
+		padding: 6px 12px;
+		border-radius: 6px;
+		font-size: 0.85rem;
+		font-weight: bold;
+		transition: all 0.3s ease;
+	}
+
+	.boton-idioma:hover {
+		background-color: #15803d;
+		color: #ffffff;
+	}
+
+	/* Para que se alinee bien en el flex del header */
+	.idioma {
+		margin-left: 20px;
+		display: flex;
+		align-items: center;
+	}
+
+		/* Sección Preguntas Frecuentes */
+	details.faq-item {
+		border: 1px solid #e0e0e0;
+		border-radius: 8px;
+		margin-bottom: 8px;
+		padding: 0.75rem 1.25rem;
+	}
+
+	details.faq-item summary {
+		margin-bottom: 8px;
+		cursor: pointer;
+		font-weight: 500;
+		font-size: 0.95rem;
+		list-style: none; 
+	}
+
+	details.faq-item summary::after {
+		content: '▼';
+		float: right;
+		font-size: 12px;
+		transition: transform 0.3s ease;
+	}
+
+	details.faq-item[open] summary::after {
+		transform: rotate(180deg);
+	}
+
+	details.faq-item p {
+		margin-top: 0.75rem;
+		font-size: 0.9rem;
+		color: #555;
+		line-height: 1.6;
+	}
+
+	/* Espacio entre categorías	*/
+	.faq-categoria {
+		margin-bottom: 1rem;
+	}
+
+	.faq-bloque {
+		margin-bottom: 2.5rem;
+	}

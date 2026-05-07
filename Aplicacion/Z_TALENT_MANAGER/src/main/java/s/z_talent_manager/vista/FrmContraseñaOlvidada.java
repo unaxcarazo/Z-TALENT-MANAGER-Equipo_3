@@ -26,6 +26,30 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
+        tbtnVerContraseña1.addActionListener(e -> {
+            if (tbtnVerContraseña1.isSelected()) {
+                txtPasswordActual.setEchoChar((char) 0); // muestra el texto
+            } else {
+                txtPasswordActual.setEchoChar('•'); // vuelve a ocultar
+            }
+        });
+
+        tbtnVerContraseña2.addActionListener(e -> {
+            if (tbtnVerContraseña2.isSelected()) {
+                txtPasswordNueva.setEchoChar((char) 0); // muestra el texto
+            } else {
+                txtPasswordNueva.setEchoChar('•'); // vuelve a ocultar
+            }
+        });
+
+        tbtnVerContraseña3.addActionListener(e -> {
+            if (tbtnVerContraseña3.isSelected()) {
+                txtPasswordConfirmar.setEchoChar((char) 0); // muestra el texto
+            } else {
+                txtPasswordConfirmar.setEchoChar('•'); // vuelve a ocultar
+            }
+        });
+
         // sirve para al hacer click en el hipervinculo te redirija a la pagina   
         lblEnlaceManualUsuario.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
@@ -100,6 +124,9 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         btnCambiar = new javax.swing.JButton();
         lblEnlaceManualUsuario = new javax.swing.JLabel();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
+        tbtnVerContraseña1 = new javax.swing.JToggleButton();
+        tbtnVerContraseña2 = new javax.swing.JToggleButton();
+        tbtnVerContraseña3 = new javax.swing.JToggleButton();
         PnlBottom = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -153,7 +180,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         lblContraseñaNueva.setText("NUEVA CONTRASEÑA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -166,7 +193,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         txtPasswordNueva.setPreferredSize(new java.awt.Dimension(150, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.ipadx = 86;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -177,7 +204,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         lblContraseñaConfirmar.setText("CONFIRMAR NUEVA CONTRASEÑA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -190,7 +217,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         txtPasswordConfirmar.setPreferredSize(new java.awt.Dimension(150, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.ipadx = 86;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -202,7 +229,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         lblOlvidoContraseña.setPreferredSize(new java.awt.Dimension(70, 17));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 63;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 5);
@@ -218,7 +245,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlLogin.add(btnCambiar, gridBagConstraints);
@@ -226,7 +253,7 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         lblEnlaceManualUsuario.setText("<html><a href=''>Manual de usuario</a></html>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 13;
         pnlLogin.add(lblEnlaceManualUsuario, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -234,6 +261,48 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         pnlLogin.add(filler2, gridBagConstraints);
+
+        tbtnVerContraseña1.setBackground(new java.awt.Color(51, 153, 102));
+        tbtnVerContraseña1.setForeground(new java.awt.Color(255, 255, 255));
+        tbtnVerContraseña1.setText("Ver");
+        tbtnVerContraseña1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnVerContraseña1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        pnlLogin.add(tbtnVerContraseña1, gridBagConstraints);
+
+        tbtnVerContraseña2.setBackground(new java.awt.Color(51, 153, 102));
+        tbtnVerContraseña2.setForeground(new java.awt.Color(255, 255, 255));
+        tbtnVerContraseña2.setText("Ver");
+        tbtnVerContraseña2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnVerContraseña2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        pnlLogin.add(tbtnVerContraseña2, gridBagConstraints);
+
+        tbtnVerContraseña3.setBackground(new java.awt.Color(51, 153, 102));
+        tbtnVerContraseña3.setForeground(new java.awt.Color(255, 255, 255));
+        tbtnVerContraseña3.setText("Ver");
+        tbtnVerContraseña3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnVerContraseña3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        pnlLogin.add(tbtnVerContraseña3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -253,6 +322,18 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCambiarActionPerformed
+
+    private void tbtnVerContraseña1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnVerContraseña1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnVerContraseña1ActionPerformed
+
+    private void tbtnVerContraseña2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnVerContraseña2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnVerContraseña2ActionPerformed
+
+    private void tbtnVerContraseña3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnVerContraseña3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnVerContraseña3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,6 +373,9 @@ public class FrmContraseñaOlvidada extends javax.swing.JFrame {
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLogin;
+    private javax.swing.JToggleButton tbtnVerContraseña1;
+    private javax.swing.JToggleButton tbtnVerContraseña2;
+    private javax.swing.JToggleButton tbtnVerContraseña3;
     private javax.swing.JPasswordField txtPasswordActual;
     private javax.swing.JPasswordField txtPasswordConfirmar;
     private javax.swing.JPasswordField txtPasswordNueva;

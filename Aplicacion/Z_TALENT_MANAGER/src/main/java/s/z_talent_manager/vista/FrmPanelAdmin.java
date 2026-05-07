@@ -293,9 +293,9 @@ public class FrmPanelAdmin extends javax.swing.JFrame {
 
         btnSalir.setBackground(new java.awt.Color(211, 254, 234));
         btnSalir.setForeground(new java.awt.Color(7, 48, 26));
-        btnSalir.setText("↪");
+        btnSalir.setText("SALIR");
         btnSalir.setFocusPainted(false);
-        btnSalir.setPreferredSize(new java.awt.Dimension(40, 35));
+        btnSalir.setPreferredSize(new java.awt.Dimension(100, 35));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);

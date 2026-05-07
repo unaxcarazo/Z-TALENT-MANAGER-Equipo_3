@@ -225,7 +225,21 @@ public class FrmVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCambiarContraseñaMainActionPerformed
 
     private void btnSalirMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMainActionPerformed
-        System.exit(0);
+          int respuesta = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "¿Estás seguro de que quieres cerrar sesión?",
+                "Cerrar Sesión",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
+            new FrmLogin().setVisible(true);
+            this.dispose();
+            // Aquí abres tu pantalla de Login, por ejemplo:
+            // new FrmLogin().setVisible(true);
+        }     
+      
     }//GEN-LAST:event_btnSalirMainActionPerformed
 
     /**

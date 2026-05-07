@@ -148,10 +148,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="1a" green="30" red="7" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&#x21aa;"/>
+                    <Property name="text" type="java.lang.String" value="SALIR"/>
                     <Property name="focusPainted" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[40, 35]"/>
+                      <Dimension value="[100, 35]"/>
                     </Property>
                   </Properties>
                   <Events>

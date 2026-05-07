@@ -137,11 +137,6 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
         txtFechaInicioLaboral.setForeground(new java.awt.Color(51, 51, 51));
         txtFechaInicioLaboral.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         txtFechaInicioLaboral.setText("02/02/02");
-        txtFechaInicioLaboral.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaInicioLaboralActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -236,10 +231,6 @@ public class FrmExperienciaLaboralModificacion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtFechaInicioLaboralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaInicioLaboralActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaInicioLaboralActionPerformed
 
     private void txtFechaFinLaboralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinLaboralActionPerformed
         // TODO add your handling code here:

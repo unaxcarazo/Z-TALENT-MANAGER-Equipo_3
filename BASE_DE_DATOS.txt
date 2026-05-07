@@ -1,0 +1,244 @@
+PASO 1- CREAR EL USUARIO EN LA BASE DE DATOS
+
+-- ============================================================
+--  CREATE TABLES — ZTALENT MANAGER 
+-- ============================================================
+/*Creacion de usuarios y asigancion de rol*/
+ALTER SESSION set "_ORACLE_SCRIPT" = true;
+CREATE ROLE ztalent;
+GRANT 
+        CREATE SESSION,
+        CREATE TABLE,
+        CREATE VIEW,
+        CREATE PUBLIC SYNONYM,
+        CREATE SEQUENCE
+        TO ztalent;
+CREATE USER zuser IDENTIFIED BY tiger;
+GRANT ztalent to zuser;
+GRANT UNLIMITED TABLESPACE TO zuser;
+
+
+
+
+
+
+
+
+
+
+PASO 2 - CREAR CONEXIÓN EN BASE DE DATOS
+
+
+
+PASO FINAL - CREAR USUARIO Y ADMINISTRADOR DE PRUEBAS 
+
+-- USUARIO base (con administrador = 1, el contrario del usuario pruebas que sería 0)
+INSERT INTO Usuario (idUsuario, email, contraseña, nombre, apellidos, administrador) 
+VALUES (7, 'admin', '$2a$10$3SRRXe1Sqb3NHtZCpMaB0.GM9RtBPvugtX4Wl.rEMTEK/3XJfo0Zm', 'Admin', 'Administrador', 1);
+
+-- TABLA Administrador (herencia JOINED)
+INSERT INTO Administrador (idUsuario, cargo) 
+VALUES (7, 'Administrador del Sistema');
+
+COMMIT;
+
+
+-- ============================================================
+-- 1. TABLAS MAESTRAS 
+-- ============================================================
+
+-- USUARIOS
+INSERT INTO Usuario (idUsuario, email, contraseña, nombre, apellidos) VALUES (1, 'vergil.sparda@email.com', '$2a$10$3SRRXe1Sqb3NHtZCpMaB0.GM9RtBPvugtX4Wl.rEMTEK/3XJfo0Zm', 'Vergil', 'Sparda');
+INSERT INTO Usuario (idUsuario, email, contraseña, nombre, apellidos) VALUES (2, 'carlos.ruiz@email.com', '$2a$10$3SRRXe1Sqb3NHtZCpMaB0.GM9RtBPvugtX4Wl.rEMTEK/3XJfo0Zm', 'Carlos', 'Ruiz Martínez');
+INSERT INTO Usuario (idUsuario, email, contraseña, nombre, apellidos) VALUES (3, 'laura.perez@email.com', '$2a$10$3SRRXe1Sqb3NHtZCpMaB0.GM9RtBPvugtX4Wl.rEMTEK/3XJfo0Zm', 'Laura', 'Pérez Sánchez');
+INSERT INTO Usuario (idUsuario, email, contraseña, nombre, apellidos) VALUES (4, 'jorge.mendez@email.com', '$2a$10$3SRRXe1Sqb3NHtZCpMaB0.GM9RtBPvugtX4Wl.rEMTEK/3XJfo0Zm', 'Jorge', 'Méndez Torres');
+INSERT INTO Usuario (idUsuario, email, contraseña, nombre, apellidos) VALUES (5, 'sofia.blanco@email.com', '$2a$10$3SRRXe1Sqb3NHtZCpMaB0.GM9RtBPvugtX4Wl.rEMTEK/3XJfo0Zm', 'Sofía', 'Blanco Romero');
+
+-- TITULACIONES
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (1, 'Ingeniería Informática', 'Grado');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (2, 'Desarrollo Web Full Stack', 'Máster');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (3, 'Ingeniería de Telecomunicaciones', 'Grado');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (4, 'Diseño Gráfico y Comunicación Visual', 'Grado');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (5, 'Experiencia de Usuario (UX)', 'Máster');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (6, 'Administración de Sistemas', 'Grado');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (7, 'Cloud Computing y DevOps', 'Máster');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (8, 'Marketing y Publicidad', 'Grado');
+INSERT INTO Titulacion (idTitulacion, nombreEstudio, tipoEstudio) VALUES (9, 'Marketing Digital', 'Máster');
+
+-- IDIOMAS
+INSERT INTO Idioma (idIdioma, nombre) VALUES (1, 'Español');
+INSERT INTO Idioma (idIdioma, nombre) VALUES (2, 'Inglés');
+INSERT INTO Idioma (idIdioma, nombre) VALUES (3, 'Francés');
+INSERT INTO Idioma (idIdioma, nombre) VALUES (4, 'Alemán');
+INSERT INTO Idioma (idIdioma, nombre) VALUES (5, 'Euskera');
+
+-- TRANSVERSALES
+INSERT INTO Transversal (idTransversal, nombre) VALUES (1, 'Trabajo en equipo');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (2, 'Comunicación efectiva');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (3, 'Resolución de problemas');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (4, 'Gestión del tiempo');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (5, 'Liderazgo');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (6, 'Adaptabilidad');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (7, 'Creatividad');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (8, 'Pensamiento crítico');
+INSERT INTO Transversal (idTransversal, nombre) VALUES (9, 'Autonomía');
+
+-- COMPETENCIAS TÉCNICAS
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (1, 'JavaScript');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (2, 'React');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (3, 'Node.js');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (4, 'Python');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (5, 'SQL');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (6, 'Apache Spark');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (7, 'AWS');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (8, 'Figma');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (9, 'Adobe XD');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (10, 'CSS / Tailwind');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (11, 'Docker');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (12, 'Kubernetes');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (13, 'Linux');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (14, 'Google Analytics');
+INSERT INTO CompetenciaTecnica (idCompetenciaTecnica, nombre) VALUES (15, 'Meta Ads');
+
+-- ============================================================
+-- 2. TABLAS DEPENDIENTES (HIJAS)
+-- ============================================================
+
+-- CANDIDATOS
+INSERT INTO Candidato (idUsuario, municipio, provincia, telefono, fechaNacimiento, genero, sobreMi, fechaCreacion) VALUES (1, 'Madrid', 'Madrid', '611223344', DATE '1995-03-15', 'Masculino', 'Arquitecto de sistemas y DevOps. Profesional metódico, guiado por la eficiencia absoluta y el control total de la infraestructura. No tolero el código ineficiente.', DATE '2024-01-01');
+INSERT INTO Candidato (idUsuario, municipio, provincia, telefono, fechaNacimiento, genero, sobreMi, fechaCreacion) VALUES (2, 'Barcelona', 'Barcelona', '622334455', DATE '1990-07-22', 'Masculino', 'Ingeniero de datos especializado en procesamiento de grandes volúmenes de información.', DATE '2024-01-01');
+INSERT INTO Candidato (idUsuario, municipio, provincia, telefono, fechaNacimiento, genero, sobreMi, fechaCreacion) VALUES (3, 'Sevilla', 'Sevilla', '633445566', DATE '1998-11-08', 'Femenino', 'Diseñadora UX/UI apasionada por crear experiencias digitales intuitivas y accesibles.', DATE '2024-01-01');
+INSERT INTO Candidato (idUsuario, municipio, provincia, telefono, fechaNacimiento, genero, sobreMi, fechaCreacion) VALUES (4, 'Valencia', 'Valencia', '644556677', DATE '1993-05-30', 'Masculino', 'Administrador de sistemas con amplia experiencia en infraestructuras cloud y DevOps.', DATE '2024-01-01');
+INSERT INTO Candidato (idUsuario, municipio, provincia, telefono, fechaNacimiento, genero, sobreMi, fechaCreacion) VALUES (5, 'Bilbao', 'Vizcaya', '655667788', DATE '1997-01-17', 'Femenino', 'Especialista en marketing digital y estrategia de contenidos en redes sociales.', DATE '2024-01-01');
+
+-- EXPERIENCIA
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (1, 'Contratista Independiente', 'Auditor de Seguridad Ofensiva (Red Team)', DATE '2017-09-01', DATE '2020-12-31', 'Detección de vulnerabilidades críticas y pentesting avanzado para corporaciones de alto nivel.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (1, 'Underworld Tech', 'Arquitecto Principal Cloud & DevOps', DATE '2021-01-01', NULL, 'Diseño, automatización y control absoluto de infraestructuras críticas escalables.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (2, 'Indra', 'Analista de Datos', DATE '2014-03-01', DATE '2019-06-30', 'Análisis y procesamiento de datos con Python, Spark y Hadoop.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (2, 'Santander Tech', 'Ingeniero de Datos Senior', DATE '2019-07-01', NULL, 'Arquitectura de pipelines de datos y gestión de plataformas en la nube AWS.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (3, 'Freelance', 'Diseñadora UX/UI', DATE '2020-07-01', DATE '2022-12-31', 'Proyectos de diseño de aplicaciones móviles y web para clientes de distintos sectores.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (3, 'Cabify', 'UX Designer', DATE '2023-01-01', NULL, 'Investigación de usuarios, wireframing y prototipado para la app de movilidad.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (4, 'GMV', 'Administrador de Sistemas', DATE '2015-07-01', DATE '2020-03-31', 'Gestión de servidores Linux y Windows, virtualización con VMware y copias de seguridad.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (4, 'Amadeus', 'DevOps Engineer', DATE '2020-04-01', NULL, 'Implementación de pipelines CI/CD con Jenkins, Docker y Kubernetes en entorno cloud.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (5, 'Havas Media', 'Técnica de Marketing Digital', DATE '2019-09-01', DATE '2022-06-30', 'Gestión de campañas SEM/SEO y estrategia de contenidos en redes sociales.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) VALUES (5, 'Zara / Inditex', 'Digital Marketing Specialist', DATE '2022-07-01', NULL, 'Estrategia de contenidos globales y análisis de métricas para canales digitales de marca.');
+
+-- CANDIDATO - TITULACIÓN (CORREGIDO: Ahora con columna centroFormativo)
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (1, 1, DATE '2013-09-01', DATE '2017-06-30', 'Universidad Politécnica de Madrid');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (1, 7, DATE '2018-10-01', DATE '2019-06-30', 'Instituto de Tecnología Avanzada');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (2, 3, DATE '2008-09-01', DATE '2013-06-30', 'Universidad Politécnica de Cataluña');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (3, 4, DATE '2016-09-01', DATE '2020-06-30', 'Escuela Superior de Diseño de Sevilla');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (3, 5, DATE '2021-01-01', DATE '2022-01-31', 'Interaction Design Foundation');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (4, 6, DATE '2011-09-01', DATE '2015-06-30', 'Universidad de Valencia');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (4, 7, DATE '2020-10-01', DATE '2021-10-31', 'AWS Training & Certification');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (5, 8, DATE '2015-09-01', DATE '2019-06-30', 'Universidad del País Vasco');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) VALUES (5, 9, DATE '2020-01-01', DATE '2021-06-30', 'EAE Business School');
+
+-- CANDIDATO - IDIOMA
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (1, 1, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (1, 2, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (2, 1, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (2, 2, 'Intermedio B2', 'Intermedio B2', 'Avanzado C1', 'Avanzado C1');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (2, 3, 'Básico A2', 'Básico A2', 'Básico A2', 'Básico A2');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (3, 1, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (3, 2, 'Avanzado C1', 'Avanzado C1', 'Avanzado C1', 'Avanzado C1');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (3, 4, 'Básico A1', 'Básico A1', 'Básico A1', 'Básico A1');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (4, 1, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (4, 2, 'Avanzado C1', 'Avanzado C1', 'Avanzado C1', 'Avanzado C1');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (5, 1, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (5, 2, 'Intermedio B2', 'Intermedio B2', 'Intermedio B2', 'Avanzado C1');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) VALUES (5, 5, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+
+-- CANDIDATO - TRANSVERSAL
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (1, 3, 'Muy alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (1, 8, 'Muy alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (1, 9, 'Muy alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (1, 1, 'Muy bajo');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (1, 2, 'Bajo');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (2, 4, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (2, 5, 'Medio');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (2, 1, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (2, 8, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (3, 3, 'Muy alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (3, 6, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (3, 7, 'Muy alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (3, 2, 'Medio');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (4, 3, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (4, 4, 'Bajo');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (4, 6, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (4, 9, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (5, 2, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (5, 7, 'Muy alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (5, 4, 'Medio');
+
+-- CANDIDATO - TÉCNICA
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (1, 4, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (1, 13, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (1, 11, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (1, 12, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (1, 5, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (2, 4, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (2, 5, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (2, 6, 'Avanzado');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (2, 7, 'Avanzado');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (3, 8, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (3, 9, 'Avanzado');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (3, 10, 'Medio');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (4, 13, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (4, 11, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (4, 12, 'Avanzado');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (4, 7, 'Avanzado');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (5, 14, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (5, 15, 'Experto');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (5, 1, 'Básico');
+
+
+
+-- ============================================================
+-- USUARIO DE PRUEBAS (idUsuario = 6)
+-- ============================================================
+
+-- USUARIO
+INSERT INTO Usuario (idUsuario, email, contraseña, nombre, apellidos) 
+VALUES (6, 'pruebas', '$2a$10$3SRRXe1Sqb3NHtZCpMaB0.GM9RtBPvugtX4Wl.rEMTEK/3XJfo0Zm', 'Test', 'Usuario Pruebas');
+
+-- CANDIDATO
+INSERT INTO Candidato (idUsuario, municipio, provincia, telefono, fechaNacimiento, genero, sobreMi, fechaCreacion) 
+VALUES (6, 'Bilbao', 'Vizcaya', '666000001', DATE '2000-06-15', 'Masculino', 'Usuario de pruebas del sistema ZTalent. Perfil generado para validación y testing de funcionalidades.', DATE '2024-01-01');
+
+-- EXPERIENCIA
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) 
+VALUES (6, 'Empresa Pruebas S.L.', 'Desarrollador Junior', DATE '2022-01-01', DATE '2023-06-30', 'Desarrollo de aplicaciones web con JavaScript y React en entorno de pruebas.');
+INSERT INTO Experiencia (idUsuario, compañia, puesto, fechaInicio, fechaFin, descripcion) 
+VALUES (6, 'Tech Testing Corp', 'Desarrollador Full Stack', DATE '2023-07-01', NULL, 'Desarrollo y mantenimiento de aplicaciones usando Node.js, React y SQL.');
+
+-- TITULACIONES
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) 
+VALUES (6, 1, DATE '2018-09-01', DATE '2022-06-30', 'Universidad del País Vasco');
+INSERT INTO CandidatoTitulacion (idUsuario, idTitulacion, fechaInicio, fechaFin, centroFormativo) 
+VALUES (6, 2, DATE '2022-10-01', DATE '2023-06-30', 'Mondragon Unibertsitatea');
+
+-- IDIOMAS
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) 
+VALUES (6, 1, 'Nativo', 'Nativo', 'Nativo', 'Nativo');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) 
+VALUES (6, 2, 'Intermedio B2', 'Intermedio B2', 'Avanzado C1', 'Avanzado C1');
+INSERT INTO CandidatoIdioma (idUsuario, idIdioma, speakingLevel, writingLevel, listeningLevel, readingLevel) 
+VALUES (6, 5, 'Básico A2', 'Básico A2', 'Básico A2', 'Básico A2');
+
+-- TRANSVERSALES
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (6, 1, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (6, 3, 'Medio');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (6, 7, 'Alto');
+INSERT INTO CandidatoTransversal (idUsuario, idTransversal, nivelTr) VALUES (6, 9, 'Muy alto');
+
+-- COMPETENCIAS TÉCNICAS
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (6, 1, 'Avanzado');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (6, 2, 'Avanzado');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (6, 3, 'Medio');
+INSERT INTO CandidatoTecnica (idUsuario, idCompetenciaTecnica, nivelTe) VALUES (6, 5, 'Medio');
+
+
+
+COMMIT;
+

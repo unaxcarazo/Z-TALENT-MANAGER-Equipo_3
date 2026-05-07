@@ -1,0 +1,404 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package s.z_talent_manager.vista;
+
+import java.util.List;
+import javax.swing.JOptionPane;
+import s.z_talent_manager.modelo.Candidato;
+import s.z_talent_manager.modelo.CandidatoTitulacion;
+import s.z_talent_manager.modelo.Sesion;
+import s.z_talent_manager.modelo.Titulacion;
+import s.z_talent_manager.servicio.ZTalentManagerServicio;
+
+/**
+ *
+ * @author maymansito
+ */
+public class FrmEducacionFormacionModificar extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmEducacionFormacionModificar.class.getName());
+
+    /**
+     * Creates new form FrmExperienciaLaboralModificacion
+     */
+    public FrmEducacionFormacionModificar() {
+        initComponents();
+        setTitle("Añadir Formación");
+        setLocationRelativeTo(null);
+        cargarCombos();
+
+        btnCancelar.addActionListener(e -> dispose());
+
+        rbtnEnCursoEducacion.addActionListener(e -> {
+            txtFechaFinEducacion.setEnabled(!rbtnEnCursoEducacion.isSelected());
+            if (rbtnEnCursoEducacion.isSelected()) {
+                txtFechaFinEducacion.setText("");
+            }
+        });
+
+        btnGuardar.addActionListener(e -> guardar());
+    }
+        
+    private void cargarCombos() {
+    try {
+        // Cargar titulaciones disponibles desde Titulacion, no CandidatoTitulacion
+        List<Titulacion> titulaciones = ZTalentManagerServicio.getServicio()
+            .getTitulaciones();
+
+        cmbNombreEstudio.removeAllItems();
+        cmbTipoEstudio.removeAllItems();
+        cmbCentroEstudio.removeAllItems();
+
+        for (Titulacion t : titulaciones) {
+            cmbNombreEstudio.addItem(t.getNombreEstudio());
+
+            boolean existe = false;
+            for (int i = 0; i < cmbTipoEstudio.getItemCount(); i++) {
+                if (cmbTipoEstudio.getItemAt(i).equals(t.getTipoEstudio())) {
+                    existe = true;
+                    break;
+                }
+            }
+            if (!existe) cmbTipoEstudio.addItem(t.getTipoEstudio());
+        }
+
+        // Centro formativo 
+        cmbCentroEstudio.addItem("Universidad Politécnica de Madrid");
+        cmbCentroEstudio.addItem("IEBS Business School");
+        cmbCentroEstudio.addItem("Universidad de Valencia");
+
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this,
+            "Error cargando datos: " + ex.getMessage());
+    }
+}
+    
+    private void guardar() {
+    try {
+        Object usuario = Sesion.getUsuario();
+        if (!(usuario instanceof Candidato)) {
+            JOptionPane.showMessageDialog(this, "No hay candidato en sesión.");
+            return;
+        }
+        Candidato candidato = (Candidato) usuario;
+
+        String nombreSeleccionado = (String) cmbNombreEstudio.getSelectedItem();
+        if (nombreSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Selecciona una titulación.");
+            return;
+        }
+
+        Titulacion titulacion = ZTalentManagerServicio.getServicio()
+            .getTitulacionPorNombre(nombreSeleccionado);
+        if (titulacion == null) {
+            JOptionPane.showMessageDialog(this, "No se encontró la titulación seleccionada.");
+            return;
+        }
+
+        CandidatoTitulacion nueva = new CandidatoTitulacion();
+        nueva.setCandidato(candidato);
+        nueva.setTitulacion(titulacion);
+        nueva.setCentroFormativo((String) cmbCentroEstudio.getSelectedItem());
+
+        // Fecha inicio
+        String textoFechaInicio = txtFechaInicioEducacion.getText().trim();
+        if (!textoFechaInicio.isEmpty() && !textoFechaInicio.equals("02/02/02")) {
+            try {
+                java.text.DateFormat df = java.text.DateFormat.getDateInstance(
+                    java.text.DateFormat.SHORT);
+                java.util.Date fi = df.parse(textoFechaInicio);
+                java.util.Calendar cal = java.util.Calendar.getInstance();
+                cal.setTime(fi);
+                nueva.setFechaInicio(java.time.LocalDate.of(
+                    cal.get(java.util.Calendar.YEAR),
+                    cal.get(java.util.Calendar.MONTH) + 1,
+                    cal.get(java.util.Calendar.DAY_OF_MONTH)));
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this,
+                    "Formato de fecha inicio incorrecto. Usa dd/mm/aaaa",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+
+        // Fecha fin
+        if (!rbtnEnCursoEducacion.isSelected()) {
+            String textoFechaFin = txtFechaFinEducacion.getText().trim();
+            if (!textoFechaFin.isEmpty() && !textoFechaFin.equals("02/02/02")) {
+                try {
+                    java.text.DateFormat df = java.text.DateFormat.getDateInstance(
+                        java.text.DateFormat.SHORT);
+                    java.util.Date ff = df.parse(textoFechaFin);
+                    java.util.Calendar cal = java.util.Calendar.getInstance();
+                    cal.setTime(ff);
+                    nueva.setFechaFin(java.time.LocalDate.of(
+                        cal.get(java.util.Calendar.YEAR),
+                        cal.get(java.util.Calendar.MONTH) + 1,
+                        cal.get(java.util.Calendar.DAY_OF_MONTH)));
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this,
+                        "Formato de fecha fin incorrecto. Usa dd/mm/aaaa",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+        }
+
+        ZTalentManagerServicio.getServicio().añadirTitulacion(nueva);
+        JOptionPane.showMessageDialog(this, "Titulación guardada correctamente.");
+        dispose();
+
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this,
+            "Error al guardar: " + ex.getMessage(),
+            "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        pnlBody = new javax.swing.JPanel();
+        lblEducacion = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblTitulacion = new javax.swing.JLabel();
+        cmbNombreEstudio = new javax.swing.JComboBox<>();
+        cmbTipoEstudio = new javax.swing.JComboBox<>();
+        lblCentroEstudio = new javax.swing.JLabel();
+        cmbCentroEstudio = new javax.swing.JComboBox<>();
+        lblFechaInicio = new javax.swing.JLabel();
+        txtFechaInicioEducacion = new javax.swing.JFormattedTextField();
+        lblFechaFinalizacion = new javax.swing.JLabel();
+        txtFechaFinEducacion = new javax.swing.JFormattedTextField();
+        rbtnEnCursoEducacion = new javax.swing.JRadioButton();
+        pnlFooter = new javax.swing.JPanel();
+        btnCancelar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modificar educacion y formacion");
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        pnlBody.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBody.setPreferredSize(new java.awt.Dimension(800, 550));
+        pnlBody.setLayout(new java.awt.GridBagLayout());
+
+        lblEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        lblEducacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEducacion.setText("Educación y formación");
+        lblEducacion.setPreferredSize(new java.awt.Dimension(800, 16));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        pnlBody.add(lblEducacion, gridBagConstraints);
+
+        jSeparator1.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator1.setForeground(new java.awt.Color(255, 0, 0));
+        jSeparator1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 400.0;
+        pnlBody.add(jSeparator1, gridBagConstraints);
+
+        lblTitulacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulacion.setForeground(new java.awt.Color(7, 48, 26));
+        lblTitulacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTitulacion.setText("Titulacion");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        pnlBody.add(lblTitulacion, gridBagConstraints);
+
+        cmbNombreEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 400);
+        pnlBody.add(cmbNombreEstudio, gridBagConstraints);
+
+        cmbTipoEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 400);
+        pnlBody.add(cmbTipoEstudio, gridBagConstraints);
+
+        lblCentroEstudio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCentroEstudio.setForeground(new java.awt.Color(7, 48, 26));
+        lblCentroEstudio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCentroEstudio.setText("Centro formativo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        pnlBody.add(lblCentroEstudio, gridBagConstraints);
+
+        cmbCentroEstudio.setForeground(new java.awt.Color(51, 51, 51));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 400);
+        pnlBody.add(cmbCentroEstudio, gridBagConstraints);
+
+        lblFechaInicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblFechaInicio.setForeground(new java.awt.Color(7, 48, 26));
+        lblFechaInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblFechaInicio.setText("Fecha de inicio");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        pnlBody.add(lblFechaInicio, gridBagConstraints);
+
+        txtFechaInicioEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        txtFechaInicioEducacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        txtFechaInicioEducacion.setText("02/02/02");
+        txtFechaInicioEducacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaInicioEducacionActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 25, 0, 0);
+        pnlBody.add(txtFechaInicioEducacion, gridBagConstraints);
+
+        lblFechaFinalizacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblFechaFinalizacion.setForeground(new java.awt.Color(7, 48, 26));
+        lblFechaFinalizacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblFechaFinalizacion.setText("Fecha de finalizacion");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        pnlBody.add(lblFechaFinalizacion, gridBagConstraints);
+
+        txtFechaFinEducacion.setForeground(new java.awt.Color(51, 51, 51));
+        txtFechaFinEducacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        txtFechaFinEducacion.setText("02/02/02");
+        txtFechaFinEducacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaFinEducacionActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 25, 0, 0);
+        pnlBody.add(txtFechaFinEducacion, gridBagConstraints);
+
+        rbtnEnCursoEducacion.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnEnCursoEducacion.setForeground(new java.awt.Color(7, 48, 26));
+        rbtnEnCursoEducacion.setText("En curso");
+        rbtnEnCursoEducacion.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 400);
+        pnlBody.add(rbtnEnCursoEducacion, gridBagConstraints);
+
+        getContentPane().add(pnlBody);
+
+        pnlFooter.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFooter.setPreferredSize(new java.awt.Dimension(800, 50));
+
+        btnCancelar.setForeground(new java.awt.Color(7, 48, 26));
+        btnCancelar.setText("CANCELAR");
+        pnlFooter.add(btnCancelar);
+
+        btnGuardar.setBackground(new java.awt.Color(7, 48, 26));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        pnlFooter.add(btnGuardar);
+
+        getContentPane().add(pnlFooter);
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void txtFechaInicioEducacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaInicioEducacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaInicioEducacionActionPerformed
+
+    private void txtFechaFinEducacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinEducacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaFinEducacionActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new FrmEducacionFormacionModificar().setVisible(true));
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JComboBox<String> cmbCentroEstudio;
+    private javax.swing.JComboBox<String> cmbNombreEstudio;
+    private javax.swing.JComboBox<String> cmbTipoEstudio;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblCentroEstudio;
+    private javax.swing.JLabel lblEducacion;
+    private javax.swing.JLabel lblFechaFinalizacion;
+    private javax.swing.JLabel lblFechaInicio;
+    private javax.swing.JLabel lblTitulacion;
+    private javax.swing.JPanel pnlBody;
+    private javax.swing.JPanel pnlFooter;
+    private javax.swing.JRadioButton rbtnEnCursoEducacion;
+    private javax.swing.JFormattedTextField txtFechaFinEducacion;
+    private javax.swing.JFormattedTextField txtFechaInicioEducacion;
+    // End of variables declaration//GEN-END:variables
+}

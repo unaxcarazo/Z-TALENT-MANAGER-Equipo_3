@@ -1,0 +1,716 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package s.z_talent_manager.vista;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Window;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import s.z_talent_manager.modelo.Candidato;
+import s.z_talent_manager.modelo.CandidatoIdioma;
+import s.z_talent_manager.modelo.CandidatoTecnica;
+import s.z_talent_manager.modelo.CandidatoTransversal;
+import s.z_talent_manager.modelo.Experiencia;
+import s.z_talent_manager.modelo.Sesion;
+import s.z_talent_manager.servicio.ZTalentManagerServicio;
+
+/**
+ *
+ * @author fabia
+ */
+public class FrmCompetencias extends JPanel {
+ 
+    // ── Paleta ───────────────────────────────────────────────────
+    private static final Color VERDE_OSCURO = new Color(7, 48, 26);
+    private static final Color VERDE_BASE   = new Color(51, 153, 102);
+    private static final Color VERDE_MEDIO  = new Color(102, 204, 153);
+    private static final Color VERDE_CLARO  = new Color(211, 254, 234);
+    private static final Color BLANCO       = Color.WHITE;
+ 
+    // ── Niveles transversales ────────────────────────────────────
+    private static final String[] NIVELES = {
+        "Ninguno", "Muy bajo", "Bajo", "Intermedio", "Alto", "Muy alto"
+    };
+ 
+    // ── Tabla idiomas ────────────────────────────────────────────
+    private JTable tablaIdiomas;
+    private DefaultTableModel modeloIdiomas;
+ 
+    // ── ComboBox idioma ──────────────────────────────────────────
+    private JComboBox<String> cmbIdioma;
+    private JComboBox<String> cmbOral;
+    private JComboBox<String> cmbEscrita;
+    private JComboBox<String> cmbAuditiva;
+    private JComboBox<String> cmbLectura;
+ 
+    // ── Panel técnicas ───────────────────────────────────────────
+    private JPanel panelTecnicas;
+    private List<String> listaTecnicas = new ArrayList<>();
+ 
+    // ── TextField transversales (solo lectura) ───────────────────
+    private JTextField txtAutonomia;
+    private JTextField txtLiderazgo;
+    private JTextField txtResolucion;
+    private JTextField txtGestion;
+    private JTextField txtCreatividad;
+    private JTextField txtTrabajo;
+    private JTextField txtPensamiento;
+    private JTextField txtAdaptabilidad;
+    private JTextField txtComunicacion;
+ 
+    public FrmCompetencias() {
+        setBackground(VERDE_CLARO);
+        setLayout(new GridBagLayout());
+        setBorder(BorderFactory.createEmptyBorder(16, 20, 16, 20));
+        construirUI();
+    }
+ 
+    private void construirUI() {
+        GridBagConstraints g = new GridBagConstraints();
+        g.insets = new Insets(6, 8, 6, 8);
+        g.anchor = GridBagConstraints.NORTHWEST;
+        g.fill   = GridBagConstraints.HORIZONTAL;
+ 
+        // ── Título principal ─────────────────────────────────────
+        JLabel lblTitulo = new JLabel("COMPETENCIAS", SwingConstants.CENTER);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 22));
+        lblTitulo.setForeground(VERDE_OSCURO);
+        g.gridx = 0; g.gridy = 0; g.gridwidth = 2;
+        g.anchor = GridBagConstraints.CENTER;
+        add(lblTitulo, g);
+        g.gridwidth = 1;
+        g.anchor = GridBagConstraints.NORTHWEST;
+ 
+        // COLUMNA 0 — Idiomas
+        g.gridx = 0; g.gridy = 1;
+        g.weightx = 0.5; g.weighty = 1.0;
+        g.fill = GridBagConstraints.BOTH;
+        add(construirPanelIdiomas(), g);
+ 
+        // COLUMNA 1 — Técnicas + Transversales
+        g.gridx = 1; g.gridy = 1;
+        g.weightx = 0.5; g.weighty = 1.0;
+        g.fill = GridBagConstraints.BOTH;
+        add(construirPanelDerecho(), g);
+    }
+ 
+    // ════════════════════════════════════════════════════════════
+    // PANEL IDIOMAS
+    // ════════════════════════════════════════════════════════════
+    private JPanel construirPanelIdiomas() {
+        JPanel panel = new JPanel(new GridBagLayout());
+        panel.setOpaque(false);
+ 
+        GridBagConstraints g = new GridBagConstraints();
+        g.insets = new Insets(4, 4, 4, 4);
+        g.fill   = GridBagConstraints.HORIZONTAL;
+        g.anchor = GridBagConstraints.NORTHWEST;
+ 
+        JLabel lbl = new JLabel("Idioma", SwingConstants.CENTER);
+        lbl.setFont(new Font("Arial", Font.BOLD, 17));
+        lbl.setForeground(VERDE_OSCURO);
+        g.gridx = 0; g.gridy = 0; g.gridwidth = 5;
+        g.anchor = GridBagConstraints.CENTER;
+        panel.add(lbl, g);
+        g.gridwidth = 1;
+        g.anchor = GridBagConstraints.NORTHWEST;
+ 
+        String[] cols = {"Idioma", "Oral", "Escritura", "Auditiva", "Lectura"};
+        modeloIdiomas = new DefaultTableModel(cols, 0) {
+            @Override
+            public boolean isCellEditable(int r, int c) { return false; }
+        };
+ 
+        tablaIdiomas = new JTable(modeloIdiomas);
+        tablaIdiomas.setBackground(BLANCO);
+        tablaIdiomas.setForeground(VERDE_OSCURO);
+        tablaIdiomas.setFont(new Font("Arial", Font.PLAIN, 12));
+        tablaIdiomas.setRowHeight(34);
+        tablaIdiomas.setSelectionBackground(VERDE_MEDIO);
+        tablaIdiomas.setSelectionForeground(VERDE_OSCURO);
+        tablaIdiomas.setGridColor(new Color(220, 220, 220));
+        tablaIdiomas.setShowGrid(true);
+        tablaIdiomas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+ 
+        JTableHeader header = tablaIdiomas.getTableHeader();
+        header.setBackground(VERDE_OSCURO);
+        header.setForeground(VERDE_CLARO);
+        header.setFont(new Font("Arial", Font.BOLD, 12));
+        header.setReorderingAllowed(false);
+ 
+        JScrollPane scroll = new JScrollPane(tablaIdiomas);
+        scroll.setBorder(BorderFactory.createLineBorder(VERDE_BASE, 1));
+        scroll.setPreferredSize(new Dimension(420, 220));
+ 
+        g.gridx = 0; g.gridy = 1; g.gridwidth = 5;
+        g.fill = GridBagConstraints.BOTH;
+        g.weightx = 1.0; g.weighty = 1.0;
+        panel.add(scroll, g);
+        g.gridwidth = 1; g.weighty = 0;
+        g.fill = GridBagConstraints.HORIZONTAL;
+ 
+        String[] idiomas       = {"Ninguno", "Inglés", "Castellano", "Francés", "Alemán"};
+        String[] nivelesIdioma = {
+            "Ninguno", "Nativo",
+            "Básico A1", "Básico A2",
+            "Intermedio B1", "Intermedio B2",
+            "Avanzado C1", "Avanzado C2"
+        };
+ 
+        cmbIdioma   = crearComboBox(idiomas);
+        cmbOral     = crearComboBox(nivelesIdioma);
+        cmbEscrita  = crearComboBox(nivelesIdioma);
+        cmbAuditiva = crearComboBox(nivelesIdioma);
+        cmbLectura  = crearComboBox(nivelesIdioma);
+ 
+        String[]       labels = {"Idioma", "Oral", "Escrita", "Auditiva", "Lectura"};
+        JComboBox<?>[] combos = {cmbIdioma, cmbOral, cmbEscrita, cmbAuditiva, cmbLectura};
+ 
+        for (int i = 0; i < labels.length; i++) {
+            JPanel col = new JPanel();
+            col.setLayout(new BoxLayout(col, BoxLayout.Y_AXIS));
+            col.setOpaque(false);
+ 
+            JLabel lblCol = new JLabel(labels[i]);
+            lblCol.setFont(new Font("Arial", Font.PLAIN, 11));
+            lblCol.setForeground(VERDE_OSCURO);
+            lblCol.setAlignmentX(Component.LEFT_ALIGNMENT);
+            combos[i].setAlignmentX(Component.LEFT_ALIGNMENT);
+ 
+            col.add(lblCol);
+            col.add(Box.createVerticalStrut(2));
+            col.add(combos[i]);
+ 
+            g.gridx = i; g.gridy = 2; g.weightx = 1.0;
+            panel.add(col, g);
+        }
+ 
+        // ── Botón AÑADIR ─────────────────────────────────────────
+        JButton btnAñadir = crearBoton("Añadir idioma");
+        btnAñadir.addActionListener(e -> {
+            String nombreSeleccionado = (String) cmbIdioma.getSelectedItem();
+ 
+            if (nombreSeleccionado == null || "Ninguno".equals(nombreSeleccionado)) {
+                JOptionPane.showMessageDialog(this, "Seleccione un idioma válido.");
+                return;
+            }
+ 
+            try {
+                Integer idCandidato = ((Candidato) Sesion.getUsuario()).getIdUsuario();
+                Candidato c = ZTalentManagerServicio.getServicio().getCandidato(idCandidato);
+ 
+                CandidatoIdioma nuevoCI = new CandidatoIdioma();
+                nuevoCI.setIdioma(ZTalentManagerServicio.getServicio()
+                        .getIdiomaPorNombre(nombreSeleccionado));
+                nuevoCI.setSpeakingLevel((String) cmbOral.getSelectedItem());
+                nuevoCI.setWritingLevel((String) cmbEscrita.getSelectedItem());
+                nuevoCI.setListeningLevel((String) cmbAuditiva.getSelectedItem());
+                nuevoCI.setReadingLevel((String) cmbLectura.getSelectedItem());
+                nuevoCI.setCandidato(c);
+ 
+                if (c.getCandidatoIdiomas() == null) {
+                    c.setCandidatoIdiomas(new ArrayList<>());
+                }
+                c.getCandidatoIdiomas().add(nuevoCI);
+ 
+                ZTalentManagerServicio.getServicio().modificarCandidato(c);
+ 
+                Candidato actualizado = ZTalentManagerServicio.getServicio()
+                        .getCandidato(idCandidato);
+ 
+                Sesion.setUsuario(actualizado);
+                cargarDatos(
+                        actualizado.getCandidatoIdiomas(),
+                        actualizado.getCandidatoTecnicas(),
+                        actualizado.getCandidatoTransversales()
+                );
+ 
+                cmbIdioma.setSelectedIndex(0);
+                cmbOral.setSelectedIndex(0);
+                cmbEscrita.setSelectedIndex(0);
+                cmbAuditiva.setSelectedIndex(0);
+                cmbLectura.setSelectedIndex(0);
+ 
+                JOptionPane.showMessageDialog(this, "Idioma añadido correctamente.");
+ 
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error al guardar: " + ex.getMessage());
+            }
+        });
+ 
+        // ── Botón ELIMINAR ────────────────────────────────────────
+        JButton btnEliminar = crearBoton("Eliminar Idioma");
+        btnEliminar.addActionListener(e -> {
+            int filaSeleccionada = tablaIdiomas.getSelectedRow();
+ 
+            if (filaSeleccionada == -1) {
+                JOptionPane.showMessageDialog(this,
+                        "Selecciona un idioma de la tabla para eliminar.");
+                return;
+            }
+ 
+            int confirmar = JOptionPane.showConfirmDialog(
+                    this,
+                    "¿Estás seguro de que quieres eliminar este idioma?",
+                    "Confirmar eliminación",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE
+            );
+ 
+            if (confirmar != JOptionPane.YES_OPTION) return;
+ 
+            try {
+                Integer idCandidato = ((Candidato) Sesion.getUsuario()).getIdUsuario();
+                Candidato c = ZTalentManagerServicio.getServicio().getCandidato(idCandidato);
+ 
+                c.getCandidatoIdiomas().remove(filaSeleccionada);
+ 
+                ZTalentManagerServicio.getServicio().modificarCandidato(c);
+ 
+                Candidato actualizado = ZTalentManagerServicio.getServicio()
+                        .getCandidato(idCandidato);
+ 
+                Sesion.setUsuario(actualizado);
+                cargarDatos(
+                        actualizado.getCandidatoIdiomas(),
+                        actualizado.getCandidatoTecnicas(),
+                        actualizado.getCandidatoTransversales()
+                );
+ 
+                JOptionPane.showMessageDialog(this, "Idioma eliminado correctamente.");
+ 
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error al eliminar: " + ex.getMessage());
+            }
+        });
+ 
+        // ── Botón EDITAR técnica/transversal ──────────────────────
+        JButton btnEditar = crearBoton("Modificar Técnica / Transversal");
+        btnEditar.addActionListener(e -> {
+            Window ventanaActual = SwingUtilities.getWindowAncestor(this);
+            ventanaActual.setVisible(false);
+ 
+            FrmCompetenciaModificar frameEditar = new FrmCompetenciaModificar();
+            frameEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frameEditar.setLocationRelativeTo(null);
+            frameEditar.setVisible(true);
+ 
+            frameEditar.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    ventanaActual.setVisible(true);
+                    if (Sesion.getUsuario() instanceof Candidato) {
+                        Candidato actualizado = (Candidato) Sesion.getUsuario();
+                        cargarDatos(
+                                actualizado.getCandidatoIdiomas(),
+                                actualizado.getCandidatoTecnicas(),
+                                actualizado.getCandidatoTransversales()
+                        );
+                    }
+                }
+            });
+        });
+ 
+        // Panel izquierda: Añadir + Eliminar
+        JPanel panelBotonesIzq = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 2));
+        panelBotonesIzq.setOpaque(false);
+        panelBotonesIzq.add(btnAñadir);
+        panelBotonesIzq.add(btnEliminar);
+ 
+        // Panel derecha: Editar
+        JPanel panelBotonesDer = new JPanel(new FlowLayout(FlowLayout.CENTER, 4, 2));
+        panelBotonesDer.setOpaque(false);
+        panelBotonesDer.add(btnEditar);
+ 
+        // Contenedor fila de botones con BorderLayout
+        JPanel panelBotones = new JPanel(new BorderLayout());
+        panelBotones.setOpaque(false);
+        panelBotones.add(panelBotonesIzq, BorderLayout.WEST);
+        panelBotones.add(panelBotonesDer, BorderLayout.EAST);
+ 
+        g.gridx = 0; g.gridy = 3; g.gridwidth = 5;
+        g.weightx = 1.0;
+        g.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(panelBotones, g);
+ 
+        return panel;
+    }
+ 
+    // ════════════════════════════════════════════════════════════
+    // PANEL DERECHO — Técnicas + Transversales
+    // ════════════════════════════════════════════════════════════
+    private JPanel construirPanelDerecho() {
+        JPanel panel = new JPanel(new GridBagLayout());
+        panel.setOpaque(false);
+ 
+        GridBagConstraints g = new GridBagConstraints();
+        g.insets  = new Insets(4, 6, 4, 6);
+        g.fill    = GridBagConstraints.HORIZONTAL;
+        g.anchor  = GridBagConstraints.NORTHWEST;
+        g.weightx = 1.0;
+ 
+        // ── Técnicas ─────────────────────────────────────────────
+        JLabel lblTecnicas = new JLabel("Técnicas");
+        lblTecnicas.setFont(new Font("Arial", Font.BOLD, 17));
+        lblTecnicas.setForeground(VERDE_OSCURO);
+        g.gridx = 0; g.gridy = 0; g.gridwidth = 3;
+        panel.add(lblTecnicas, g);
+ 
+        panelTecnicas = new JPanel(new WrapLayout(FlowLayout.LEFT, 6, 6)) {
+            @Override
+            public Dimension getPreferredSize() {
+                if (getParent() != null && getParent().getWidth() > 0) {
+                    int anchoViewport = getParent().getWidth();
+                    Insets ins = getInsets();
+                    // Margen interno del WrapLayout 
+                    int margen = ins.left + ins.right + 12;
+                    int maxAncho = anchoViewport - margen;
+ 
+                    int x = 0;
+                    int y = ins.top + 6;
+                    int rowH = 0;
+ 
+                    for (Component c : getComponents()) {
+                        if (!c.isVisible()) continue;
+                        Dimension d = c.getPreferredSize();
+                        // Salto de fila si el chip no cabe en la fila actual
+                        if (x > 0 && x + d.width + 6 > maxAncho) {
+                            y += rowH + 6;
+                            x = 0;
+                            rowH = 0;
+                        }
+                        x += d.width + 6;
+                        rowH = Math.max(rowH, d.height);
+                    }
+                    // Sumar la última fila y el margen inferior
+                    y += rowH + ins.bottom + 6;
+                    return new Dimension(anchoViewport, y);
+                }
+                return super.getPreferredSize();
+            }
+        };
+ 
+        panelTecnicas.setBackground(BLANCO);
+        panelTecnicas.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(220, 220, 220), 1),
+                BorderFactory.createEmptyBorder(6, 6, 6, 6)
+        ));
+ 
+        JLabel lblCompLabel = new JLabel("Competencias");
+        lblCompLabel.setFont(new Font("Arial", Font.PLAIN, 11));
+        lblCompLabel.setForeground(new Color(180, 180, 180));
+        panelTecnicas.add(lblCompLabel);
+ 
+        JScrollPane scrollTec = new JScrollPane(
+                panelTecnicas,
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
+        );
+        scrollTec.setBorder(BorderFactory.createLineBorder(new Color(220, 220, 220), 1));
+        scrollTec.setPreferredSize(new Dimension(0, 120));
+ 
+        g.gridy = 1; g.gridwidth = 3;
+        g.fill = GridBagConstraints.BOTH; g.weighty = 0.3;
+        panel.add(scrollTec, g);
+        g.weighty = 0; g.fill = GridBagConstraints.HORIZONTAL;
+ 
+        // ── Transversales ─────────────────────────────────────────
+        JLabel lblTransversal = new JLabel("Transversal");
+        lblTransversal.setFont(new Font("Arial", Font.BOLD, 17));
+        lblTransversal.setForeground(VERDE_OSCURO);
+        g.gridy = 2; g.gridwidth = 3;
+        panel.add(lblTransversal, g);
+ 
+        String[] nombresTransv = {
+            "Autonomía", "Liderazgo", "Resolución de problemas",
+            "Gestión del tiempo", "Creatividad", "Trabajo en equipo",
+            "Pensamiento crítico", "Adaptabilidad", "Comunicación efectiva"
+        };
+ 
+        txtAutonomia     = crearTextFieldTransversal();
+        txtLiderazgo     = crearTextFieldTransversal();
+        txtResolucion    = crearTextFieldTransversal();
+        txtGestion       = crearTextFieldTransversal();
+        txtCreatividad   = crearTextFieldTransversal();
+        txtTrabajo       = crearTextFieldTransversal();
+        txtPensamiento   = crearTextFieldTransversal();
+        txtAdaptabilidad = crearTextFieldTransversal();
+        txtComunicacion  = crearTextFieldTransversal();
+ 
+        JTextField[] txtTransv = {
+            txtAutonomia, txtLiderazgo, txtResolucion,
+            txtGestion, txtCreatividad, txtTrabajo,
+            txtPensamiento, txtAdaptabilidad, txtComunicacion
+        };
+ 
+        int col = 0, row = 3;
+        for (int i = 0; i < nombresTransv.length; i++) {
+            JPanel celda = new JPanel();
+            celda.setLayout(new BoxLayout(celda, BoxLayout.Y_AXIS));
+            celda.setOpaque(false);
+ 
+            JLabel lblN = new JLabel(nombresTransv[i]);
+            lblN.setFont(new Font("Arial", Font.PLAIN, 10));
+            lblN.setForeground(VERDE_OSCURO);
+            lblN.setAlignmentX(Component.LEFT_ALIGNMENT);
+            txtTransv[i].setAlignmentX(Component.LEFT_ALIGNMENT);
+ 
+            celda.add(lblN);
+            celda.add(Box.createVerticalStrut(2));
+            celda.add(txtTransv[i]);
+ 
+            g.gridx = col; g.gridy = row;
+            g.gridwidth = 1;
+            g.weightx = 1.0 / 3.0;
+            g.insets = new Insets(4, 4, 4, 4);
+            panel.add(celda, g);
+ 
+            col++;
+            if (col == 3) { col = 0; row++; }
+        }
+ 
+        return panel;
+    }
+ 
+    // ════════════════════════════════════════════════════════════
+    // CARGA DE DATOS
+    // ════════════════════════════════════════════════════════════
+    public void cargarTecnicas(List<String> tecnicas) {
+        listaTecnicas.clear();
+        listaTecnicas.addAll(tecnicas);
+        actualizarChipsTecnicas();
+    }
+ 
+    public void actualizarChipsTecnicas() {
+        panelTecnicas.removeAll();
+        if (listaTecnicas.isEmpty()) {
+            JLabel lbl = new JLabel("Competencias");
+            lbl.setFont(new Font("Arial", Font.PLAIN, 11));
+            lbl.setForeground(new Color(180, 180, 180));
+            panelTecnicas.add(lbl);
+        } else {
+            for (String tec : listaTecnicas) {
+                panelTecnicas.add(crearChip(tec));
+            }
+        }
+        // revalidate() + repaint() dispara getPreferredSize() del panel,
+        // lo que a su vez actualiza la barra de scroll vertical.
+        panelTecnicas.revalidate();
+        panelTecnicas.repaint();
+    }
+ 
+    // 4 chips por fila antes de saltar a la siguiente.
+    private JLabel crearChip(String texto) {
+        JLabel chip = new JLabel(texto, SwingConstants.CENTER);
+        chip.setFont(new Font("Arial", Font.PLAIN, 12));
+        chip.setForeground(BLANCO);
+        chip.setBackground(VERDE_BASE);
+        chip.setOpaque(true);
+        chip.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(VERDE_OSCURO, 1),
+                BorderFactory.createEmptyBorder(4, 6, 4, 6)
+        ));
+
+        chip.setPreferredSize(new Dimension(96, 28));
+        return chip;
+    }
+ 
+    public void cargarDatos(
+            List<CandidatoIdioma> idiomas,
+            List<CandidatoTecnica> tecnicas,
+            List<CandidatoTransversal> transversales) {
+ 
+        // ── Idiomas ───────────────────────────────────────────────
+        modeloIdiomas.setRowCount(0);
+        if (idiomas != null) {
+            for (CandidatoIdioma ci : idiomas) {
+                modeloIdiomas.addRow(new Object[]{
+                    ci.getIdioma()         != null ? ci.getIdioma().getNombre() : "",
+                    ci.getSpeakingLevel()  != null ? ci.getSpeakingLevel()      : "",
+                    ci.getWritingLevel()   != null ? ci.getWritingLevel()       : "",
+                    ci.getListeningLevel() != null ? ci.getListeningLevel()     : "",
+                    ci.getReadingLevel()   != null ? ci.getReadingLevel()       : ""
+                });
+            }
+        }
+ 
+        // ── Técnicas ──────────────────────────────────────────────
+        listaTecnicas.clear();
+        if (tecnicas != null) {
+            for (CandidatoTecnica ct : tecnicas) {
+                if (ct.getCompetenciaTecnica() != null) {
+                    listaTecnicas.add(ct.getCompetenciaTecnica().getNombre());
+                }
+            }
+        }
+        actualizarChipsTecnicas();
+ 
+        // ── Transversales ─────────────────────────────────────────
+        // Resetear todos a "Ninguno" antes de rellenar,
+        // por si el candidato eliminó alguna transversal.
+        txtAutonomia.setText("Ninguno");
+        txtLiderazgo.setText("Ninguno");
+        txtResolucion.setText("Ninguno");
+        txtGestion.setText("Ninguno");
+        txtCreatividad.setText("Ninguno");
+        txtTrabajo.setText("Ninguno");
+        txtPensamiento.setText("Ninguno");
+        txtAdaptabilidad.setText("Ninguno");
+        txtComunicacion.setText("Ninguno");
+ 
+        if (transversales == null) return;
+ 
+        for (CandidatoTransversal ct : transversales) {
+            if (ct.getTransversal() == null) continue;
+            String nombre = ct.getTransversal().getNombre();
+            String nivel  = ct.getNivelTr() != null ? ct.getNivelTr() : "Ninguno";
+ 
+            switch (nombre) {
+                case "Autonomía":                txtAutonomia.setText(nivel);     break;
+                case "Liderazgo":               txtLiderazgo.setText(nivel);     break;
+                case "Resolución de problemas": txtResolucion.setText(nivel);    break;
+                case "Gestión del tiempo":      txtGestion.setText(nivel);       break;
+                case "Creatividad":             txtCreatividad.setText(nivel);   break;
+                case "Trabajo en equipo":       txtTrabajo.setText(nivel);       break;
+                case "Pensamiento crítico":     txtPensamiento.setText(nivel);   break;
+                case "Adaptabilidad":           txtAdaptabilidad.setText(nivel); break;
+                case "Comunicación efectiva":   txtComunicacion.setText(nivel);  break;
+            }
+        }
+    }
+ 
+    // ════════════════════════════════════════════════════════════
+    // HELPERS
+    // ════════════════════════════════════════════════════════════
+    private JTextField crearTextFieldTransversal() {
+        JTextField f = new JTextField("Ninguno");
+        f.setBackground(BLANCO);
+        f.setForeground(VERDE_OSCURO);
+        f.setFont(new Font("Arial", Font.PLAIN, 12));
+        f.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(220, 220, 220), 1),
+                BorderFactory.createEmptyBorder(4, 8, 4, 8)
+        ));
+        f.setEditable(false);
+        f.setFocusable(false);
+        return f;
+    }
+ 
+    private JComboBox<String> crearComboBox(String[] opciones) {
+        JComboBox<String> cmb = new JComboBox<>(opciones);
+        cmb.setBackground(BLANCO);
+        cmb.setForeground(VERDE_OSCURO);
+        cmb.setFont(new Font("Arial", Font.PLAIN, 12));
+        cmb.setBorder(BorderFactory.createLineBorder(new Color(220, 220, 220), 1));
+        return cmb;
+    }
+ 
+    private JButton crearBoton(String texto) {
+        JButton btn = new JButton(texto);
+        btn.setBackground(VERDE_BASE);
+        btn.setForeground(BLANCO);
+        btn.setFont(new Font("Arial", Font.BOLD, 13));
+        btn.setFocusPainted(false);
+        btn.setBorderPainted(false);
+        btn.setOpaque(true);
+        btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        return btn;
+    }
+ 
+    // ════════════════════════════════════════════════════════════
+    // WRAP LAYOUT
+    // ════════════════════════════════════════════════════════════
+    private static class WrapLayout extends FlowLayout {
+ 
+        public WrapLayout(int align, int hgap, int vgap) {
+            super(align, hgap, vgap);
+        }
+ 
+        @Override
+        public Dimension preferredLayoutSize(Container target) {
+            return layoutSize(target, true);
+        }
+ 
+        @Override
+        public Dimension minimumLayoutSize(Container target) {
+            return layoutSize(target, false);
+        }
+ 
+        private Dimension layoutSize(Container target, boolean preferred) {
+            synchronized (target.getTreeLock()) {
+                // Usar el ancho del padre (viewport) si está disponible,
+                // para evitar que devuelva Integer.MAX_VALUE al inicio.
+                int width = target.getWidth();
+                if (width == 0 && target.getParent() != null) {
+                    width = target.getParent().getWidth();
+                }
+                if (width == 0) width = Integer.MAX_VALUE;
+ 
+                Insets insets = target.getInsets();
+                int maxWidth = width - insets.left - insets.right - getHgap() * 2;
+                int x = 0, y = insets.top + getVgap(), rowH = 0;
+ 
+                for (Component comp : target.getComponents()) {
+                    if (!comp.isVisible()) continue;
+                    Dimension d = preferred
+                            ? comp.getPreferredSize()
+                            : comp.getMinimumSize();
+                    if (x > 0 && x + d.width > maxWidth) {
+                        y += rowH + getVgap();
+                        x = 0;
+                        rowH = 0;
+                    }
+                    x += d.width + getHgap();
+                    rowH = Math.max(rowH, d.height);
+                }
+                y += rowH + insets.bottom + getVgap();
+                return new Dimension(width, y);
+            }
+        }
+    }
+ 
+    // ── Main para pruebas ─────────────────────────────────────────
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Competencias - Test");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setContentPane(new FrmCompetencias());
+            frame.setSize(1000, 620);
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        });
+    }
+}

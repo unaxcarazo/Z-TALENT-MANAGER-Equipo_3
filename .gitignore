@@ -416,3 +416,15 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+
+# Maven
+.classpath
+.project
+.settings/
+target/
+
+# H2 Database
+*.db
+#*.mv.db
+*.trace.db
